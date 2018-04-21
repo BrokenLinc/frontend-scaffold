@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -23,6 +24,7 @@ module.exports = merge(webpackCommonConfig, {
 	],
 	devtool: "source-map",
 	devServer: {
+		contentBase: path.join(__dirname, 'public'),
 		hot: true,
 		port,
 		historyApiFallback: true,

@@ -1,12 +1,10 @@
 const path = require('path');
 
-const outputPath = path.join(__dirname, 'dist');
-
 module.exports = {
 	context: __dirname,
 	entry: './src/App.jsx',
 	output: {
-		path: path.join(__dirname, 'dist'),
+		path: path.join(__dirname, 'public', 'dist'),
 		filename: 'bundle.js',
 	},
 	resolve: {
