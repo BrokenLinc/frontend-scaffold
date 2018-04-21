@@ -4,10 +4,15 @@ import SourceViewer from 'components/SourceViewer';
 import { hot } from 'react-hot-loader'
 
 const Home = () => (
-  <div>
+  <div className="perimeter">
+    <header className="header">
+      <button>Menu</button>
+    </header>
+    <nav className="nav">Menu</nav>
     <SourceViewer>
       <Button/>
     </SourceViewer>
+    <footer className="footer">Footer</footer>
   </div>
 );
 
