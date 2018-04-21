@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'components/Button';
 import SourceViewer from 'components/SourceViewer';
+import { hot } from 'react-hot-loader'
 
 const Home = () => (
   <div>
@@ -10,4 +11,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default hot(module)(Home);
