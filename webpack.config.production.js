@@ -10,7 +10,7 @@ module.exports = merge(webpackCommonConfig, {
 			{
 				test: /\.less/,
 				use: ExtractTextPlugin.extract({
-					use: 'css-loader!less-loader!postcss-loader'
+					use: 'css-loader!postcss-loader!less-loader'
 				}),
 			}
 		]
