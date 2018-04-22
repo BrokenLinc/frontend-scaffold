@@ -8,14 +8,10 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
- var SidebarMenuEffects = (function() {
+(function($) {
 
   function hasParentClass( e, classname ) {
-    if(e === document) return false;
-    if( classie.has( e, classname ) ) {
-      return true;
-    }
-    return e.parentNode && hasParentClass( e.parentNode, classname );
+    return $(e).closest('.' + classname).length > 0;
   }
 
   // http://coveroverflow.com/a/11381730/989439
@@ -26,38 +22,29 @@
   }
 
   function init() {
+    var $container = $('.st-container');
+    var $buttons = $('#st-trigger-effects > button, .st-toggle');
+    var eventtype = mobilecheck() ? 'touchstart' : 'click';
+    var resetMenu = function() {
+      $container.removeClass('st-menu-open');
+    };
+    var bodyClickFn = function(evt) {
+      if( !hasParentClass( evt.target, 'st-menu' ) ) {
+        resetMenu();
+        document.removeEventListener( eventtype, bodyClickFn );
+      }
+    };
 
-    var container = document.getElementById( 'st-container' ),
-      buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > button' ) ),
-      // event type (if mobile use touch events)
-      eventtype = mobilecheck() ? 'touchstart' : 'click',
-      resetMenu = function() {
-        classie.remove( container, 'st-menu-open' );
-      },
-      bodyClickFn = function(evt) {
-        if( !hasParentClass( evt.target, 'st-menu' ) ) {
-          resetMenu();
-          document.removeEventListener( eventtype, bodyClickFn );
-        }
-      };
-
-    buttons.forEach( function( el, i ) {
-      var effect = el.getAttribute( 'data-effect' );
-
-      el.addEventListener( eventtype, function( ev ) {
-        ev.stopPropagation();
-        ev.preventDefault();
-        container.className = 'st-container'; // clear
-        classie.add( container, effect );
-        setTimeout( function() {
-          classie.add( container, 'st-menu-open' );
-        }, 25 );
-        document.addEventListener( eventtype, bodyClickFn );
-      });
-    } );
-
+    $buttons.on(eventtype, function(ev) {
+      ev.stopPropagation();
+      ev.preventDefault();
+      setTimeout( function() {
+        $container.addClass('st-menu-open');
+      }, 25 );
+      document.addEventListener( eventtype, bodyClickFn );
+    });
   }
 
   init();
 
-})();
+})(window.jQuery);
