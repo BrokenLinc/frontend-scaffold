@@ -1,7 +1,8 @@
 import React from 'react';
+import { hot } from 'react-hot-loader'
+
 import Button from 'components/Button';
 import SourceViewer from 'components/SourceViewer';
-import { hot } from 'react-hot-loader'
 
 const Home = () => (
   <div>
