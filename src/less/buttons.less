@@ -1,0 +1,86 @@
+@btn-green: #15CD72;
+
+.btn-solid-theme() {
+  color: @foreground;
+  background-color: @background;
+  border-color: @background;
+
+  &:hover {
+    background-color: @hover-background;
+    border-color: @hover-background;
+  }
+}
+
+.btn-ghost-theme() {
+  color: @foreground;
+  background-color: @background;
+  border-color: @foreground;
+
+  &:hover {
+    background-color: @hover-background;
+    border-color: @hover-foreground;
+  }
+}
+
+.btn {
+  // reset
+  -webkit-appearance: none;
+  user-select: none;
+  cursor: pointer;
+  margin: 0;
+  display: inline-block;
+
+  // all buttons
+  border-radius: 3px;
+  font-weight: 600;
+  text-align: center;
+  transition: all .2s ease-in-out;
+  font-size: .9rem;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.6rem;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 1px #fff, 0 0 2px 2px #0069ff;
+  }
+
+  // default style
+  .btn-solid-theme;
+  @foreground: #777;
+  @background: #eee;
+  @hover-foreground: @foreground;
+  @hover-background: darken(@background, 4);
+}
+
+// Utility
+.btn-full {
+  width: 100%;
+  padding: 0;
+}
+
+// Themed buttons
+// Modify, add, and remove as you see fit
+.btn-ghost {
+  .btn-ghost-theme;
+  @foreground: #777;
+  @background: fade(@foreground, 4%);
+  @hover-foreground: lighten(@foreground, 4);
+  @hover-background: fade(@foreground, 8%);
+}
+
+.btn-green {
+  .btn-solid-theme;
+  @foreground: white;
+  @background: @btn-green;
+  @hover-foreground: @foreground;
+  @hover-background: darken(@background, 4);
+}
+
+.btn-green-ghost {
+  .btn-ghost-theme;
+  @foreground: darken(@btn-green, 4);
+  @background: fade(@foreground, 4%);
+  @hover-foreground: lighten(@foreground, 4);
+  @hover-background: fade(@foreground, 8%);
+}

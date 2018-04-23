@@ -25,7 +25,7 @@ class SourceViewer extends Component {
             {sourceHtml}
           </code>
         </pre>
-        <button type="button" onClick={() => clipboard(sourceHtml)}>Copy HTML</button>
+        <button className="btn" type="button" onClick={() => clipboard(sourceHtml)}>Copy HTML</button>
       </div>
     );
   }
