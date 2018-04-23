@@ -18,17 +18,17 @@
     * http://www.codrops.com
     */
   function sidebarEffects() {
-    var $container = $('.st-container');
+    var $perimeter = $('.perimeter');
     var eventtype = mobilecheck() ? 'touchstart' : 'click';
     var openMenu = function() {
-      $container.addClass('st-menu-open');
+      $perimeter.addClass('st-menu-open');
     };
     var closeMenu = function() {
-      $container.removeClass('st-menu-open');
+      $perimeter.removeClass('st-menu-open');
     };
     $(document)
       .on(eventtype, function( event ) {
-        var menuIsOpen = $container.hasClass('st-menu-open');
+        var menuIsOpen = $perimeter.hasClass('st-menu-open');
         var clickWasOutsideMenu = $(event.target).closest('.st-menu').length === 0;
         if( menuIsOpen && clickWasOutsideMenu ) {
           closeMenu();

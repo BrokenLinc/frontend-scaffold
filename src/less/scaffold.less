@@ -1,0 +1,27 @@
+@import (reference) "sidebar-transition-effects";
+
+@content-background-color: white;
+
+.perimeter,
+.content {
+  height: 100%;
+}
+.perimeter {
+  position: relative;
+  overflow: hidden;
+}
+.content,
+.content-inner {
+  position: relative;
+}
+.content {
+  overflow-y: scroll;
+  background-color: @content-background-color;
+}
+
+// Optionally enable a sidebar transition effect
+//   see transition effect file for important notes on markup
+.st-effect-enable();
+.perimeter {
+  .st-effect-3drotatein;
+}
