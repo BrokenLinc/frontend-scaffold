@@ -1,99 +1,26 @@
 @import (reference) "sidebar-transition-effects";
 
-@st-menu-width: 300px;
-@st-blocker-background: fade(black, 20%);
-@st-menu-background: #48a770;
-@st-transition-duration: 0.5s;
-@st-pusher-background-color: white;
-
 .st-container,
 .st-pusher,
 .st-content {
   height: 100%;
 }
-
-.st-content {
-  overflow-y: scroll;
+.st-container {
+  position: relative;
+  overflow: hidden;
 }
-
 .st-content,
 .st-content-inner {
   position: relative;
 }
+.st-content {
+  overflow-y: scroll;
+}
+.st-pusher {
+  background-color: @st-pusher-background-color;
+}
 
+.st-effect-enable();
 .st-container {
   .st-effect-reveal;
-  position: relative;
-  overflow: hidden;
 }
-
-.st-pusher {
-  position: relative;
-  left: 0;
-  z-index: 99;
-  height: 100%;
-  perspective: 1000px;
-  transition: transform @st-transition-duration;
-  background-color: @st-pusher-background-color;
-
-  // blocker
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    background: @st-blocker-background;
-    content: '';
-    opacity: 0;
-    transition: opacity @st-transition-duration,
-                width 0.1s @st-transition-duration,
-                height 0.1s @st-transition-duration;
-
-    .st-menu-open & {
-      width: 100%;
-      height: 100%;
-      opacity: 1;
-      transition: opacity @st-transition-duration;
-    }
-  }
-}
-
-.st-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  visibility: hidden;
-  width: @st-menu-width;
-  height: 100%;
-  background: @st-menu-background;
-  transition: all @st-transition-duration;
-
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: @st-blocker-background;
-    content: '';
-    opacity: 1;
-    transition: opacity @st-transition-duration;
-
-    .st-menu-open & {
-      width: 0;
-      height: 0;
-      opacity: 0;
-      transition: opacity @st-transition-duration,
-                  width 0.1s @st-transition-duration,
-                  height 0.1s @st-transition-duration;
-    }
-  }
-}
-
-/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-// .no-csstransforms3d .st-pusher,
-// .no-js .st-pusher {
-//   padding-left: @st-menu-width;
-// }
