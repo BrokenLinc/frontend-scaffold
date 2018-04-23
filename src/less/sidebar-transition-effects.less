@@ -1,10 +1,19 @@
-// Markup requirements:
-//
-// [slidein, reveal, slidealong, reverseslideout, rotatepusher, scaledownpusher, scaleup]
-//   require the menu to come before the the pusher
-//
-// [push, rotate, 3drotatein, 3drotateout, 3drotatedelayed]
-//   require the menu to be inside the pusher
+// Menu must be placed before (outside of) the pusher with:
+// fullscreenoverlay
+// reveal
+// reverseslideout
+// rotatepusher
+// scaledownpusher
+// scaleup
+// slidealong
+// slideinontop
+
+// Menu must be placed inside (anchored to) the pusher with:
+// 3drotatedelayed
+// 3drotatein
+// 3drotateout
+// push
+// rotate
 
 @st-menu-width: 280px;
 @st-blocker-background: fade(black, 20%);
@@ -82,12 +91,12 @@
   }
 }
 
-.st-effect-slidein {
+.st-effect-slideinontop {
   .st-menu {
     visibility: visible;
     transform: translate3d(-100%, 0, 0);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transform: translate3d(0, 0, 0);
@@ -99,7 +108,7 @@
   .st-menu {
     z-index: 1;
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -114,7 +123,7 @@
   .st-menu {
     transform: translate3d(-100%, 0, 0);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -130,7 +139,7 @@
     z-index: 1;
     transform: translate3d(-50%, 0, 0);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -147,7 +156,7 @@
     z-index: 1;
     transform: translate3d(50%, 0, 0);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -172,7 +181,7 @@
     transform-style: preserve-3d;
   }
 
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -198,7 +207,7 @@
     transform-style: preserve-3d;
   }
 
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -222,7 +231,7 @@
   .st-pusher {
     transform-style: preserve-3d;
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -244,7 +253,7 @@
   .st-pusher {
     transform-style: preserve-3d;
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -265,7 +274,7 @@
     opacity: 1;
     transform: translate3d(0, 0, -@st-menu-width);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition: transform @st-transition-duration;
@@ -286,7 +295,7 @@
     opacity: 1;
     transform: translate3d(0, -100%, 0);
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition-timing-function: ease-in-out;
@@ -312,7 +321,7 @@
   .st-pusher {
     transform-style: preserve-3d;
   }
-  &.st-menu-open {
+  .st-menu-open & {
     .st-menu {
       visibility: visible;
       transition-delay: 0.1s;
@@ -322,6 +331,20 @@
     }
     .st-pusher {
       transform: translate3d(@st-menu-width, 0, 0);
+    }
+  }
+}
+
+.st-effect-fullscreenoverlay {
+  .st-menu {
+    transform: scale(1.1);
+    width: 100%;
+    opacity: 0;
+  }
+  .st-menu-open & {
+    .st-menu {
+      transform: none;
+      opacity: 1;
     }
   }
 }
