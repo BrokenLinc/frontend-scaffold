@@ -1,22 +1,24 @@
 @import (reference) "sidebar-transition-effects";
 
-@content-background-color: white;
+@content-background: white;
 
-.perimeter,
-.content {
-  height: 100%;
-}
 .perimeter {
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
-.content,
-.content-inner {
-  position: relative;
+.perimeter-inner {
+  height: 100%;
 }
 .content {
+  height: 100%;
   overflow-y: scroll;
-  background-color: @content-background-color;
+  background: @content-background;
+}
+.content-inner {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column;
 }
 
 // Optionally enable a sidebar transition effect
