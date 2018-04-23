@@ -5,7 +5,7 @@ import Button from 'components/Button';
 import SourceViewer from 'components/SourceViewer';
 
 const Home = () => (
-  <div className="container is-confined">
+  <div className="container">
     <SourceViewer>
       <Button/>
     </SourceViewer>

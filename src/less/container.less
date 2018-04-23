@@ -1,8 +1,15 @@
 .container {
   padding: @padding-standard;
+  margin: 0 auto;
+  max-width: 375px;
 
-  &.is-confined {
-    max-width: 960px;
-    margin: 0 auto;
+  @media (min-width: 570px) {
+    max-width: 550px;
+  }
+  @media (min-width: 768px) {
+    max-width: 750px;
+  }
+  @media (min-width: 960px) {
+    max-width: 940px;
   }
 }
