@@ -5,15 +5,10 @@ import Button from 'components/Button';
 import SourceViewer from 'components/SourceViewer';
 
 const Home = () => (
-  <div className="perimeter">
-    <header className="header">
-      <button>Menu</button>
-    </header>
-    <nav className="nav">Menu</nav>
+  <div>
     <SourceViewer>
       <Button/>
     </SourceViewer>
-    <footer className="footer">Footer</footer>
   </div>
 );
 

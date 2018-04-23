@@ -1,56 +1,6 @@
+@import "functional";
 @import "normalize";
-
-// variables
-@font-family: sans-serif;
-
-*,
-*:after,
-*:before {
-	box-sizing: border-box;
-}
-
-html {
-  font-family: @font-family;
-}
-html,
-body {
-  height: 100%;
-}
-
-
-// body/nav scaffold, if you're into that
-// TODO: just get tympanus...
-
-// container - contains menu and content
-//   menu
-//   pusher - handles transforming/blocking the content
-//     content
-
-// body {
-//   overflow-x: hidden;
-//   overflow-y: scroll;
-//
-//   &.has-open-header-menu {
-//     left: 0;
-//     position: fixed;
-//     right: 0;
-//   }
-// }
-// .perimeter {
-//   min-height: 100%;
-// }
-
-// type
-// TODO: figure out a bottom-margin-only system
-h1, h2, h3, h4, h5, h6, p {
-  margin-top: 0;
-}
-
-// heights
-// TODO: start making tailwind-esque files
-.h-full	{
-  height: 100%;
-}
-.h-screen	{
-  height: 100vw;
-}
+@import "base";
+@import "type";
+@import "scaffold";
+@import "variables";
