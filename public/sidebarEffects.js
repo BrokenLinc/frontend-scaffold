@@ -12,10 +12,10 @@
 
   /**
     * Sidebar Effects
-    * Rewritten with jQuery from:
-    *
-    * sidebarEffects.js v1.0.0
+    * Based on sidebarEffects.js v1.0.0
     * http://www.codrops.com
+    *
+    * Rewritten with jQuery by Lincoln Anderson
     */
   function sidebarEffects() {
     var $body = $(document.body);
