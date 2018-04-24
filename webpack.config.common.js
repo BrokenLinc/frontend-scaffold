@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -19,5 +20,8 @@ module.exports = {
 				exclude: /node_modules/
 			}
 		]
-	}
+	},
+	plugins: [
+		new CleanWebpackPlugin('public/dist')
+	]
 }
