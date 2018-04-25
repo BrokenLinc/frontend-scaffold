@@ -1,18 +1,16 @@
 import { map, padStart } from 'lodash';
 
-const indent = sourceHtml => {
-  let resultHtml = '';
-
-  let lines = [''];
+const indent = (sourceHtml) => {
+  const lines = [''];
   let lineIndex = 0;
 
   const incrementLineIndex = () => {
     if (lines[lineIndex] === '') return; // don't make empty lines
-    lineIndex++;
+    lineIndex += 1;
     lines.push('');
   };
 
-  for (let i in sourceHtml) {
+  for (let i = 0; i < sourceHtml.length; i += 1) {
     const character = sourceHtml[i];
     if (character === '<') incrementLineIndex();
     lines[lineIndex] += character;
@@ -62,10 +60,10 @@ const indent = sourceHtml => {
     'sup',
   ];
 
-  for (let i = 0; i < lines.length; i++) {
+  for (let i = 0; i < lines.length; i += 1) {
     const content = lines[i];
-    const isTag = content.substr(0,1) === '<';
-    let isText = !isTag;
+    const isTag = content.substr(0, 1) === '<';
+    const isText = !isTag;
     let tag;
     let isBeginTag = false;
     let isEndTag = false;
@@ -74,7 +72,7 @@ const indent = sourceHtml => {
     let isBlockTag = false;
 
     if (isTag) {
-      isEndTag = content.substr(1,1) === '/';
+      isEndTag = content.substr(1, 1) === '/';
       isBeginTag = !isEndTag;
       const beginTagIndex = isEndTag ? 2 : 1;
       const endTagIndex = Math.max(content.indexOf(' '), 0) || content.indexOf('>');
@@ -101,16 +99,16 @@ const indent = sourceHtml => {
     };
   }
 
-  let indentLevel = 0;
+  let currentIndentLevel = 0;
 
-  for (let i = 0; i < lines.length - 1; i++) {
+  for (let i = 0; i < lines.length - 1; i += 1) {
     let lineBreakBetween = false;
 
     if (lines[i].isEndTag) {
-      indentLevel--;
+      currentIndentLevel -= 1;
     }
 
-    lines[i].indentLevel = indentLevel;
+    lines[i].indentLevel = currentIndentLevel;
 
     if (lines[i].isBlockTag || lines[i + 1].isBlockTag) {
       lineBreakBetween = true;
@@ -122,14 +120,15 @@ const indent = sourceHtml => {
     }
 
     if (lines[i].isBeginTag) {
-      indentLevel++;
+      currentIndentLevel += 1;
     }
   }
 
-  return map(lines, line => {
-    let content = line.content;
-    if (line.prefixIndentation) content = padStart('', line.indentLevel * 2) + content;
-    if (line.appendLineBreak) content += '\n';
+  return map(lines, (line) => {
+    const { appendLineBreak, indentLevel, prefixIndentation } = line;
+    let { content } = line;
+    if (prefixIndentation) content = padStart('', indentLevel * 2) + content;
+    if (appendLineBreak) content += '\n';
     return content;
   }).join('');
 };
