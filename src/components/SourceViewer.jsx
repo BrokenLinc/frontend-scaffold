@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import indent from 'utilities/indent';
 import clipboard from 'utilities/clipboard';
@@ -8,7 +9,9 @@ class SourceViewer extends Component {
     this.state = {};
   }
   componentDidMount() {
-    this.setState({ sourceHtml: indent(this.source.innerHTML) });
+    setTimeout(() => {
+      this.setState({ sourceHtml: indent(this.source.innerHTML) });
+    }, 1);
   }
   render() {
     const { children } = this.props;
@@ -17,7 +20,7 @@ class SourceViewer extends Component {
     return (
       <div>
         <h2>Component</h2>
-        <div ref={el => this.source = el}>
+        <div ref={(el) => { this.source = el; }}>
           {children}
         </div>
         <pre>
@@ -30,5 +33,12 @@ class SourceViewer extends Component {
     );
   }
 }
+
+SourceViewer.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default SourceViewer;
