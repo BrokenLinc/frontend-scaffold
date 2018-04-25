@@ -5,7 +5,7 @@ import Button from 'components/Button';
 import SourceViewer from 'components/SourceViewer';
 
 const Home = () => (
-  <div className="container">
+  <div className="container p-content">
     <SourceViewer>
       <Button/>
     </SourceViewer>

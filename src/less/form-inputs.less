@@ -1,0 +1,21 @@
+.text-input {
+  // reset
+  -webkit-appearance: none;
+  margin: 0;
+  display: block;
+
+  border: @ui-border-width solid;
+  border-radius: @ui-border-radius;
+  font-size: @ui-font-size;
+  height: @ui-height;
+  line-height: @ui-height;
+  transition: all @ui-transition-duration ease-in-out;
+  padding: 0 ((@ui-height - @ui-font-size) / 2);
+
+  border-color: @lighter-gray;
+  .shadow-inner;
+
+  &:focus {
+    // outline: 0;
+  }
+}

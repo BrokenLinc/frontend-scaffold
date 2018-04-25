@@ -1,35 +1,3 @@
-@green: #15CD72;
-
-.solid-button-theme() {
-  &:extend(.button);
-  color: @foreground;
-  background-color: @background;
-  border-color: @background;
-
-  &:hover {
-    background-color: @hover-background;
-    border-color: @hover-background;
-  }
-  &:focus {
-    box-shadow: 0 0 0 @unit fade(@background, 20%);
-  }
-}
-
-.ghost-button-theme() {
-  &:extend(.button);
-  color: @foreground;
-  background-color: @background;
-  border-color: @foreground;
-
-  &:hover {
-    background-color: @hover-background;
-    border-color: @hover-foreground;
-  }
-  &:focus {
-    box-shadow: 0 0 0 0.2rem fade(@foreground, 20%);
-  }
-}
-
 .button {
   // reset
   -webkit-appearance: none;
@@ -43,24 +11,23 @@
   }
 
   // all buttons
-  border: 1px solid;
-  border-radius: 3px;
-  font-weight: 600;
+  border: @ui-border-width solid;
+  border-radius: @ui-border-radius;
   text-align: center;
-  transition: all .2s ease-in-out;
-  font-size: .9rem;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1.6rem;
+  font-size: @ui-font-size;
+  height: @ui-height;
+  line-height: @ui-height;
+  transition: all @ui-transition-duration ease-in-out;
+  padding: 0 1.5rem;
 
   &:focus {
-    outline: 0;
+    outline: 0 none;
   }
 
   // default style
   .solid-button-theme;
-  @foreground: #777;
-  @background: #eee;
+  @foreground: @dark-gray;
+  @background: @lightest-gray;
   @hover-foreground: @foreground;
   @hover-background: darken(@background, 4);
 }
@@ -69,7 +36,7 @@
 // Modify, add, and remove as you see fit
 .ghost-button {
   .ghost-button-theme;
-  @foreground: #777;
+  @foreground: @dark-gray;
   @background: fade(@foreground, 4%);
   @hover-foreground: lighten(@foreground, 4);
   @hover-background: fade(@foreground, 8%);
@@ -89,4 +56,38 @@
   @background: fade(@foreground, 4%);
   @hover-foreground: lighten(@foreground, 4);
   @hover-background: fade(@foreground, 8%);
+}
+
+// mixins
+.solid-button-theme() {
+  &:extend(.button all);
+  color: @foreground;
+  background-color: @background;
+  border-color: @background;
+
+  &:hover {
+    color: @hover-foreground;
+    background-color: @hover-background;
+    border-color: @hover-background;
+  }
+  &:focus {
+    box-shadow: 0 0 0 1px white,
+                0 0 0 @unit fade(@blue, 50%);
+  }
+}
+
+.ghost-button-theme() {
+  &:extend(.button all);
+  color: @foreground;
+  background-color: @background;
+  border-color: @foreground;
+
+  &:hover {
+    color: @hover-foreground;
+    background-color: @hover-background;
+    border-color: @hover-foreground;
+  }
+  &:focus {
+    box-shadow: 0 0 0 @unit fade(@blue, 50%);
+  }
 }

@@ -9,23 +9,37 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark-gray darkest-gray">
   <div class="perimeter">
-    <nav class="expanded-menu st-menu">
+    <nav class="st-menu bg-white p-content">
       <h2>Sidebar</h2>
-      <button class="button st-toggle">Toggle sidebar</button>
+      <button class="button st-toggle">Close sidebar</button>
     </nav>
-    <div class="perimeter-inner st-pusher">
+    <div class="perimeter-inner st-pusher shadow-lg">
       <div class="content">
-        <div class="content-inner">
-          <header class="header">
-            <button class="button st-toggle">Toggle sidebar</button>
+        <div class="content-inner bg-white">
+          <header class="header p-content border-b border-lighter-gray">
+            <button class="button st-toggle">Open sidebar</button>
           </header>
           <div class="flex-grow-1">
+            <div class="container p-content">
+              <input class="text-input" placeholder="Your name" />
+            </div>
             <div id="react-app"></div>
+            <div class="container p-content">
+              <div class="p-3 bg-black gray">Black</div>
+              <div class="p-3 bg-darkest-gray gray">Darkest Gray</div>
+              <div class="p-3 bg-darker-gray gray">Darker Gray</div>
+              <div class="p-3 bg-dark-gray">Dark Gray</div>
+              <div class="p-3 bg-gray">Gray</div>
+              <div class="p-3 bg-light-gray">Light Gray</div>
+              <div class="p-3 bg-lighter-gray">Lighter Gray</div>
+              <div class="p-3 bg-lightest-gray">Lightest Gray</div>
+              <div class="p-3 bg-white">White</div>
+            </div>
           </div>
-          <footer class="footer">
-            <div class="container">
+          <footer class="bg-light-gray">
+            <div class="container p-content">
               Footer
             </div>
           </footer>
