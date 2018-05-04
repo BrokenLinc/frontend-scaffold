@@ -40,8 +40,19 @@
 //
 // Contextual variations (linked badges get darker on :hover).
 
-@each @color, @value in @theme-colors {
-  .badge-@{color} {
-    .badge-variant(@value);
+.badge-state(@state) {
+  @color: @@state;
+
+  .badge-@{state} {
+    .badge-variant(@color);
   }
 }
+
+.badge-state(primary);
+.badge-state(secondary);
+.badge-state(success);
+.badge-state(info);
+.badge-state(warning);
+.badge-state(danger);
+.badge-state(light);
+.badge-state(dark);
