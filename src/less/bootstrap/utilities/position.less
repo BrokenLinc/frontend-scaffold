@@ -4,11 +4,16 @@
 
 // Sass list not in variables since it's not intended for customization.
 // stylelint-disable-next-line scss/dollar-variable-default
-@positions: static, relative, absolute, fixed, sticky;
 
-@each @position in @positions {
+.position-state(@position) {
   .position-@{position} { position: @position !important; }
 }
+
+.position-state(absolute);
+.position-state(relative);
+.position-state(static);
+.position-state(fixed);
+.position-state(sticky);
 
 // Shorthand
 
