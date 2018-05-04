@@ -7,7 +7,7 @@
 //
 // Keep images from scaling beyond the width of their parents.
 
-@mixin img-fluid {
+.img-fluid() {
   // Part 1: Set a maximum relative to the parent
   max-width: 100%;
   // Part 2: Override the height to auto, otherwise images will be stretched
@@ -21,7 +21,7 @@
 // Short retina mixin for setting background-image and -size.
 
 // stylelint-disable indentation, media-query-list-comma-newline-after
-@mixin img-retina(@file-1x, @file-2x, @width-1x, @height-1x) {
+.img-retina(@file-1x, @file-2x, @width-1x, @height-1x) {
   background-image: url(@file-1x);
 
   // Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio,

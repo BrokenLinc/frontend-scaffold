@@ -1,6 +1,6 @@
 // Tables
 
-@mixin table-row-variant(@state, @background) {
+.table-row-variant(@state, @background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
   .table-@{state} {
@@ -17,7 +17,7 @@
     @hover-background: darken(@background, 5%);
 
     .table-@{state} {
-      @include hover {
+      .hover {
         background-color: @hover-background;
 
         > td,

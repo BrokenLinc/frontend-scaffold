@@ -24,8 +24,8 @@
     border-radius: 0;
   }
 
-  @include box-shadow(@input-box-shadow);
-  @include transition(@input-transition);
+  .box-shadow(@input-box-shadow);
+  .transition(@input-transition);
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -34,7 +34,7 @@
   }
 
   // Customize the `:focus` state to imitate native WebKit styles.
-  @include form-control-focus();
+  .form-control-focus();
 
   // Placeholder
   &::placeholder {
@@ -146,7 +146,7 @@ select.form-control {
   padding: @input-padding-y-sm @input-padding-x-sm;
   font-size: @font-size-sm;
   line-height: @input-line-height-sm;
-  @include border-radius(@input-border-radius-sm);
+  .border-radius(@input-border-radius-sm);
 }
 
 select.form-control-sm {
@@ -159,7 +159,7 @@ select.form-control-sm {
   padding: @input-padding-y-lg @input-padding-x-lg;
   font-size: @font-size-lg;
   line-height: @input-line-height-lg;
-  @include border-radius(@input-border-radius-lg);
+  .border-radius(@input-border-radius-lg);
 }
 
 select.form-control-lg {
@@ -249,8 +249,8 @@ select.form-control-lg {
 // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
 // server side validation.
 
-@include form-validation-state("valid", @form-feedback-valid-color);
-@include form-validation-state("invalid", @form-feedback-invalid-color);
+.form-validation-state("valid", @form-feedback-valid-color);
+.form-validation-state("invalid", @form-feedback-invalid-color);
 
 // Inline forms
 //
@@ -274,7 +274,7 @@ select.form-control-lg {
   }
 
   // Kick in the inline
-  @include media-breakpoint-up(sm) {
+  .media-breakpoint-up(sm) {
     label {
       display: flex;
       align-items: center;

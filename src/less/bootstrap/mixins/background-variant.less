@@ -2,19 +2,19 @@
 
 // Contextual backgrounds
 
-@mixin bg-variant(@parent, @color) {
+.bg-variant(@parent, @color) {
   @{parent} {
     background-color: @color !important;
   }
   a@{parent},
   button@{parent} {
-    @include hover-focus {
+    .hover-focus {
       background-color: darken(@color, 10%) !important;
     }
   }
 }
 
-@mixin bg-gradient-variant(@parent, @color) {
+.bg-gradient-variant(@parent, @color) {
   @{parent} {
     background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
   }

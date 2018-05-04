@@ -10,7 +10,7 @@
 //
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
-@mixin form-control-focus() {
+.form-control-focus() {
   &:focus {
     color: @input-focus-color;
     background-color: @input-focus-bg;
@@ -26,7 +26,7 @@
 }
 
 
-@mixin form-validation-state(@state, @color) {
+.form-validation-state(@state, @color) {
   .@{state}-feedback {
     display: none;
     width: 100%;
@@ -110,7 +110,7 @@
 
       &:checked {
         ~ .custom-control-label::before {
-          @include gradient-bg(lighten(@color, 10%));
+          .gradient-bg(lighten(@color, 10%));
         }
       }
 

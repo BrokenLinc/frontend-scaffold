@@ -11,7 +11,7 @@
   background-color: @card-bg;
   background-clip: border-box;
   border: @card-border-width solid @card-border-color;
-  @include border-radius(@card-border-radius);
+  .border-radius(@card-border-radius);
 
   > hr {
     margin-right: 0;
@@ -20,13 +20,13 @@
 
   > .list-group:first-child {
     .list-group-item:first-child {
-      @include border-top-radius(@card-border-radius);
+      .border-top-radius(@card-border-radius);
     }
   }
 
   > .list-group:last-child {
     .list-group-item:last-child {
-      @include border-bottom-radius(@card-border-radius);
+      .border-bottom-radius(@card-border-radius);
     }
   }
 }
@@ -52,7 +52,7 @@
 }
 
 .card-link {
-  @include hover {
+  .hover {
     text-decoration: none;
   }
 
@@ -72,7 +72,7 @@
   border-bottom: @card-border-width solid @card-border-color;
 
   &:first-child {
-    @include border-radius(@card-inner-border-radius @card-inner-border-radius 0 0);
+    .border-radius(@card-inner-border-radius @card-inner-border-radius 0 0);
   }
 
   + .list-group {
@@ -88,7 +88,7 @@
   border-top: @card-border-width solid @card-border-color;
 
   &:last-child {
-    @include border-radius(0 0 @card-inner-border-radius @card-inner-border-radius);
+    .border-radius(0 0 @card-inner-border-radius @card-inner-border-radius);
   }
 }
 
@@ -121,18 +121,18 @@
 
 .card-img {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  @include border-radius(@card-inner-border-radius);
+  .border-radius(@card-inner-border-radius);
 }
 
 // Card image caps
 .card-img-top {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  @include border-top-radius(@card-inner-border-radius);
+  .border-top-radius(@card-inner-border-radius);
 }
 
 .card-img-bottom {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  @include border-bottom-radius(@card-inner-border-radius);
+  .border-bottom-radius(@card-inner-border-radius);
 }
 
 
@@ -146,7 +146,7 @@
     margin-bottom: @card-deck-margin;
   }
 
-  @include media-breakpoint-up(sm) {
+  .media-breakpoint-up(sm) {
     flex-flow: row wrap;
     margin-right: -@card-deck-margin;
     margin-left: -@card-deck-margin;
@@ -178,7 +178,7 @@
     margin-bottom: @card-group-margin;
   }
 
-  @include media-breakpoint-up(sm) {
+  .media-breakpoint-up(sm) {
     flex-flow: row wrap;
     // The child selector allows nested `.card` within `.card-group`
     // to display properly.
@@ -195,7 +195,7 @@
       // Handle rounded corners
       .if(@enable-rounded, {
         &:first-child {
-          @include border-right-radius(0);
+          .border-right-radius(0);
 
           .card-img-top,
           .card-header {
@@ -208,7 +208,7 @@
         }
 
         &:last-child {
-          @include border-left-radius(0);
+          .border-left-radius(0);
 
           .card-img-top,
           .card-header {
@@ -221,26 +221,26 @@
         }
 
         &:only-child {
-          @include border-radius(@card-border-radius);
+          .border-radius(@card-border-radius);
 
           .card-img-top,
           .card-header {
-            @include border-top-radius(@card-border-radius);
+            .border-top-radius(@card-border-radius);
           }
           .card-img-bottom,
           .card-footer {
-            @include border-bottom-radius(@card-border-radius);
+            .border-bottom-radius(@card-border-radius);
           }
         }
 
         &:not(:first-child):not(:last-child):not(:only-child) {
-          @include border-radius(0);
+          .border-radius(0);
 
           .card-img-top,
           .card-img-bottom,
           .card-header,
           .card-footer {
-            @include border-radius(0);
+            .border-radius(0);
           }
         }
       });
@@ -258,7 +258,7 @@
     margin-bottom: @card-columns-margin;
   }
 
-  @include media-breakpoint-up(sm) {
+  .media-breakpoint-up(sm) {
     column-count: @card-columns-count;
     column-gap: @card-columns-gap;
     orphans: 1;
