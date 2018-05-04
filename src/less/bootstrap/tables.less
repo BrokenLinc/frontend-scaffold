@@ -100,9 +100,18 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-@each @color, @value in @theme-colors {
-  .table-row-variant(@color, theme-color-level(@color, -9));
+.table-row-themed(@state, @color) {
+  .table-row-variant(@state, mix(white, @color, 9));
 }
+
+.table-row-themed(primary, @primary);
+.table-row-themed(secondary, @secondary);
+.table-row-themed(success, @success);
+.table-row-themed(info, @info);
+.table-row-themed(warning, @warning);
+.table-row-themed(danger, @danger);
+.table-row-themed(light, @light);
+.table-row-themed(dark, @dark);
 
 .table-row-variant(active, @table-active-bg);
 
