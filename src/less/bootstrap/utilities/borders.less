@@ -16,11 +16,21 @@
 .border-bottom-0 { border-bottom: 0 !important; }
 .border-left-0   { border-left: 0 !important; }
 
-@each @color, @value in @theme-colors {
-  .border-@{color} {
-    border-color: @value !important;
+.border-state(@state) {
+  @color: @@state;
+  .border-@{state} {
+    border-color: @color !important;
   }
 }
+
+.border-state(primary);
+.border-state(secondary);
+.border-state(success);
+.border-state(info);
+.border-state(warning);
+.border-state(danger);
+.border-state(light);
+.border-state(dark);
 
 .border-white {
   border-color: @white !important;
