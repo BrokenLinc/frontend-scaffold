@@ -257,10 +257,8 @@
     }
   }
 
-  @each @lang, @value in @custom-file-text {
-    &:lang(@{lang}) ~ .custom-file-label::after {
-      content: @value;
-    }
+  &:lang(en) ~ .custom-file-label::after {
+    content: @custom-file-text-en;
   }
 }
 
