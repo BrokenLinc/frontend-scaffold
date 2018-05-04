@@ -28,7 +28,7 @@
   .btn + .btn-group,
   .btn-group + .btn,
   .btn-group + .btn-group {
-    margin-left: -$btn-border-width;
+    margin-left: -@btn-border-width;
   }
 }
 
@@ -73,8 +73,8 @@
 //
 
 .dropdown-toggle-split {
-  padding-right: $btn-padding-x * .75;
-  padding-left: $btn-padding-x * .75;
+  padding-right: @btn-padding-x * .75;
+  padding-left: @btn-padding-x * .75;
 
   &::after,
   .dropup &::after,
@@ -88,20 +88,20 @@
 }
 
 .btn-sm + .dropdown-toggle-split {
-  padding-right: $btn-padding-x-sm * .75;
-  padding-left: $btn-padding-x-sm * .75;
+  padding-right: @btn-padding-x-sm * .75;
+  padding-left: @btn-padding-x-sm * .75;
 }
 
 .btn-lg + .dropdown-toggle-split {
-  padding-right: $btn-padding-x-lg * .75;
-  padding-left: $btn-padding-x-lg * .75;
+  padding-right: @btn-padding-x-lg * .75;
+  padding-left: @btn-padding-x-lg * .75;
 }
 
 
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
 .btn-group.show .dropdown-toggle {
-  @include box-shadow($btn-active-box-shadow);
+  @include box-shadow(@btn-active-box-shadow);
 
   // Show no shadow for `.btn-link` since it has no other button styles.
   &.btn-link {
@@ -128,7 +128,7 @@
   > .btn + .btn-group,
   > .btn-group + .btn,
   > .btn-group + .btn-group {
-    margin-top: -$btn-border-width;
+    margin-top: -@btn-border-width;
     margin-left: 0;
   }
 

@@ -7,25 +7,25 @@
 .form-control {
   display: block;
   width: 100%;
-  padding: $input-padding-y $input-padding-x;
-  font-size: $font-size-base;
-  line-height: $input-line-height;
-  color: $input-color;
-  background-color: $input-bg;
+  padding: @input-padding-y @input-padding-x;
+  font-size: @font-size-base;
+  line-height: @input-line-height;
+  color: @input-color;
+  background-color: @input-bg;
   background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
+  border: @input-border-width solid @input-border-color;
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @if $enable-rounded {
+  @if @enable-rounded {
     // Manually use the if/else instead of the mixin to account for iOS override
-    border-radius: $input-border-radius;
+    border-radius: @input-border-radius;
   } @else {
     // Otherwise undo the iOS default
     border-radius: 0;
   }
 
-  @include box-shadow($input-box-shadow);
-  @include transition($input-transition);
+  @include box-shadow(@input-box-shadow);
+  @include transition(@input-transition);
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -38,7 +38,7 @@
 
   // Placeholder
   &::placeholder {
-    color: $input-placeholder-color;
+    color: @input-placeholder-color;
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
@@ -50,7 +50,7 @@
   // don't honor that edge case; we style them as disabled anyway.
   &:disabled,
   &[readonly] {
-    background-color: $input-disabled-bg;
+    background-color: @input-disabled-bg;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
@@ -58,7 +58,7 @@
 
 select.form-control {
   &:not([size]):not([multiple]) {
-    height: $input-height;
+    height: @input-height;
   }
 
   &:focus::-ms-value {
@@ -67,8 +67,8 @@ select.form-control {
     // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
     // match the appearance of the native widget.
     // See https://github.com/twbs/bootstrap/issues/19398.
-    color: $input-color;
-    background-color: $input-bg;
+    color: @input-color;
+    background-color: @input-bg;
   }
 }
 
@@ -87,25 +87,25 @@ select.form-control {
 // For use with horizontal and inline forms, when you need the label (or legend)
 // text to align with the form controls.
 .col-form-label {
-  padding-top: calc(#{$input-padding-y} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
+  padding-top: calc(@{input-padding-y} + @{input-border-width});
+  padding-bottom: calc(@{input-padding-y} + @{input-border-width});
   margin-bottom: 0; // Override the `<label>/<legend>` default
   font-size: inherit; // Override the `<legend>` default
-  line-height: $input-line-height;
+  line-height: @input-line-height;
 }
 
 .col-form-label-lg {
-  padding-top: calc(#{$input-padding-y-lg} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y-lg} + #{$input-border-width});
-  font-size: $font-size-lg;
-  line-height: $input-line-height-lg;
+  padding-top: calc(@{input-padding-y-lg} + @{input-border-width});
+  padding-bottom: calc(@{input-padding-y-lg} + @{input-border-width});
+  font-size: @font-size-lg;
+  line-height: @input-line-height-lg;
 }
 
 .col-form-label-sm {
-  padding-top: calc(#{$input-padding-y-sm} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y-sm} + #{$input-border-width});
-  font-size: $font-size-sm;
-  line-height: $input-line-height-sm;
+  padding-top: calc(@{input-padding-y-sm} + @{input-border-width});
+  padding-bottom: calc(@{input-padding-y-sm} + @{input-border-width});
+  font-size: @font-size-sm;
+  line-height: @input-line-height-sm;
 }
 
 
@@ -117,14 +117,14 @@ select.form-control {
 .form-control-plaintext {
   display: block;
   width: 100%;
-  padding-top: $input-padding-y;
-  padding-bottom: $input-padding-y;
+  padding-top: @input-padding-y;
+  padding-bottom: @input-padding-y;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
-  line-height: $input-line-height;
-  color: $input-plaintext-color;
+  line-height: @input-line-height;
+  color: @input-plaintext-color;
   background-color: transparent;
   border: solid transparent;
-  border-width: $input-border-width 0;
+  border-width: @input-border-width 0;
 
   &.form-control-sm,
   &.form-control-lg {
@@ -143,28 +143,28 @@ select.form-control {
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 
 .form-control-sm {
-  padding: $input-padding-y-sm $input-padding-x-sm;
-  font-size: $font-size-sm;
-  line-height: $input-line-height-sm;
-  @include border-radius($input-border-radius-sm);
+  padding: @input-padding-y-sm @input-padding-x-sm;
+  font-size: @font-size-sm;
+  line-height: @input-line-height-sm;
+  @include border-radius(@input-border-radius-sm);
 }
 
 select.form-control-sm {
   &:not([size]):not([multiple]) {
-    height: $input-height-sm;
+    height: @input-height-sm;
   }
 }
 
 .form-control-lg {
-  padding: $input-padding-y-lg $input-padding-x-lg;
-  font-size: $font-size-lg;
-  line-height: $input-line-height-lg;
-  @include border-radius($input-border-radius-lg);
+  padding: @input-padding-y-lg @input-padding-x-lg;
+  font-size: @font-size-lg;
+  line-height: @input-line-height-lg;
+  @include border-radius(@input-border-radius-lg);
 }
 
 select.form-control-lg {
   &:not([size]):not([multiple]) {
-    height: $input-height-lg;
+    height: @input-height-lg;
   }
 }
 
@@ -175,12 +175,12 @@ select.form-control-lg {
 // horizontal forms, use the predefined grid classes.
 
 .form-group {
-  margin-bottom: $form-group-margin-bottom;
+  margin-bottom: @form-group-margin-bottom;
 }
 
 .form-text {
   display: block;
-  margin-top: $form-text-margin-top;
+  margin-top: @form-text-margin-top;
 }
 
 
@@ -209,16 +209,16 @@ select.form-control-lg {
 .form-check {
   position: relative;
   display: block;
-  padding-left: $form-check-input-gutter;
+  padding-left: @form-check-input-gutter;
 }
 
 .form-check-input {
   position: absolute;
-  margin-top: $form-check-input-margin-y;
-  margin-left: -$form-check-input-gutter;
+  margin-top: @form-check-input-margin-y;
+  margin-left: -@form-check-input-gutter;
 
   &:disabled ~ .form-check-label {
-    color: $text-muted;
+    color: @text-muted;
   }
 }
 
@@ -230,13 +230,13 @@ select.form-control-lg {
   display: inline-flex;
   align-items: center;
   padding-left: 0; // Override base .form-check
-  margin-right: $form-check-inline-margin-x;
+  margin-right: @form-check-inline-margin-x;
 
   // Undo .form-check-input defaults and add some `margin-right`.
   .form-check-input {
     position: static;
     margin-top: 0;
-    margin-right: $form-check-inline-input-margin-x;
+    margin-right: @form-check-inline-input-margin-x;
     margin-left: 0;
   }
 }
@@ -249,8 +249,8 @@ select.form-control-lg {
 // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
 // server side validation.
 
-@include form-validation-state("valid", $form-feedback-valid-color);
-@include form-validation-state("invalid", $form-feedback-invalid-color);
+@include form-validation-state("valid", @form-feedback-valid-color);
+@include form-validation-state("invalid", @form-feedback-invalid-color);
 
 // Inline forms
 //
@@ -320,7 +320,7 @@ select.form-control-lg {
     .form-check-input {
       position: relative;
       margin-top: 0;
-      margin-right: $form-check-input-margin-x;
+      margin-right: @form-check-input-margin-x;
       margin-left: 0;
     }
 

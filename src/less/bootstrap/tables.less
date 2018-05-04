@@ -5,27 +5,27 @@
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: $spacer;
-  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  margin-bottom: @spacer;
+  background-color: @table-bg; // Reset for nesting within parents with `background-color`.
 
   th,
   td {
-    padding: $table-cell-padding;
+    padding: @table-cell-padding;
     vertical-align: top;
-    border-top: $table-border-width solid $table-border-color;
+    border-top: @table-border-width solid @table-border-color;
   }
 
   thead th {
     vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+    border-bottom: (2 * @table-border-width) solid @table-border-color;
   }
 
   tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
+    border-top: (2 * @table-border-width) solid @table-border-color;
   }
 
   .table {
-    background-color: $body-bg;
+    background-color: @body-bg;
   }
 }
 
@@ -37,7 +37,7 @@
 .table-sm {
   th,
   td {
-    padding: $table-cell-padding-sm;
+    padding: @table-cell-padding-sm;
   }
 }
 
@@ -47,17 +47,17 @@
 // Add or remove borders all around the table and between all the columns.
 
 .table-bordered {
-  border: $table-border-width solid $table-border-color;
+  border: @table-border-width solid @table-border-color;
 
   th,
   td {
-    border: $table-border-width solid $table-border-color;
+    border: @table-border-width solid @table-border-color;
   }
 
   thead {
     th,
     td {
-      border-bottom-width: (2 * $table-border-width);
+      border-bottom-width: (2 * @table-border-width);
     }
   }
 }
@@ -76,8 +76,8 @@
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  tbody tr:nth-of-type(#{$table-striped-order}) {
-    background-color: $table-accent-bg;
+  tbody tr:nth-of-type(@{table-striped-order}) {
+    background-color: @table-accent-bg;
   }
 }
 
@@ -89,7 +89,7 @@
 .table-hover {
   tbody tr {
     @include hover {
-      background-color: $table-hover-bg;
+      background-color: @table-hover-bg;
     }
   }
 }
@@ -100,11 +100,11 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-@each $color, $value in $theme-colors {
-  @include table-row-variant($color, theme-color-level($color, -9));
+@each @color, @value in @theme-colors {
+  @include table-row-variant(@color, theme-color-level(@color, -9));
 }
 
-@include table-row-variant(active, $table-active-bg);
+@include table-row-variant(active, @table-active-bg);
 
 
 // Dark styles
@@ -115,29 +115,29 @@
 .table {
   .thead-dark {
     th {
-      color: $table-dark-color;
-      background-color: $table-dark-bg;
-      border-color: $table-dark-border-color;
+      color: @table-dark-color;
+      background-color: @table-dark-bg;
+      border-color: @table-dark-border-color;
     }
   }
 
   .thead-light {
     th {
-      color: $table-head-color;
-      background-color: $table-head-bg;
-      border-color: $table-border-color;
+      color: @table-head-color;
+      background-color: @table-head-bg;
+      border-color: @table-border-color;
     }
   }
 }
 
 .table-dark {
-  color: $table-dark-color;
-  background-color: $table-dark-bg;
+  color: @table-dark-color;
+  background-color: @table-dark-bg;
 
   th,
   td,
   thead th {
-    border-color: $table-dark-border-color;
+    border-color: @table-dark-border-color;
   }
 
   &.table-bordered {
@@ -146,14 +146,14 @@
 
   &.table-striped {
     tbody tr:nth-of-type(odd) {
-      background-color: $table-dark-accent-bg;
+      background-color: @table-dark-accent-bg;
     }
   }
 
   &.table-hover {
     tbody tr {
       @include hover {
-        background-color: $table-dark-hover-bg;
+        background-color: @table-dark-hover-bg;
       }
     }
   }
@@ -166,12 +166,12 @@
 // size of where your table will overflow.
 
 .table-responsive {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
+  @each @breakpoint in map-keys(@grid-breakpoints) {
+    @next: breakpoint-next(@breakpoint, @grid-breakpoints);
+    @infix: breakpoint-infix(@next, @grid-breakpoints);
 
-    &#{$infix} {
-      @include media-breakpoint-down($breakpoint) {
+    &@{infix} {
+      @include media-breakpoint-down(@breakpoint) {
         display: block;
         width: 100%;
         overflow-x: auto;
