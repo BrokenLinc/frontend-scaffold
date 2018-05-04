@@ -100,7 +100,7 @@
 //
 // Style anchor elements.
 
-@link-color:                theme-color("primary");
+@link-color:                @primary;
 @link-decoration:           none;
 @link-hover-color:          darken(@link-color, 15%);
 @link-hover-decoration:     underline;
@@ -158,7 +158,7 @@
 @box-shadow-lg:               0 1rem 3rem fade(@black, 17.5%);
 
 @component-active-color:      @white;
-@component-active-bg:         theme-color("primary");
+@component-active-bg:         @primary;
 
 @caret-width:                 .3em;
 
@@ -405,7 +405,7 @@
 
 @custom-control-indicator-checked-color:        @component-active-color;
 @custom-control-indicator-checked-bg:           @component-active-bg;
-@custom-control-indicator-checked-disabled-bg:  fade(theme-color("primary"), 50%);
+@custom-control-indicator-checked-disabled-bg:  fade(@primary, 50%);
 @custom-control-indicator-checked-box-shadow:   none;
 
 @custom-control-indicator-focus-box-shadow:     0 0 0 1px @body-bg, @input-btn-focus-box-shadow;
@@ -490,8 +490,8 @@
 // Form validation
 @form-feedback-margin-top:          @form-text-margin-top;
 @form-feedback-font-size:           @small-font-size;
-@form-feedback-valid-color:         theme-color("success");
-@form-feedback-invalid-color:       theme-color("danger");
+@form-feedback-valid-color:         @success;
+@form-feedback-invalid-color:       @danger;
 
 
 // Dropdowns
@@ -760,7 +760,7 @@
 @progress-border-radius:            @border-radius;
 @progress-box-shadow:               inset 0 .1rem .1rem fade(@black, 10%);
 @progress-bar-color:                @white;
-@progress-bar-bg:                   theme-color("primary");
+@progress-bar-bg:                   @primary;
 @progress-bar-animation-timing:     1s linear infinite;
 @progress-bar-transition:           width .6s ease;
 
