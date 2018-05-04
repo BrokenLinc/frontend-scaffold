@@ -123,6 +123,21 @@
 @grid-breakpoint-lg: 992px;
 @grid-breakpoint-xl: 1200px;
 
+@sm-up: ~"(min-width: 576px)";
+@md-up: ~"(min-width: 768px)";
+@lg-up: ~"(min-width: 992px)";
+@xl-up: ~"(min-width: 1200px)";
+@xs-down: ~"(max-width: 575px)";
+@sm-down: ~"(max-width: 767px)";
+@md-down: ~"(max-width: 991px)";
+@lg-down: ~"(max-width: 1199px)";
+@xs: @xs-down;
+@sm: @sm-up and @sm-down;
+@md: @md-up and @md-down;
+@lg: @lg-up and @lg-down;
+@xl: @xl-up;
+
+
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
