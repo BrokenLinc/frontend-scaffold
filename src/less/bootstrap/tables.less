@@ -174,24 +174,21 @@
 // Generate series of `.table-responsive-*` classes for configuring the screen
 // size of where your table will overflow.
 
-.table-responsive {
-  @each @breakpoint in map-keys(@grid-breakpoints) {
-    @next: breakpoint-next(@breakpoint, @grid-breakpoints);
-    @infix: breakpoint-infix(@next, @grid-breakpoints);
+.table-responsive-mixin() {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
 
-    &@{infix} {
-      .media-breakpoint-down(@breakpoint) {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
-
-        // Prevent double border on horizontal scroll due to use of `display: block;`
-        > .table-bordered {
-          border: 0;
-        }
-      }
-    }
+  // Prevent double border on horizontal scroll due to use of `display: block;`
+  > .table-bordered {
+    border: 0;
   }
 }
+
+.table-responsive-xs { @media @xs-down { .table-responsive-mixin(); } }
+.table-responsive-sm { @media @sm-down { .table-responsive-mixin(); } }
+.table-responsive-md { @media @md-down { .table-responsive-mixin(); } }
+.table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
+.table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
