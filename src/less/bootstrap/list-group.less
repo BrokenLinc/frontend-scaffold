@@ -110,6 +110,23 @@
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-@each @color, @value in @theme-colors {
-  .list-group-item-variant(@color, theme-color-level(@color, -9), theme-color-level(@color, 6));
+.list-group-item-state(@state) {
+  @color: @@state;
+
+  .list-group-item-@{state} {
+    .list-group-item-variant(
+      @color,
+      mix(white, @color, 72%),
+      mix(black, @color, 54%)
+    );
+  }
 }
+
+.list-group-item-state(primary);
+.list-group-item-state(secondary);
+.list-group-item-state(success);
+.list-group-item-state(info);
+.list-group-item-state(warning);
+.list-group-item-state(danger);
+.list-group-item-state(light);
+.list-group-item-state(dark);
