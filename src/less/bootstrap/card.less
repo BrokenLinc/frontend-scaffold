@@ -193,7 +193,7 @@
       }
 
       // Handle rounded corners
-      @if @enable-rounded {
+      .if(@enable-rounded, {
         &:first-child {
           @include border-right-radius(0);
 
@@ -243,7 +243,7 @@
             @include border-radius(0);
           }
         }
-      }
+      });
     }
   }
 }
