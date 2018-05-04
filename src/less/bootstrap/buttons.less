@@ -60,17 +60,25 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-@each @color, @value in @theme-colors {
-  .btn-@{color} {
-    .button-variant(@value, @value);
+.btn-state(@state) {
+  @color: @@state;
+
+  .btn-@{state} {
+    .button-variant(@color, @color);
+  }
+  .btn-outline-@{state} {
+    .button-outline-variant(@color);
   }
 }
 
-@each @color, @value in @theme-colors {
-  .btn-outline-@{color} {
-    .button-outline-variant(@value);
-  }
-}
+.btn-state(primary);
+.btn-state(secondary);
+.btn-state(success);
+.btn-state(info);
+.btn-state(warning);
+.btn-state(danger);
+.btn-state(light);
+.btn-state(dark);
 
 
 //
