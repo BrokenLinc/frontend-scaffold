@@ -43,19 +43,23 @@
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
-.alert-themed(@color) {
-  .alert-variant(
-    mix(@alert-bg-shader,     @color, @theme-color-interval * @alert-bg-level),
-    mix(@alert-border-shader, @color, @theme-color-interval * @alert-border-level),
-    mix(@alert-color-shader,  @color, @theme-color-interval * @alert-color-level),
-  );
+.alert-state(@state) {
+  @color: @@state;
+
+  .alert-@{state} {
+    .alert-variant(
+      mix(@alert-bg-shader,     @color, @theme-color-interval * @alert-bg-level),
+      mix(@alert-border-shader, @color, @theme-color-interval * @alert-border-level),
+      mix(@alert-color-shader,  @color, @theme-color-interval * @alert-color-level),
+    );
+  }
 }
 
-.alert-primary {   .alert-themed(@primary); }
-.alert-secondary { .alert-themed(@secondary); }
-.alert-success {   .alert-themed(@success); }
-.alert-info {      .alert-themed(@info); }
-.alert-warning {   .alert-themed(@warning); }
-.alert-danger {    .alert-themed(@danger); }
-.alert-light {     .alert-themed(@light); }
-.alert-dark {      .alert-themed(@dark); }
+.alert-state(primary);
+.alert-state(secondary);
+.alert-state(success);
+.alert-state(info);
+.alert-state(warning);
+.alert-state(danger);
+.alert-state(light);
+.alert-state(dark);
