@@ -14,15 +14,17 @@
 
 // Responsive alignment
 
-@each @breakpoint in map-keys(@grid-breakpoints) {
-  .media-breakpoint-up(@breakpoint) {
-    @infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
-
-    .text@{infix}-left   { text-align: left !important; }
-    .text@{infix}-right  { text-align: right !important; }
-    .text@{infix}-center { text-align: center !important; }
-  }
+.responsive-text-alignment(@suffix) {
+  .text-@{suffix}-left   { text-align: left !important; }
+  .text-@{suffix}-right  { text-align: right !important; }
+  .text-@{suffix}-center { text-align: center !important; }
 }
+
+@media @sm-up { .responsive-text-alignment(sm); }
+@media @md-up { .responsive-text-alignment(md); }
+@media @lg-up { .responsive-text-alignment(lg); }
+@media @xl-up { .responsive-text-alignment(xl); }
+
 
 // Transformation
 
@@ -41,9 +43,19 @@
 
 .text-white { color: @white !important; }
 
-@each @color, @value in @theme-colors {
-  .text-emphasis-variant(".text-@{color}", @value);
+.text-emphasis-variant-state(@state) {
+  @color: @@state;
+  .text-emphasis-variant(".text-@{state}", @color);
 }
+
+.text-emphasis-variant-state(primary);
+.text-emphasis-variant-state(secondary);
+.text-emphasis-variant-state(success);
+.text-emphasis-variant-state(info);
+.text-emphasis-variant-state(warning);
+.text-emphasis-variant-state(danger);
+.text-emphasis-variant-state(light);
+.text-emphasis-variant-state(dark);
 
 .text-body { color: @body-color !important; }
 .text-muted { color: @text-muted !important; }
