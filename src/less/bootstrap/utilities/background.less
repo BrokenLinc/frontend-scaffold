@@ -1,14 +1,34 @@
 // stylelint-disable declaration-no-important
 
-@each @color, @value in @theme-colors {
-  .bg-variant(".bg-@{color}", @value);
+.bg-state(@state) {
+  @color: @@state;
+  .bg-variant(".bg-@{state}", @color);
 }
 
-@if @enable-gradients {
-  @each @color, @value in @theme-colors {
-    .bg-gradient-variant(".bg-gradient-@{color}", @value);
-  }
+.bg-state(primary);
+.bg-state(secondary);
+.bg-state(success);
+.bg-state(info);
+.bg-state(warning);
+.bg-state(danger);
+.bg-state(light);
+.bg-state(dark);
+
+.bg-gradient-state(@state) {
+  @color: @@state;
+  .bg-gradient-variant(".bg-gradient-@{state}", @color);
 }
+
+.if(@enable-gradients, {
+  .bg-gradient-state(primary);
+  .bg-gradient-state(secondary);
+  .bg-gradient-state(success);
+  .bg-gradient-state(info);
+  .bg-gradient-state(warning);
+  .bg-gradient-state(danger);
+  .bg-gradient-state(light);
+  .bg-gradient-state(dark);
+});
 
 .bg-white {
   background-color: @white !important;
