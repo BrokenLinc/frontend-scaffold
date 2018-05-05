@@ -4,10 +4,25 @@
 //
 // Custom styles for additional flex alignment options.
 
-@each @breakpoint in map-keys(@grid-breakpoints) {
-  .media-breakpoint-up(@breakpoint) {
-    @infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
 
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'-@{breakpoint}');
+    }
+  }
+
+  .infixed(@infix: ~'') {
     .flex@{infix}-row            { flex-direction: row !important; }
     .flex@{infix}-column         { flex-direction: column !important; }
     .flex@{infix}-row-reverse    { flex-direction: row-reverse !important; }

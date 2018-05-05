@@ -14,16 +14,30 @@
 
 // Responsive alignment
 
-.responsive-text-alignment(@suffix) {
-  .text-@{suffix}-left   { text-align: left !important; }
-  .text-@{suffix}-right  { text-align: right !important; }
-  .text-@{suffix}-center { text-align: center !important; }
-}
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
 
-@media @sm-up { .responsive-text-alignment(sm); }
-@media @md-up { .responsive-text-alignment(md); }
-@media @lg-up { .responsive-text-alignment(lg); }
-@media @xl-up { .responsive-text-alignment(xl); }
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'-@{breakpoint}');
+    }
+  }
+
+  .infixed(@infix: ~'') {
+    .text@{infix}-left   { text-align: left !important; }
+    .text@{infix}-right  { text-align: right !important; }
+    .text@{infix}-center { text-align: center !important; }
+  }
+}
 
 
 // Transformation
@@ -68,5 +82,5 @@
 // Misc
 
 .text-hide {
-  .text-hide(@ignore-warning: true);
+  .text-hide();
 }
