@@ -14,7 +14,8 @@
   .transition(@btn-transition);
 
   // Share hover and focus styles
-  .hover-focus {
+  &:hover,
+&:focus {
     text-decoration: none;
   }
 
@@ -78,7 +79,7 @@ fieldset:disabled a.btn {
   color: @link-color;
   background-color: transparent;
 
-  .hover {
+  &:hover {
     color: @link-hover-color;
     text-decoration: @link-hover-decoration;
     background-color: transparent;
