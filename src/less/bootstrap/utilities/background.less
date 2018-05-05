@@ -2,7 +2,9 @@
 
 .bg-state(@state) {
   @color: @@state;
-  .bg-variant(".bg-@{state}", @color);
+  .bg-@{state} {
+    .bg-variant(@color);
+  }
 }
 
 .bg-state(primary);
@@ -16,7 +18,9 @@
 
 .bg-gradient-state(@state) {
   @color: @@state;
-  .bg-gradient-variant(".bg-gradient-@{state}", @color);
+  .bg-gradient-@{state} {
+    .bg-gradient-variant(@color);
+  }
 }
 
 .if(@enable-gradients, {

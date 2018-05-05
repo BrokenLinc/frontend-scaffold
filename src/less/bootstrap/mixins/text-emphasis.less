@@ -2,11 +2,11 @@
 
 // Typography
 
-.text-emphasis-variant(@parent, @color) {
-  @{parent} {
+.text-emphasis-variant(@color) {
+  & {
     color: @color !important;
   }
-  a@{parent} {
+  a& {
     .hover-focus {
       color: darken(@color, 10%) !important;
     }

@@ -45,7 +45,9 @@
 
 .text-emphasis-variant-state(@state) {
   @color: @@state;
-  .text-emphasis-variant(".text-@{state}", @color);
+  .text-@{state} {
+    .text-emphasis-variant(@color);
+  }
 }
 
 .text-emphasis-variant-state(primary);

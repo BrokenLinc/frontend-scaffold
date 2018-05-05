@@ -2,12 +2,12 @@
 
 // Contextual backgrounds
 
-.bg-variant(@parent, @color) {
-  @{parent} {
+.bg-variant(@color) {
+  & {
     background-color: @color !important;
   }
-  a@{parent},
-  button@{parent} {
+  a&,
+  button& {
     .hover-focus {
       background-color: darken(@color, 10%) !important;
     }
@@ -15,7 +15,7 @@
 }
 
 .bg-gradient-variant(@parent, @color) {
-  @{parent} {
+  & {
     background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
   }
 }
