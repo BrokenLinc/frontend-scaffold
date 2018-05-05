@@ -100,11 +100,6 @@
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-.table-row-state(@state) {
-  @color: @@state;
-  .table-row-variant(@state, mix(white, @color, 72%));
-}
-
 .table-row-state(primary);
 .table-row-state(secondary);
 .table-row-state(success);

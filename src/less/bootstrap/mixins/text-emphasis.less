@@ -12,3 +12,10 @@
     }
   }
 }
+
+.text-emphasis-variant-state(@state) {
+  @color: @@state;
+  .text-@{state} {
+    .text-emphasis-variant(@color);
+  }
+}

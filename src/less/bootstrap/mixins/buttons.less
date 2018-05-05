@@ -105,6 +105,17 @@
   }
 }
 
+.btn-state(@state) {
+  @color: @@state;
+
+  .btn-@{state} {
+    .button-variant(@color, @color);
+  }
+  .btn-outline-@{state} {
+    .button-outline-variant(@color);
+  }
+}
+
 // Button sizes
 .button-size(@padding-y, @padding-x, @font-size, @line-height, @border-radius) {
   padding: @padding-y @padding-x;

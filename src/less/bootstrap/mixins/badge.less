@@ -10,3 +10,11 @@
     }
   }
 }
+
+.badge-state(@state) {
+  @color: @@state;
+
+  .badge-@{state} {
+    .badge-variant(@color);
+  }
+}

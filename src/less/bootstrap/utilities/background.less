@@ -1,12 +1,5 @@
 // stylelint-disable declaration-no-important
 
-.bg-state(@state) {
-  @color: @@state;
-  .bg-@{state} {
-    .bg-variant(@color);
-  }
-}
-
 .bg-state(primary);
 .bg-state(secondary);
 .bg-state(success);
@@ -15,13 +8,6 @@
 .bg-state(danger);
 .bg-state(light);
 .bg-state(dark);
-
-.bg-gradient-state(@state) {
-  @color: @@state;
-  .bg-gradient-@{state} {
-    .bg-gradient-variant(@color);
-  }
-}
 
 .if(@enable-gradients, {
   .bg-gradient-state(primary);

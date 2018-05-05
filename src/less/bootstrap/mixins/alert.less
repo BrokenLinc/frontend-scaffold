@@ -11,3 +11,15 @@
     color: darken(@color, 10%);
   }
 }
+
+.alert-state(@state) {
+  @color: @@state;
+
+  .alert-@{state} {
+    .alert-variant(
+      mix(@alert-bg-shader,     @color, @theme-color-interval * @alert-bg-level),
+      mix(@alert-border-shader, @color, @theme-color-interval * @alert-border-level),
+      mix(@alert-color-shader,  @color, @theme-color-interval * @alert-color-level),
+    );
+  }
+}

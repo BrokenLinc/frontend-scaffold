@@ -28,3 +28,8 @@
     }
   }
 }
+
+.table-row-state(@state) {
+  @color: @@state;
+  .table-row-variant(@state, mix(white, @color, 72%));
+}

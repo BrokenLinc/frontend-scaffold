@@ -60,17 +60,6 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-.btn-state(@state) {
-  @color: @@state;
-
-  .btn-@{state} {
-    .button-variant(@color, @color);
-  }
-  .btn-outline-@{state} {
-    .button-outline-variant(@color);
-  }
-}
-
 .btn-state(primary);
 .btn-state(secondary);
 .btn-state(success);

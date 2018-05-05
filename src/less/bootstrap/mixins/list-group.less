@@ -19,3 +19,15 @@
     }
   }
 }
+
+.list-group-item-state(@state) {
+  @color: @@state;
+
+  .list-group-item-@{state} {
+    .list-group-item-variant(
+      @state,
+      mix(white, @color, 72%),
+      mix(black, @color, 54%)
+    );
+  }
+}

@@ -43,17 +43,6 @@
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
-.alert-state(@state) {
-  @color: @@state;
-
-  .alert-@{state} {
-    .alert-variant(
-      mix(@alert-bg-shader,     @color, @theme-color-interval * @alert-bg-level),
-      mix(@alert-border-shader, @color, @theme-color-interval * @alert-border-level),
-      mix(@alert-color-shader,  @color, @theme-color-interval * @alert-color-level),
-    );
-  }
-}
 
 .alert-state(primary);
 .alert-state(secondary);
