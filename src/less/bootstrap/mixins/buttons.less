@@ -4,13 +4,13 @@
 // and disabled options for all buttons
 
 .button-variant(@background, @border, @hover-background: darken(@background, 7.5%), @hover-border: darken(@border, 10%), @active-background: darken(@background, 10%), @active-border: darken(@border, 12.5%)) {
-  color: color-yiq(@background);
+  color: contrast(@background);
   .gradient-bg(@background);
   border-color: @border;
   .box-shadow(@btn-box-shadow);
 
   .hover {
-    color: color-yiq(@hover-background);
+    color: contrast(@hover-background);
     .gradient-bg(@hover-background);
     border-color: @hover-border;
   }
@@ -28,7 +28,7 @@
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    color: color-yiq(@background);
+    color: contrast(@background);
     background-color: @background;
     border-color: @border;
   }
@@ -36,7 +36,7 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq(@active-background);
+    color: contrast(@active-background);
     background-color: @active-background;
     .if(@enable-gradients, {
       background-image: none; // Remove the gradient for the pressed/active state
@@ -54,7 +54,7 @@
   }
 }
 
-.button-outline-variant(@color, @color-hover: color-yiq(@color), @active-background: @color, @active-border: @color) {
+.button-outline-variant(@color, @color-hover: contrast(@color), @active-background: @color, @active-border: @color) {
   color: @color;
   background-color: transparent;
   background-image: none;
@@ -80,7 +80,7 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq(@active-background);
+    color: contrast(@active-background);
     background-color: @active-background;
     border-color: @active-border;
 

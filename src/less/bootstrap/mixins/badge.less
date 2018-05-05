@@ -1,10 +1,10 @@
-.badge-variant(@bg) {
-  color: color-yiq(@bg);
+.badge-variant(@bg, @color: white) {
+  color: contrast(@bg);
   background-color: @bg;
 
   &[href] {
     .hover-focus {
-      color: color-yiq(@bg);
+      color: contrast(@bg);
       text-decoration: none;
       background-color: darken(@bg, 10%);
     }
