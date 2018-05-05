@@ -430,15 +430,18 @@
 @custom-control-indicator-active-box-shadow:    none;
 
 @custom-checkbox-indicator-border-radius:       @border-radius;
-@custom-checkbox-indicator-icon-checked:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='@{custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23");
+@custom-checkbox-indicator-icon-checked-path:   replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='@{custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E", "#", "%23");
+@custom-checkbox-indicator-icon-checked:        url(@custom-checkbox-indicator-icon-checked-path);
 
 @custom-checkbox-indicator-indeterminate-bg:          @component-active-bg;
 @custom-checkbox-indicator-indeterminate-color:       @custom-control-indicator-checked-color;
-@custom-checkbox-indicator-icon-indeterminate:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='@{custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E"), "#", "%23");
+@custom-checkbox-indicator-icon-indeterminate-path:   replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='@{custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E", "#", "%23");
+@custom-checkbox-indicator-icon-indeterminate:        url(@custom-checkbox-indicator-icon-indeterminate-path);
 @custom-checkbox-indicator-indeterminate-box-shadow:  none;
 
 @custom-radio-indicator-border-radius:          50%;
-@custom-radio-indicator-icon-checked:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='@{custom-control-indicator-checked-color}'/%3E%3C/svg%3E"), "#", "%23");
+@custom-radio-indicator-icon-checked-path:      replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='@{custom-control-indicator-checked-color}'/%3E%3C/svg%3E", "#", "%23");
+@custom-radio-indicator-icon-checked:           url(@custom-radio-indicator-icon-checked-path);
 
 @custom-select-padding-y:           .375rem;
 @custom-select-padding-x:           .75rem;
@@ -451,7 +454,8 @@
 @custom-select-disabled-bg:         @gray-200;
 @custom-select-bg-size:             8px 10px; // In pixels because image dimensions
 @custom-select-indicator-color:     @gray-800;
-@custom-select-indicator:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='@{custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E"), "#", "%23");
+@custom-select-indicator-path:      replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='@{custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E", "#", "%23");
+@custom-select-indicator:           url(@custom-select-indicator);
 @custom-select-border-width:        @input-btn-border-width;
 @custom-select-border-color:        @input-border-color;
 @custom-select-border-radius:       @border-radius;
@@ -592,14 +596,16 @@
 @navbar-dark-hover-color:           fade(@white, 75%);
 @navbar-dark-active-color:          @white;
 @navbar-dark-disabled-color:        fade(@white, 25%);
-@navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23");
+@navbar-dark-toggler-icon-bg-path:  replace("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E", "#", "%23");
+@navbar-dark-toggler-icon-bg:       url(@navbar-dark-toggler-icon-bg-path);
 @navbar-dark-toggler-border-color:  fade(@white, 10%);
 
 @navbar-light-color:                fade(@black, 50%);
 @navbar-light-hover-color:          fade(@black, 70%);
 @navbar-light-active-color:         fade(@black, 90%);
 @navbar-light-disabled-color:       fade(@black, 30%);
-@navbar-light-toggler-icon-bg:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23");
+@navbar-light-toggler-icon-bg-path: replace("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E", "#", "%23");
+@navbar-light-toggler-icon-bg:      url(@navbar-light-toggler-icon-bg-path);
 @navbar-light-toggler-border-color: fade(@black, 10%);
 
 // Pagination
@@ -854,8 +860,10 @@
 
 @carousel-control-icon-width:       20px;
 
-@carousel-control-prev-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23");
-@carousel-control-next-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23");
+@carousel-control-prev-icon-bg-path:replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E", "#", "%23");
+@carousel-control-prev-icon-bg:     url(@carousel-control-prev-icon-bg-path);
+@carousel-control-next-icon-bg-path:(replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E", "#", "%23");
+@carousel-control-next-icon-bg:     url(@carousel-control-next-icon-bg-path);
 
 @carousel-transition:               transform .6s ease; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
 
