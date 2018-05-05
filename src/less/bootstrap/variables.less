@@ -568,39 +568,6 @@
 @nav-divider-color:                 @gray-200;
 @nav-divider-margin-y:              (@spacer / 2);
 
-// Navbar
-
-@navbar-padding-y:                  (@spacer / 2);
-@navbar-padding-x:                  @spacer;
-
-@navbar-nav-link-padding-x:         .5rem;
-
-@navbar-brand-font-size:            @font-size-lg;
-// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
-@nav-link-height:                   (@font-size-base * @line-height-base + @nav-link-padding-y * 2);
-@navbar-brand-height:               @navbar-brand-font-size * @line-height-base;
-@navbar-brand-padding-y:            (@nav-link-height - @navbar-brand-height) / 2;
-
-@navbar-toggler-padding-y:          .25rem;
-@navbar-toggler-padding-x:          .75rem;
-@navbar-toggler-font-size:          @font-size-lg;
-@navbar-toggler-border-radius:      @btn-border-radius;
-
-@navbar-dark-color:                 fade(@white, 50%);
-@navbar-dark-hover-color:           fade(@white, 75%);
-@navbar-dark-active-color:          @white;
-@navbar-dark-disabled-color:        fade(@white, 25%);
-@navbar-dark-toggler-icon-bg-path:  replace("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E", "#", "%23");
-@navbar-dark-toggler-icon-bg:       url(@navbar-dark-toggler-icon-bg-path);
-@navbar-dark-toggler-border-color:  fade(@white, 10%);
-
-@navbar-light-color:                fade(@black, 50%);
-@navbar-light-hover-color:          fade(@black, 70%);
-@navbar-light-active-color:         fade(@black, 90%);
-@navbar-light-disabled-color:       fade(@black, 30%);
-@navbar-light-toggler-icon-bg-path: replace("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='@{navbar-light-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E", "#", "%23");
-@navbar-light-toggler-icon-bg:      url(@navbar-light-toggler-icon-bg-path);
-@navbar-light-toggler-border-color: fade(@black, 10%);
 
 // Pagination
 
@@ -631,12 +598,6 @@
 @pagination-disabled-color:         @gray-600;
 @pagination-disabled-bg:            @white;
 @pagination-disabled-border-color:  @gray-300;
-
-
-// Jumbotron
-
-@jumbotron-padding:                 2rem;
-@jumbotron-bg:                      @gray-200;
 
 
 // Cards
@@ -836,30 +797,6 @@
 @breadcrumb-divider:                quote("/");
 
 @breadcrumb-border-radius:          @border-radius;
-
-
-// Carousel
-
-@carousel-control-color:            @white;
-@carousel-control-width:            15%;
-@carousel-control-opacity:          .5;
-
-@carousel-indicator-width:          30px;
-@carousel-indicator-height:         3px;
-@carousel-indicator-spacer:         3px;
-@carousel-indicator-active-bg:      @white;
-
-@carousel-caption-width:            70%;
-@carousel-caption-color:            @white;
-
-@carousel-control-icon-width:       20px;
-
-@carousel-control-prev-icon-bg-path:replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E", "#", "%23");
-@carousel-control-prev-icon-bg:     url(@carousel-control-prev-icon-bg-path);
-@carousel-control-next-icon-bg-path:replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='@{carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E", "#", "%23");
-@carousel-control-next-icon-bg:     url(@carousel-control-next-icon-bg-path);
-
-@carousel-transition:               transform .6s ease; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
 
 
 // Close
