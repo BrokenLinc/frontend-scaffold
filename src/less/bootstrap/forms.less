@@ -16,7 +16,7 @@
   border: @input-border-width solid @input-border-color;
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  .ifelse(@enable-rounded, {
+  .if(@enable-rounded, {
     // Manually use the if/else instead of the mixin to account for iOS override
     border-radius: @input-border-radius;
   },{
