@@ -1,31 +1,26 @@
 // Margin and Padding
 
-@each @breakpoint in map-keys(@grid-breakpoints) {
-  .media-breakpoint-up(@breakpoint) {
-    @infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
 
-    @each @prop, @abbrev in (margin: m, padding: p) {
-      @each @size, @length in @spacers {
+  .utility() {
+    .infixed();
+  }
 
-        .@{abbrev}@{infix}-@{size} { @{prop}: @length !important; }
-        .@{abbrev}t@{infix}-@{size},
-        .@{abbrev}y@{infix}-@{size} {
-          @{prop}-top: @length !important;
-        }
-        .@{abbrev}r@{infix}-@{size},
-        .@{abbrev}x@{infix}-@{size} {
-          @{prop}-right: @length !important;
-        }
-        .@{abbrev}b@{infix}-@{size},
-        .@{abbrev}y@{infix}-@{size} {
-          @{prop}-bottom: @length !important;
-        }
-        .@{abbrev}l@{infix}-@{size},
-        .@{abbrev}x@{infix}-@{size} {
-          @{prop}-left: @length !important;
-        }
-      }
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'-@{breakpoint}');
     }
+  }
+
+  .infixed(@infix: ~'') {
+    .infixed(@infix, margin, m);
+    .infixed(@infix, padding, p);
 
     // Some special margin utils
     .m@{infix}-auto { margin: auto !important; }
@@ -44,6 +39,35 @@
     .ml@{infix}-auto,
     .mx@{infix}-auto {
       margin-left: auto !important;
+    }
+  }
+
+  .infixed(@infix, @prop, @abbrev) {
+    .infixed(@infix, @prop, @abbrev, 0, @spacer-0);
+    .infixed(@infix, @prop, @abbrev, 1, @spacer-1);
+    .infixed(@infix, @prop, @abbrev, 2, @spacer-2);
+    .infixed(@infix, @prop, @abbrev, 3, @spacer-3);
+    .infixed(@infix, @prop, @abbrev, 4, @spacer-4);
+    .infixed(@infix, @prop, @abbrev, 5, @spacer-5);
+  }
+
+  .infixed(@infix, @prop, @abbrev, @size, @length) {
+    .@{abbrev}@{infix}-@{size} { @{prop}: @length !important; }
+    .@{abbrev}t@{infix}-@{size},
+    .@{abbrev}y@{infix}-@{size} {
+      @{prop}-top: @length !important;
+    }
+    .@{abbrev}r@{infix}-@{size},
+    .@{abbrev}x@{infix}-@{size} {
+      @{prop}-right: @length !important;
+    }
+    .@{abbrev}b@{infix}-@{size},
+    .@{abbrev}y@{infix}-@{size} {
+      @{prop}-bottom: @length !important;
+    }
+    .@{abbrev}l@{infix}-@{size},
+    .@{abbrev}x@{infix}-@{size} {
+      @{prop}-left: @length !important;
     }
   }
 }

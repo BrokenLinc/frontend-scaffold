@@ -2,10 +2,25 @@
 // Utilities for common `display` values
 //
 
-@each @breakpoint in map-keys(@grid-breakpoints) {
-  .media-breakpoint-up(@breakpoint) {
-    @infix: breakpoint-infix(@breakpoint, @grid-breakpoints);
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
 
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'-@{breakpoint}');
+    }
+  }
+
+  .infixed(@infix: ~'') {
     .d@{infix}-none         { display: none !important; }
     .d@{infix}-inline       { display: inline !important; }
     .d@{infix}-inline-block { display: inline-block !important; }
