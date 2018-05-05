@@ -26,7 +26,7 @@
 
   &:checked ~ .custom-control-label::before {
     color: @custom-control-indicator-checked-color;
-    .gradient-bg(@custom-control-indicator-checked-bg);
+    background: @custom-control-indicator-checked-bg;
     box-shadow: @custom-control-indicator-checked-box-shadow;
   }
 
@@ -102,7 +102,7 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::before {
-      .gradient-bg(@custom-control-indicator-checked-bg);
+      background: @custom-control-indicator-checked-bg;
     }
     &::after {
       background-image: @custom-checkbox-indicator-icon-checked;
@@ -111,7 +111,7 @@
 
   .custom-control-input:indeterminate ~ .custom-control-label {
     &::before {
-      .gradient-bg(@custom-checkbox-indicator-indeterminate-bg);
+      background: @custom-checkbox-indicator-indeterminate-bg;
       box-shadow: @custom-checkbox-indicator-indeterminate-box-shadow;
     }
     &::after {
@@ -140,7 +140,7 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::before {
-      .gradient-bg(@custom-control-indicator-checked-bg);
+      background: @custom-control-indicator-checked-bg;
     }
     &::after {
       background-image: @custom-radio-indicator-icon-checked;
@@ -286,7 +286,7 @@
     line-height: @custom-file-line-height;
     color: @custom-file-button-color;
     content: "Browse";
-    .gradient-bg(@custom-file-button-bg);
+    background: @custom-file-button-bg;
     border-left: @custom-file-border-width solid @custom-file-border-color;
     border-radius: 0 @custom-file-border-radius @custom-file-border-radius 0;
   }
@@ -316,7 +316,7 @@
     width: @custom-range-thumb-width;
     height: @custom-range-thumb-height;
     margin-top: -(@custom-range-thumb-width * .25); // Webkit specific?
-    .gradient-bg(@custom-range-thumb-bg);
+    background: @custom-range-thumb-bg;
     border: @custom-range-thumb-border;
     border-radius: @custom-range-thumb-border-radius;
     box-shadow: @custom-range-thumb-box-shadow;
@@ -328,7 +328,7 @@
     }
 
     &:active {
-      .gradient-bg(@custom-range-thumb-active-bg);
+      background: @custom-range-thumb-active-bg;
     }
   }
 
@@ -346,7 +346,7 @@
   &::-moz-range-thumb {
     width: @custom-range-thumb-width;
     height: @custom-range-thumb-height;
-    .gradient-bg(@custom-range-thumb-bg);
+    background: @custom-range-thumb-bg;
     border: @custom-range-thumb-border;
     border-radius: @custom-range-thumb-border-radius;
     box-shadow: @custom-range-thumb-box-shadow;
@@ -358,7 +358,7 @@
     }
 
     &:active {
-      .gradient-bg(@custom-range-thumb-active-bg);
+      background: @custom-range-thumb-active-bg;
     }
   }
 
@@ -376,7 +376,7 @@
   &::-ms-thumb {
     width: @custom-range-thumb-width;
     height: @custom-range-thumb-height;
-    .gradient-bg(@custom-range-thumb-bg);
+    background: @custom-range-thumb-bg;
     border: @custom-range-thumb-border;
     border-radius: @custom-range-thumb-border-radius;
     box-shadow: @custom-range-thumb-box-shadow;
@@ -388,7 +388,7 @@
     }
 
     &:active {
-      .gradient-bg(@custom-range-thumb-active-bg);
+      background: @custom-range-thumb-active-bg;
     }
   }
 

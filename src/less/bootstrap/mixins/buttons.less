@@ -10,13 +10,13 @@
   @active-border: darken(@border, 12.5%);
 
   color: contrast(@background);
-  .gradient-bg(@background);
+  background: @background;
   border-color: @border;
   box-shadow: @btn-box-shadow;
 
   &:hover {
     color: contrast(@hover-background);
-    .gradient-bg(@hover-background);
+    background: @hover-background;
     border-color: @hover-border;
   }
 
@@ -40,9 +40,7 @@
   .show > &.dropdown-toggle {
     color: contrast(@active-background);
     background-color: @active-background;
-    .if(@enable-gradients, {
-      background-image: none; // Remove the gradient for the pressed/active state
-    });
+    background-image: none; // Remove the gradient for the pressed/active state
     border-color: @active-border;
 
     &:focus {

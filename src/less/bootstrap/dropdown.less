@@ -122,14 +122,14 @@
   &:focus {
     color: @dropdown-link-hover-color;
     text-decoration: none;
-    .gradient-bg(@dropdown-link-hover-bg);
+    background: @dropdown-link-hover-bg;
   }
 
   &.active,
   &:active {
     color: @dropdown-link-active-color;
     text-decoration: none;
-    .gradient-bg(@dropdown-link-active-bg);
+    background: @dropdown-link-active-bg;
   }
 
   &.disabled,
@@ -137,9 +137,7 @@
     color: @dropdown-link-disabled-color;
     background-color: transparent;
     // Remove CSS gradients if they're enabled
-    .if(@enable-gradients, {
-      background-image: none;
-    });
+    background-image: none;
   }
 }
 
