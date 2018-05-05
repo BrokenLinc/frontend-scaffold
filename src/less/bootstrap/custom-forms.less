@@ -172,11 +172,11 @@
   background: @custom-select-bg @custom-select-indicator no-repeat right @custom-select-padding-x center;
   background-size: @custom-select-bg-size;
   border: @custom-select-border-width solid @custom-select-border-color;
-  @if @enable-rounded {
+  .ifelse(@enable-rounded, {
     border-radius: @custom-select-border-radius;
-  } @else {
+  },{
     border-radius: 0;
-  }
+  });
   appearance: none;
 
   &:focus {

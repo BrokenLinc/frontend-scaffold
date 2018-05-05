@@ -26,7 +26,7 @@
 }
 
 .caret(@direction: down) {
-  @if @enable-caret {
+  .if(@enable-caret, {
     &::after {
       display: inline-block;
       width: 0;
@@ -34,16 +34,18 @@
       margin-left: @caret-width * .85;
       vertical-align: @caret-width * .85;
       content: "";
-      @if @direction == down {
+      & when (@direction = down) {
         .caret-down;
-      } @else if @direction == up {
+      }
+      & when (@direction = up) {
         .caret-up;
-      } @else if @direction == right {
+      }
+      & when (@direction = right) {
         .caret-right;
       }
     }
 
-    @if @direction == left {
+    & when (@direction = down){
       &::after {
         display: none;
       }
@@ -62,5 +64,5 @@
     &:empty::after {
       margin-left: 0;
     }
-  }
+  });
 }

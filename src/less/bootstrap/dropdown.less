@@ -138,9 +138,9 @@
     color: @dropdown-link-disabled-color;
     background-color: transparent;
     // Remove CSS gradients if they're enabled
-    @if @enable-gradients {
+    .if(@enable-gradients, {
       background-image: none;
-    }
+    });
   }
 }
 

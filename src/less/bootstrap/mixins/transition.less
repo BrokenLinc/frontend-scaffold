@@ -1,11 +1,16 @@
-.transition(@transition...) {
-  @if @enable-transitions {
-    @if length(@transition) == 0 {
-      transition: @transition-base;
-    } @else {
-      transition: @transition;
-    }
+.transition() {
+  .if(@enable-transitions, {
+    transition: @transition-base;
+  });
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
   }
+}
+.transition(@transition...) {
+  .if(@enable-transitions, {
+    transition: @transition;
+  });
 
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;

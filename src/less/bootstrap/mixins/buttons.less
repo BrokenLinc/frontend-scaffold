@@ -18,11 +18,11 @@
   &:focus,
   &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
-    @if @enable-shadows {
+    .ifelse(@enable-shadows, {
       box-shadow: @btn-box-shadow, 0 0 0 @btn-focus-width fade(@border, 50%);
-    } @else {
+    },{
       box-shadow: 0 0 0 @btn-focus-width fade(@border, 50%);
-    }
+    });
   }
 
   // Disabled comes first so active can properly restyle
@@ -38,18 +38,18 @@
   .show > &.dropdown-toggle {
     color: color-yiq(@active-background);
     background-color: @active-background;
-    @if @enable-gradients {
+    .if(@enable-gradients, {
       background-image: none; // Remove the gradient for the pressed/active state
-    }
+    });
     border-color: @active-border;
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      @if @enable-shadows {
+      .ifelse(@enable-shadows {
         box-shadow: @btn-active-box-shadow, 0 0 0 @btn-focus-width fade(@border, 50%);
-      } @else {
+      },{
         box-shadow: 0 0 0 @btn-focus-width fade(@border, 50%);
-      }
+      });
     }
   }
 }
@@ -86,9 +86,10 @@
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      @if @enable-shadows and @btn-active-box-shadow != none {
+      & when (@enable-shadows) and not (@btn-active-box-shadow = none) {
         box-shadow: @btn-active-box-shadow, 0 0 0 @btn-focus-width fade(@color, 50%);
-      } @else {
+      }
+      & when not (@enable-shadows), (@btn-active-box-shadow = none) {
         box-shadow: 0 0 0 @btn-focus-width fade(@color, 50%);
       }
     }
@@ -101,9 +102,9 @@
   font-size: @font-size;
   line-height: @line-height;
   // Manually declare to provide an override to the browser default
-  @if @enable-rounded {
+  .ifelse(@enable-rounded, {
     border-radius: @border-radius;
-  } @else {
+  },{
     border-radius: 0;
-  }
+  });
 }
