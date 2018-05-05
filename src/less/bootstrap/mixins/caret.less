@@ -26,43 +26,41 @@
 }
 
 .caret(@direction: down) {
-  .if(@enable-caret, {
+  &::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: @caret-width * .85;
+    vertical-align: @caret-width * .85;
+    content: "";
+    & when (@direction = down) {
+      .caret-down;
+    }
+    & when (@direction = up) {
+      .caret-up;
+    }
+    & when (@direction = right) {
+      .caret-right;
+    }
+  }
+
+  & when (@direction = down){
     &::after {
+      display: none;
+    }
+
+    &::before {
       display: inline-block;
       width: 0;
       height: 0;
-      margin-left: @caret-width * .85;
+      margin-right: @caret-width * .85;
       vertical-align: @caret-width * .85;
       content: "";
-      & when (@direction = down) {
-        .caret-down;
-      }
-      & when (@direction = up) {
-        .caret-up;
-      }
-      & when (@direction = right) {
-        .caret-right;
-      }
+      .caret-left;
     }
+  }
 
-    & when (@direction = down){
-      &::after {
-        display: none;
-      }
-
-      &::before {
-        display: inline-block;
-        width: 0;
-        height: 0;
-        margin-right: @caret-width * .85;
-        vertical-align: @caret-width * .85;
-        content: "";
-        .caret-left;
-      }
-    }
-
-    &:empty::after {
-      margin-left: 0;
-    }
-  });
+  &:empty::after {
+    margin-left: 0;
+  }
 }
