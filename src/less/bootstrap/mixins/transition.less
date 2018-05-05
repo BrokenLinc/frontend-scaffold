@@ -1,16 +1,12 @@
 .transition() {
-  .if(@enable-transitions, {
-    transition: @transition-base;
-  });
+  transition: @transition-base;
 
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
   }
 }
 .transition(@transition...) {
-  .if(@enable-transitions, {
-    transition: @transition;
-  });
+  transition: @transition;
 
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
