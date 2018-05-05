@@ -97,7 +97,7 @@
 
 .custom-checkbox {
   .custom-control-label::before {
-    .border-radius(@custom-checkbox-indicator-border-radius);
+    border-radius: @custom-checkbox-indicator-border-radius;
   }
 
   .custom-control-input:checked ~ .custom-control-label {
@@ -172,11 +172,8 @@
   background: @custom-select-bg @custom-select-indicator no-repeat right @custom-select-padding-x center;
   background-size: @custom-select-bg-size;
   border: @custom-select-border-width solid @custom-select-border-color;
-  .if(@enable-rounded, {
-    border-radius: @custom-select-border-radius;
-  },{
-    border-radius: 0;
-  });
+
+  border-radius: @custom-select-border-radius;
   appearance: none;
 
   &:focus {
@@ -274,7 +271,7 @@
   color: @custom-file-color;
   background-color: @custom-file-bg;
   border: @custom-file-border-width solid @custom-file-border-color;
-  .border-radius(@custom-file-border-radius);
+  border-radius: @custom-file-border-radius;
   .box-shadow(@custom-file-box-shadow);
 
   &::after {
@@ -291,7 +288,7 @@
     content: "Browse";
     .gradient-bg(@custom-file-button-bg);
     border-left: @custom-file-border-width solid @custom-file-border-color;
-    .border-radius(0 @custom-file-border-radius @custom-file-border-radius 0);
+    border-radius: 0 @custom-file-border-radius @custom-file-border-radius 0;
   }
 }
 
@@ -321,7 +318,7 @@
     margin-top: -(@custom-range-thumb-width * .25); // Webkit specific?
     .gradient-bg(@custom-range-thumb-bg);
     border: @custom-range-thumb-border;
-    .border-radius(@custom-range-thumb-border-radius);
+    border-radius: @custom-range-thumb-border-radius;
     .box-shadow(@custom-range-thumb-box-shadow);
     appearance: none;
 
@@ -342,7 +339,7 @@
     cursor: @custom-range-track-cursor;
     background-color: @custom-range-track-bg;
     border-color: transparent;
-    .border-radius(@custom-range-track-border-radius);
+    border-radius: @custom-range-track-border-radius;
     .box-shadow(@custom-range-track-box-shadow);
   }
 
@@ -351,7 +348,7 @@
     height: @custom-range-thumb-height;
     .gradient-bg(@custom-range-thumb-bg);
     border: @custom-range-thumb-border;
-    .border-radius(@custom-range-thumb-border-radius);
+    border-radius: @custom-range-thumb-border-radius;
     .box-shadow(@custom-range-thumb-box-shadow);
     appearance: none;
 
@@ -372,7 +369,7 @@
     cursor: @custom-range-track-cursor;
     background-color: @custom-range-track-bg;
     border-color: transparent; // Firefox specific?
-    .border-radius(@custom-range-track-border-radius);
+    border-radius: @custom-range-track-border-radius;
     .box-shadow(@custom-range-track-box-shadow);
   }
 
@@ -381,7 +378,7 @@
     height: @custom-range-thumb-height;
     .gradient-bg(@custom-range-thumb-bg);
     border: @custom-range-thumb-border;
-    .border-radius(@custom-range-thumb-border-radius);
+    border-radius: @custom-range-thumb-border-radius;
     .box-shadow(@custom-range-thumb-box-shadow);
     appearance: none;
 
@@ -408,12 +405,12 @@
 
   &::-ms-fill-lower {
     background-color: @custom-range-track-bg;
-    .border-radius(@custom-range-track-border-radius);
+    border-radius: @custom-range-track-border-radius;
   }
 
   &::-ms-fill-upper {
     margin-right: 15px; // arbitrary?
     background-color: @custom-range-track-bg;
-    .border-radius(@custom-range-track-border-radius);
+    border-radius: @custom-range-track-border-radius;
   }
 }

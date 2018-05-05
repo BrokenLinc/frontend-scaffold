@@ -11,7 +11,7 @@
   background-color: @card-bg;
   background-clip: border-box;
   border: @card-border-width solid @card-border-color;
-  .border-radius(@card-border-radius);
+  border-radius: @card-border-radius;
 
   > hr {
     margin-right: 0;
@@ -72,7 +72,7 @@
   border-bottom: @card-border-width solid @card-border-color;
 
   &:first-child {
-    .border-radius(@card-inner-border-radius @card-inner-border-radius 0 0);
+    border-radius: @card-inner-border-radius @card-inner-border-radius 0 0;
   }
 
   + .list-group {
@@ -88,7 +88,7 @@
   border-top: @card-border-width solid @card-border-color;
 
   &:last-child {
-    .border-radius(0 0 @card-inner-border-radius @card-inner-border-radius);
+    border-radius: 0 0 @card-inner-border-radius @card-inner-border-radius;
   }
 }
 
@@ -121,7 +121,7 @@
 
 .card-img {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  .border-radius(@card-inner-border-radius);
+  border-radius: @card-inner-border-radius;
 }
 
 // Card image caps
@@ -193,7 +193,7 @@
       }
 
       // Handle rounded corners
-      .if(@enable-rounded, {
+      & when (@card-border-radius > 0) {
         &:first-child {
           .border-right-radius(0);
 
@@ -221,7 +221,7 @@
         }
 
         &:only-child {
-          .border-radius(@card-border-radius);
+          border-radius: @card-border-radius;
 
           .card-img-top,
           .card-header {
@@ -234,16 +234,16 @@
         }
 
         &:not(:first-child):not(:last-child):not(:only-child) {
-          .border-radius(0);
+          border-radius: 0;
 
           .card-img-top,
           .card-img-bottom,
           .card-header,
           .card-footer {
-            .border-radius(0);
+            border-radius: 0;
           }
         }
-      });
+      }
     }
   }
 }
