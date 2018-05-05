@@ -23,7 +23,8 @@
   text-align: inherit; // For `<button>`s (anchors inherit)
 
   // Hover state
-  .hover-focus {
+  &:hover,
+&:focus {
     color: @list-group-action-hover-color;
     text-decoration: none;
     background-color: @list-group-hover-bg;
@@ -58,7 +59,8 @@
     .border-bottom-radius(@list-group-border-radius);
   }
 
-  .hover-focus {
+  &:hover,
+&:focus {
     z-index: 1; // Place hover/active items above their siblings for proper border styling
     text-decoration: none;
   }
