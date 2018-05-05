@@ -12,7 +12,7 @@
   color: contrast(@background);
   .gradient-bg(@background);
   border-color: @border;
-  .box-shadow(@btn-box-shadow);
+  box-shadow: @btn-box-shadow;
 
   &:hover {
     color: contrast(@hover-background);
@@ -23,11 +23,8 @@
   &:focus,
   &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
-    .if(@enable-shadows, {
-      box-shadow: @btn-box-shadow, 0 0 0 @btn-focus-width fade(@border, 50%);
-    },{
-      box-shadow: 0 0 0 @btn-focus-width fade(@border, 50%);
-    });
+    box-shadow: @btn-box-shadow,
+                0 0 0 @btn-focus-width fade(@border, 50%);
   }
 
   // Disabled comes first so active can properly restyle
@@ -50,11 +47,8 @@
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      .if(@enable-shadows {
-        box-shadow: @btn-active-box-shadow, 0 0 0 @btn-focus-width fade(@border, 50%);
-      },{
-        box-shadow: 0 0 0 @btn-focus-width fade(@border, 50%);
-      });
+      box-shadow: @btn-active-box-shadow,
+                  0 0 0 @btn-focus-width fade(@border, 50%);
     }
   }
 }
@@ -95,10 +89,11 @@
 
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
-      & when (@enable-shadows) and not (@btn-active-box-shadow = none) {
-        box-shadow: @btn-active-box-shadow, 0 0 0 @btn-focus-width fade(@color, 50%);
+      & when not (@btn-active-box-shadow = none) {
+        box-shadow: @btn-active-box-shadow,
+                    0 0 0 @btn-focus-width fade(@color, 50%);
       }
-      & when not (@enable-shadows), (@btn-active-box-shadow = none) {
+      & when (@btn-active-box-shadow = none) {
         box-shadow: 0 0 0 @btn-focus-width fade(@color, 50%);
       }
     }
