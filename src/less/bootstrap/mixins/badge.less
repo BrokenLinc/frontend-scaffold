@@ -3,7 +3,8 @@
   background-color: @bg;
 
   &[href] {
-    .hover-focus {
+    &:hover,
+&:focus {
       color: contrast(@bg);
       text-decoration: none;
       background-color: darken(@bg, 10%);
