@@ -19,12 +19,23 @@
 // Optionally enable a sidebar transition effect
 //  see sidebar-transition-effects.less
 //  for important notes on markup
+@st-menu-bg: @lightest-gray;
 @st-menu-width: 280px;
-@st-blocker-background: fade(black, 20%);
+@st-blocker-background: fade(@body-bg, 70%);
 @st-transition-duration: 0.5s;
 @st-effect-perspective: 1500px;
 
 .st-effect-enable();
 .perimeter {
   .st-effect-scaledownpusher;
+}
+
+body {
+  background: @body-bg;
+}
+.st-menu {
+  background: @st-menu-bg;
+}
+.content-inner {
+  background: @content-bg;
 }
