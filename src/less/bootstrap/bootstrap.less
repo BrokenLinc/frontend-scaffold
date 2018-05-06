@@ -1,36 +1,68 @@
 /*!
+ * Based on:
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@import "variables";
-@import "mixins";
 @import "reboot";
 @import "type";
-@import "images";
 @import "code";
-@import "tables";
-@import "forms";
-@import "buttons";
-@import "transitions";
-@import "dropdown";
-@import "button-group";
-@import "input-group";
-@import "custom-forms";
-@import "nav";
-@import "card";
-@import "breadcrumb";
-@import "pagination";
-@import "badge";
-@import "alert";
-@import "progress";
-@import "media";
-@import "list-group";
-@import "close";
-@import "modal";
-@import "tooltip";
-@import "popover";
-@import "utilities";
+@import "images";
 @import "print";
+
+// Components
+//
+// Recommend commenting everything out, then uncommenting components as you need them.
+@import "components/alert";
+@import "components/badge";
+@import "components/breadcrumb";
+@import "components/button-group";
+@import "components/buttons";
+@import "components/card";
+@import "components/close";
+@import "components/custom-forms";
+@import "components/dropdown";
+@import "components/forms";
+@import "components/input-group";
+@import "components/list-group";
+@import "components/media";
+@import "components/modal";
+@import "components/nav";
+@import "components/pagination";
+@import "components/popover";
+@import "components/progress";
+@import "components/tables";
+@import "components/tooltip";
+
+// Utilities
+//
+// Use the (reference) directive to utilize mixins without outputting CSS.
+// Remove the (reference) if you actually want the utility classes in your build.
+@import (reference) "utilities/align";
+@import (reference) "utilities/background";
+@import (reference) "utilities/border-radius";
+@import (reference) "utilities/borders";
+@import (reference) "utilities/caret";
+@import "utilities/clearfix";
+@import (reference) "utilities/display";
+@import "utilities/embed";
+@import (reference) "utilities/flex";
+@import "utilities/float";
+@import (reference) "utilities/gradients";
+@import "utilities/lists";
+@import "utilities/position";
+@import "utilities/reset-text";
+@import (reference) "utilities/resize";
+@import "utilities/screenreaders";
+@import (reference) "utilities/shadows";
+@import (reference) "utilities/size";
+@import (reference) "utilities/transitions";
+@import (reference) "utilities/sizing";
+@import (reference) "utilities/spacing";
+@import (reference) "utilities/text";
+@import "utilities/text-emphasis";
+@import "utilities/text-hide";
+@import "utilities/visibility";
+
+// Goes in last!
+@import "variables";

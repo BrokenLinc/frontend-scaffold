@@ -899,35 +899,43 @@
 <h2 id="input-groups">Input groups</h2>
 <div class="js-html-inspector" data-remove-target="p:first">
     <div class="form-group">
-        <div class="input-group">
-            <span class="input-group-addon">.input-group-addon</span>
-            <input class="form-control" type="text" placeholder="input.form-control">
-      <span class="input-group-addon">
-        <input type="checkbox">
-      </span>
-      <span class="input-group-addon">
-        <input type="radio">
-      </span>
-        </div>
+      <div class="input-group">
+        <span class="input-group-prepend">
+          <span class="input-group-text">Prepend</span>
+        </span>
+        <input class="form-control" type="text" placeholder="input.form-control">
+        <span class="input-group-text input-group-append input-group-prepend">
+          <input type="checkbox">
+        </span>
+        <span class="input-group-append">
+          <span class="input-group-text">
+            <input type="radio">
+          </span>
+        </span>
+      </div>
     </div>
     <div class="form-group">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="input.form-control">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">
-            .input-group-btn button
-        </button>
-      </span>
-        </div>
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="input.form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">
+              .input-group-btn button
+          </button>
+        </span>
+      </div>
     </div>
 </div>
 
 <div class="js-html-inspector" data-remove-target="p:first">
     <div class="form-group">
         <div class="input-group input-group-lg">
-            <span class="input-group-addon">Addon</span>
+            <span class="input-group-prepend">
+              <span class="input-group-text">Prepend</span>
+            </span>
             <input class="form-control input-lg" type="text" placeholder=".input-lg">
-            <span class="input-group-addon">Addon</span>
+            <span class="input-group-append">
+              <span class="input-group-text">Append</span>
+            </span>
         </div>
     </div>
 </div>
@@ -935,9 +943,13 @@
 <div class="js-html-inspector" data-remove-target="p:first">
     <div class="form-group">
         <div class="input-group input-group-sm">
-            <span class="input-group-addon">Addon</span>
+            <span class="input-group-prepend">
+              <span class="input-group-text">Prepend</span>
+            </span>
             <input class="form-control input-sm" type="text" placeholder=".input-sm">
-            <span class="input-group-addon">Addon</span>
+            <span class="input-group-append">
+              <span class="input-group-text">Append</span>
+            </span>
         </div>
     </div>
 </div>
