@@ -49,6 +49,12 @@
 .badge-state(light);
 .badge-state(dark);
 
+@media print {
+  .badge {
+    border: @border-width solid @black;
+  }
+}
+
 //
 // Mixins
 //

@@ -188,6 +188,40 @@
 .table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
 .table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
 
+@media print {
+  .table {
+    border-collapse: collapse !important;
+
+    td,
+    th {
+      background-color: @white !important;
+    }
+  }
+
+  .table-bordered {
+    th,
+    td {
+      border: 1px solid @gray-300 !important;
+    }
+  }
+
+  .table-dark {
+    color: inherit;
+
+    th,
+    td,
+    thead th,
+    tbody + tbody {
+      border-color: @table-border-color;
+    }
+  }
+
+  .table .thead-dark th {
+    color: inherit;
+    border-color: @table-border-color;
+  }
+}
+
 //
 // Mixins
 //
