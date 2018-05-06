@@ -48,3 +48,27 @@
 .badge-state(danger);
 .badge-state(light);
 .badge-state(dark);
+
+// Mixins
+
+.badge-variant(@bg, @color: white) {
+  color: contrast(@bg);
+  background-color: @bg;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      color: contrast(@bg);
+      text-decoration: none;
+      background-color: darken(@bg, 10%);
+    }
+  }
+}
+
+.badge-state(@state) {
+  @color: @@state;
+
+  .badge-@{state} {
+    .badge-variant(@color);
+  }
+}
