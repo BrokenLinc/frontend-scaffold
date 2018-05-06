@@ -1,3 +1,41 @@
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+@table-cell-padding:          .75rem;
+@table-cell-padding-sm:       .3rem;
+
+@table-bg:                    transparent;
+@table-accent-bg:             fade(@black, 5%);
+@table-hover-bg:              fade(@black, 7.5%);
+@table-active-bg:             @table-hover-bg;
+
+@table-border-width:          @border-width;
+@table-border-color:          @gray-300;
+
+@table-head-bg:               @gray-200;
+@table-head-color:            @gray-700;
+
+@table-dark-bg:               @gray-900;
+@table-dark-accent-bg:        fade(@white, 5%);
+@table-dark-hover-bg:         fade(@white, 7.5%);
+@table-dark-border-color:     lighten(@gray-900, 7.5%);
+@table-dark-color:            @body-bg;
+
+@table-striped-order:         odd;
+
+@table-caption-color:         @text-muted;
+
+
+// Reboot
+// For consistency with the table styles
+
+caption {
+  padding-top: @table-cell-padding;
+  padding-bottom: @table-cell-padding;
+  color: @table-caption-color;
+}
+
 //
 // Basic Bootstrap table
 //

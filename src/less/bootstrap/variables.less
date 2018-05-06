@@ -81,23 +81,16 @@
 @link-hover-color:          darken(@link-color, 15%);
 @link-hover-decoration:     underline;
 
-// Paragraphs
-//
-// Style p element.
 
-@paragraph-margin-bottom:   1rem;
-
-
-// Grid breakpoints
+// Breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-@grid-breakpoint-xs: 0;
-@grid-breakpoint-sm: 576px;
-@grid-breakpoint-md: 768px;
-@grid-breakpoint-lg: 992px;
-@grid-breakpoint-xl: 1200px;
+@breakpoint-sm: 576px;
+@breakpoint-md: 768px;
+@breakpoint-lg: 992px; // Used for printing
+@breakpoint-xl: 1200px;
 
 @sm-up: ~"(min-width: 576px)";
 @md-up: ~"(min-width: 768px)";
@@ -123,13 +116,6 @@
 @container-max-width-lg: 960px;
 @container-max-width-xl: 1140px;
 
-// Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
-
-@grid-columns:                12;
-@grid-gutter-width:           30px;
-
 // Components
 //
 // Define common padding and border radius sizes and more.
@@ -144,18 +130,8 @@
 @border-radius-lg:            .3rem;
 @border-radius-sm:            .2rem;
 
-@box-shadow-sm:               0 .125rem .25rem fade(@black, 7.5%);
-@box-shadow:                  0 .5rem 1rem fade(@black, 15%);
-@box-shadow-lg:               0 1rem 3rem fade(@black, 17.5%);
-
 @component-active-color:      @white;
 @component-active-bg:         @primary;
-
-@caret-width:                 .3em;
-
-@transition-base:             all .2s ease-in-out;
-@transition-fade:             opacity .15s linear;
-@transition-collapse:         height .35s ease;
 
 
 // Fonts
@@ -201,60 +177,10 @@
 @display4-weight:             300;
 @display-line-height:         @headings-line-height;
 
-@lead-font-size:              (@font-size-base * 1.25);
-@lead-font-weight:            300;
-
 @small-font-size:             80%;
 
 @text-muted:                  @gray-600;
 
-@blockquote-small-color:      @gray-600;
-@blockquote-font-size:        (@font-size-base * 1.25);
-
-@hr-border-color:             fade(@black, 10%);
-@hr-border-width:             @border-width;
-
-@mark-padding:                .2em;
-
-@dt-font-weight:              @font-weight-bold;
-
-@kbd-box-shadow:              inset 0 -.1rem 0 fade(@black, 25%);
-@nested-kbd-font-weight:      @font-weight-bold;
-
-@list-inline-padding:         .5rem;
-
-@mark-bg:                     #fcf8e3;
-
-@hr-margin-y:                 @spacer;
-
-
-// Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
-
-@table-cell-padding:          .75rem;
-@table-cell-padding-sm:       .3rem;
-
-@table-bg:                    transparent;
-@table-accent-bg:             fade(@black, 5%);
-@table-hover-bg:              fade(@black, 7.5%);
-@table-active-bg:             @table-hover-bg;
-
-@table-border-width:          @border-width;
-@table-border-color:          @gray-300;
-
-@table-head-bg:               @gray-200;
-@table-head-color:            @gray-700;
-
-@table-dark-bg:               @gray-900;
-@table-dark-accent-bg:        fade(@white, 5%);
-@table-dark-hover-bg:         fade(@white, 7.5%);
-@table-dark-border-color:     lighten(@gray-900, 7.5%);
-@table-dark-color:            @body-bg;
-
-@table-striped-order:         odd;
-
-@table-caption-color:         @text-muted;
 
 // Buttons + Forms
 //
@@ -366,153 +292,6 @@
 
 @input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
-@form-text-margin-top:                  .25rem;
-
-@form-check-input-gutter:               1.25rem;
-@form-check-input-margin-y:             .3rem;
-@form-check-input-margin-x:             .25rem;
-
-@form-check-inline-margin-x:            .75rem;
-@form-check-inline-input-margin-x:      .3125rem;
-
-@form-group-margin-bottom:              1rem;
-
-@input-group-addon-color:               @input-color;
-@input-group-addon-bg:                  @gray-200;
-@input-group-addon-border-color:        @input-border-color;
-
-@custom-control-gutter:                 1.5rem;
-@custom-control-spacer-x:               1rem;
-
-@custom-control-indicator-size:         1rem;
-@custom-control-indicator-bg:           @gray-300;
-@custom-control-indicator-bg-size:      50% 50%;
-@custom-control-indicator-box-shadow:   inset 0 .25rem .25rem fade(@black, 10%);
-
-@custom-control-indicator-disabled-bg:          @gray-200;
-@custom-control-label-disabled-color:           @gray-600;
-
-@custom-control-indicator-checked-color:        @component-active-color;
-@custom-control-indicator-checked-bg:           @component-active-bg;
-@custom-control-indicator-checked-disabled-bg:  fade(@primary, 50%);
-@custom-control-indicator-checked-box-shadow:   none;
-
-@custom-control-indicator-focus-box-shadow:     0 0 0 1px @body-bg, @input-btn-focus-box-shadow;
-
-@custom-control-indicator-active-color:         @component-active-color;
-@custom-control-indicator-active-bg:            lighten(@component-active-bg, 35%);
-@custom-control-indicator-active-box-shadow:    none;
-
-@custom-checkbox-indicator-border-radius:       @border-radius;
-@custom-checkbox-indicator-icon-checked-path:   replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='@{custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E", "#", "%23");
-@custom-checkbox-indicator-icon-checked:        url(@custom-checkbox-indicator-icon-checked-path);
-
-@custom-checkbox-indicator-indeterminate-bg:          @component-active-bg;
-@custom-checkbox-indicator-indeterminate-color:       @custom-control-indicator-checked-color;
-@custom-checkbox-indicator-icon-indeterminate-path:   replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='@{custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3E%3C/svg%3E", "#", "%23");
-@custom-checkbox-indicator-icon-indeterminate:        url(@custom-checkbox-indicator-icon-indeterminate-path);
-@custom-checkbox-indicator-indeterminate-box-shadow:  none;
-
-@custom-radio-indicator-border-radius:          50%;
-@custom-radio-indicator-icon-checked-path:      replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='@{custom-control-indicator-checked-color}'/%3E%3C/svg%3E", "#", "%23");
-@custom-radio-indicator-icon-checked:           url(@custom-radio-indicator-icon-checked-path);
-
-@custom-select-padding-y:           .375rem;
-@custom-select-padding-x:           .75rem;
-@custom-select-height:              @input-height;
-@custom-select-indicator-padding:   1rem; // Extra padding to account for the presence of the background-image based indicator
-@custom-select-line-height:         @input-btn-line-height;
-@custom-select-color:               @input-color;
-@custom-select-disabled-color:      @gray-600;
-@custom-select-bg:                  @input-bg;
-@custom-select-disabled-bg:         @gray-200;
-@custom-select-bg-size:             8px 10px; // In pixels because image dimensions
-@custom-select-indicator-color:     @gray-800;
-@custom-select-indicator-path:      replace("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='@{custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E", "#", "%23");
-@custom-select-indicator:           url(@custom-select-indicator-path);
-@custom-select-border-width:        @input-btn-border-width;
-@custom-select-border-color:        @input-border-color;
-@custom-select-border-radius:       @border-radius;
-
-@custom-select-focus-border-color:  @input-focus-border-color;
-@custom-select-focus-box-shadow:    inset 0 1px 2px fade(@black, 7.5%), 0 0 5px fade(@custom-select-focus-border-color, 50%);
-
-@custom-select-font-size-sm:        75%;
-@custom-select-height-sm:           @input-height-sm;
-
-@custom-select-font-size-lg:        125%;
-@custom-select-height-lg:           @input-height-lg;
-
-@custom-range-track-width:          100%;
-@custom-range-track-height:         .5rem;
-@custom-range-track-cursor:         pointer;
-@custom-range-track-bg:             @gray-300;
-@custom-range-track-border-radius:  1rem;
-@custom-range-track-box-shadow:     inset 0 .25rem .25rem fade(@black, 10%);
-
-@custom-range-thumb-width:            1rem;
-@custom-range-thumb-height:           @custom-range-thumb-width;
-@custom-range-thumb-bg:               @component-active-bg;
-@custom-range-thumb-border:           0;
-@custom-range-thumb-border-radius:    1rem;
-@custom-range-thumb-box-shadow:       0 .1rem .25rem fade(@black, 10%);
-@custom-range-thumb-focus-box-shadow: 0 0 0 1px @body-bg, @input-btn-focus-box-shadow;
-@custom-range-thumb-active-bg:        lighten(@component-active-bg, 35%);
-
-@custom-file-height:                @input-height;
-@custom-file-height-inner:          @input-height-inner;
-@custom-file-focus-border-color:    @input-focus-border-color;
-@custom-file-focus-box-shadow:      @input-btn-focus-box-shadow;
-
-@custom-file-padding-y:             @input-btn-padding-y;
-@custom-file-padding-x:             @input-btn-padding-x;
-@custom-file-line-height:           @input-btn-line-height;
-@custom-file-color:                 @input-color;
-@custom-file-bg:                    @input-bg;
-@custom-file-border-width:          @input-btn-border-width;
-@custom-file-border-color:          @input-border-color;
-@custom-file-border-radius:         @input-border-radius;
-@custom-file-box-shadow:            @input-box-shadow;
-@custom-file-button-color:          @custom-file-color;
-@custom-file-button-bg:             @input-group-addon-bg;
-@custom-file-text-en:               "Browse";
-
-
-// Form validation
-@form-feedback-margin-top:          @form-text-margin-top;
-@form-feedback-font-size:           @small-font-size;
-@form-feedback-valid-color:         @success;
-@form-feedback-invalid-color:       @danger;
-
-
-// Dropdowns
-//
-// Dropdown menu container and contents.
-
-@dropdown-min-width:                10rem;
-@dropdown-padding-y:                .5rem;
-@dropdown-spacer:                   .125rem;
-@dropdown-bg:                       @white;
-@dropdown-border-color:             fade(@black, 15%);
-@dropdown-border-radius:            @border-radius;
-@dropdown-border-width:             @border-width;
-@dropdown-divider-bg:               @gray-200;
-@dropdown-box-shadow:               0 .5rem 1rem fade(@black, 17.5%);
-
-@dropdown-link-color:               @gray-900;
-@dropdown-link-hover-color:         darken(@gray-900, 5%);
-@dropdown-link-hover-bg:            @gray-100;
-
-@dropdown-link-active-color:        @component-active-color;
-@dropdown-link-active-bg:           @component-active-bg;
-
-@dropdown-link-disabled-color:      @gray-600;
-
-@dropdown-item-padding-y:           .25rem;
-@dropdown-item-padding-x:           1.5rem;
-
-@dropdown-header-color:             @gray-600;
-
 
 // Z-index master list
 //
@@ -529,254 +308,8 @@
 
 // Navs
 
-@nav-link-padding-y:                .5rem;
-@nav-link-padding-x:                1rem;
-@nav-link-disabled-color:           @gray-600;
-
-@nav-tabs-border-color:             @gray-300;
-@nav-tabs-border-width:             @border-width;
-@nav-tabs-border-radius:            @border-radius;
-@nav-tabs-link-hover-border-color:  @gray-200 @gray-200 @nav-tabs-border-color;
-@nav-tabs-link-active-color:        @gray-700;
-@nav-tabs-link-active-bg:           @body-bg;
-@nav-tabs-link-active-border-color: @gray-300 @gray-300 @nav-tabs-link-active-bg;
-
-@nav-pills-border-radius:           @border-radius;
-@nav-pills-link-active-color:       @component-active-color;
-@nav-pills-link-active-bg:          @component-active-bg;
-
 @nav-divider-color:                 @gray-200;
 @nav-divider-margin-y:              (@spacer / 2);
-
-
-// Pagination
-
-@pagination-padding-y:              .5rem;
-@pagination-padding-x:              .75rem;
-@pagination-padding-y-sm:           .25rem;
-@pagination-padding-x-sm:           .5rem;
-@pagination-padding-y-lg:           .75rem;
-@pagination-padding-x-lg:           1.5rem;
-@pagination-line-height:            1.25;
-
-@pagination-color:                  @link-color;
-@pagination-bg:                     @white;
-@pagination-border-width:           @border-width;
-@pagination-border-color:           @gray-300;
-
-@pagination-focus-box-shadow:       @input-btn-focus-box-shadow;
-@pagination-focus-outline:          0;
-
-@pagination-hover-color:            @link-hover-color;
-@pagination-hover-bg:               @gray-200;
-@pagination-hover-border-color:     @gray-300;
-
-@pagination-active-color:           @component-active-color;
-@pagination-active-bg:              @component-active-bg;
-@pagination-active-border-color:    @pagination-active-bg;
-
-@pagination-disabled-color:         @gray-600;
-@pagination-disabled-bg:            @white;
-@pagination-disabled-border-color:  @gray-300;
-
-
-// Cards
-
-@card-spacer-y:                     .75rem;
-@card-spacer-x:                     1.25rem;
-@card-border-width:                 @border-width;
-@card-border-radius:                @border-radius;
-@card-border-color:                 fade(@black, 12.5%);
-@card-inner-border-radius:          ~"calc(@{card-border-radius} - @{card-border-width})";
-@card-cap-bg:                       fade(@black, 3%);
-@card-bg:                           @white;
-
-@card-img-overlay-padding:          1.25rem;
-
-@card-group-margin:                 (@grid-gutter-width / 2);
-@card-deck-margin:                  @card-group-margin;
-
-@card-columns-count:                3;
-@card-columns-gap:                  1.25rem;
-@card-columns-margin:               @card-spacer-y;
-
-
-// Tooltips
-
-@tooltip-font-size:                 @font-size-sm;
-@tooltip-max-width:                 200px;
-@tooltip-color:                     @white;
-@tooltip-bg:                        @black;
-@tooltip-border-radius:             @border-radius;
-@tooltip-opacity:                   .9;
-@tooltip-padding-y:                 .25rem;
-@tooltip-padding-x:                 .5rem;
-@tooltip-margin:                    0;
-
-@tooltip-arrow-width:               .8rem;
-@tooltip-arrow-height:              .4rem;
-@tooltip-arrow-color:               @tooltip-bg;
-
-
-// Popovers
-
-@popover-font-size:                 @font-size-sm;
-@popover-bg:                        @white;
-@popover-max-width:                 276px;
-@popover-border-width:              @border-width;
-@popover-border-color:              fade(@black, 20%);
-@popover-border-radius:             @border-radius-lg;
-@popover-box-shadow:                0 .25rem .5rem fade(@black, 20%);
-
-@popover-header-bg:                 darken(@popover-bg, 3%);
-@popover-header-color:              @headings-color;
-@popover-header-padding-y:          .5rem;
-@popover-header-padding-x:          .75rem;
-
-@popover-body-color:                @body-color;
-@popover-body-padding-y:            @popover-header-padding-y;
-@popover-body-padding-x:            @popover-header-padding-x;
-
-@popover-arrow-width:               1rem;
-@popover-arrow-height:              .5rem;
-@popover-arrow-color:               @popover-bg;
-
-@popover-arrow-outer-color:         fade-in(@popover-border-color, 5%);
-
-
-// Badges
-
-@badge-font-size:                   75%;
-@badge-font-weight:                 @font-weight-bold;
-@badge-padding-y:                   .25em;
-@badge-padding-x:                   .4em;
-@badge-border-radius:               @border-radius;
-
-@badge-pill-padding-x:              .6em;
-// Use a higher than normal value to ensure completely rounded edges when
-// customizing padding or font-size on labels.
-@badge-pill-border-radius:          10rem;
-
-
-// Modals
-
-// Padding applied to the modal body
-@modal-inner-padding:               1rem;
-
-@modal-dialog-margin:               .5rem;
-@modal-dialog-margin-y-sm-up:       1.75rem;
-
-@modal-title-line-height:           @line-height-base;
-
-@modal-content-bg:                  @white;
-@modal-content-border-color:        fade(@black, 20%);
-@modal-content-border-width:        @border-width;
-@modal-content-border-radius:       @border-radius-lg;
-@modal-content-box-shadow-xs:       0 .25rem .5rem fade(@black, 50%);
-@modal-content-box-shadow-sm-up:    0 .5rem 1rem fade(@black, 50%);
-
-@modal-backdrop-bg:                 @black;
-@modal-backdrop-opacity:            .5;
-@modal-header-border-color:         @gray-200;
-@modal-footer-border-color:         @modal-header-border-color;
-@modal-header-border-width:         @modal-content-border-width;
-@modal-footer-border-width:         @modal-header-border-width;
-@modal-header-padding:              1rem;
-
-@modal-lg:                          800px;
-@modal-md:                          500px;
-@modal-sm:                          300px;
-
-@modal-transition:                  transform .3s ease-out;
-
-
-// Alerts
-//
-// Define alert colors, border radius, and padding.
-
-@alert-padding-y:                   .75rem;
-@alert-padding-x:                   1.25rem;
-@alert-margin-bottom:               1rem;
-@alert-border-radius:               @border-radius;
-@alert-link-font-weight:            @font-weight-bold;
-@alert-border-width:                @border-width;
-
-@alert-bg-level:                    10;
-@alert-border-level:                9;
-@alert-color-level:                 6;
-
-@alert-bg-shader:                   white;
-@alert-border-shader:               white;
-@alert-color-shader:                black;
-
-
-// Progress bars
-
-@progress-height:                   1rem;
-@progress-font-size:                (@font-size-base * .75);
-@progress-bg:                       @gray-200;
-@progress-border-radius:            @border-radius;
-@progress-box-shadow:               inset 0 .1rem .1rem fade(@black, 10%);
-@progress-bar-color:                @white;
-@progress-bar-bg:                   @primary;
-@progress-bar-animation-timing:     1s linear infinite;
-@progress-bar-transition:           width .6s ease;
-
-// List group
-
-@list-group-bg:                     @white;
-@list-group-border-color:           fade(@black, 12.5%);
-@list-group-border-width:           @border-width;
-@list-group-border-radius:          @border-radius;
-
-@list-group-item-padding-y:         .75rem;
-@list-group-item-padding-x:         1.25rem;
-
-@list-group-hover-bg:               @gray-100;
-@list-group-active-color:           @component-active-color;
-@list-group-active-bg:              @component-active-bg;
-@list-group-active-border-color:    @list-group-active-bg;
-
-@list-group-disabled-color:         @gray-600;
-@list-group-disabled-bg:            @list-group-bg;
-
-@list-group-action-color:           @gray-700;
-@list-group-action-hover-color:     @list-group-action-color;
-
-@list-group-action-active-color:    @body-color;
-@list-group-action-active-bg:       @gray-200;
-
-
-// Image thumbnails
-
-@thumbnail-padding:                 .25rem;
-@thumbnail-bg:                      @body-bg;
-@thumbnail-border-width:            @border-width;
-@thumbnail-border-color:            @gray-300;
-@thumbnail-border-radius:           @border-radius;
-@thumbnail-box-shadow:              0 1px 2px fade(@black, 7.5%);
-
-
-// Figures
-
-@figure-caption-font-size:          90%;
-@figure-caption-color:              @gray-600;
-
-
-// Breadcrumbs
-
-@breadcrumb-padding-y:              .75rem;
-@breadcrumb-padding-x:              1rem;
-@breadcrumb-item-padding:           .5rem;
-
-@breadcrumb-margin-bottom:          1rem;
-
-@breadcrumb-bg:                     @gray-200;
-@breadcrumb-divider-color:          @gray-600;
-@breadcrumb-active-color:           @gray-600;
-@breadcrumb-divider:                quote("/");
-
-@breadcrumb-border-radius:          @border-radius;
 
 
 // Close
@@ -785,22 +318,3 @@
 @close-font-weight:                 @font-weight-bold;
 @close-color:                       @black;
 @close-text-shadow:                 0 1px 0 @white;
-
-// Code
-
-@code-font-size:                    87.5%;
-@code-color:                        @pink;
-
-@kbd-padding-y:                     .2rem;
-@kbd-padding-x:                     .4rem;
-@kbd-font-size:                     @code-font-size;
-@kbd-color:                         @white;
-@kbd-bg:                            @gray-900;
-
-@pre-color:                         @gray-900;
-@pre-scrollable-max-height:         340px;
-
-
-// Printing
-@print-page-size:                   a3;
-@print-body-min-width:              @grid-breakpoint-lg;
