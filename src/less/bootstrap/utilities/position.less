@@ -33,3 +33,9 @@
     z-index: @zindex-sticky;
   }
 }
+
+// Mixins
+
+.position-state(@position) {
+  .position-@{position} { position: @position !important; }
+}
