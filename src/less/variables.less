@@ -56,17 +56,31 @@
 
 
 // Spacing
-
 @unit: 0.25rem;
-@content-padding: @unit * 4;
 
-@spacer: 1rem;
-@spacer-0: 0;
-@spacer-1: (@spacer * .25);
-@spacer-2: (@spacer * .5);
-@spacer-3: @spacer;
-@spacer-4: (@spacer * 1.5);
-@spacer-5: (@spacer * 3);
+@unit-0: 0;
+@unit-1: @unit;
+@unit-2: @unit * 2;
+@unit-3: @unit * 3;
+@unit-4: @unit * 4;
+@unit-5: @unit * 5;
+@unit-6: @unit * 6;
+@unit-7: @unit * 7;
+@unit-8: @unit * 8;
+@unit-9: @unit * 9;
+@unit-10: @unit * 10;
+@unit-11: @unit * 11;
+@unit-12: @unit * 12;
+
+@unit-content: @unit-4;
+
+@spacer: @unit-4;
+@spacer-0: @unit-0;
+@spacer-1: @unit-1;
+@spacer-2: @unit-3;
+@spacer-3: @unit-4;
+@spacer-4: @unit-6;
+@spacer-5: @unit-12;
 
 // This variable affects the `.h-*` and `.w-*` classes.
 @size-25: 25%;
