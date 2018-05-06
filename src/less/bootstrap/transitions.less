@@ -18,3 +18,18 @@
   overflow: hidden;
   .transition(@transition-collapse);
 }
+
+.transition {
+  transition: @transition-base;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+.transition(@transition...) {
+  transition: @transition;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
