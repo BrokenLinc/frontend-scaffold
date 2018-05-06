@@ -33,7 +33,7 @@ class SourceViewer extends Component {
           </div>
           <div className="card-footer">
             <button
-              className="btn btn-sm btn-outline-secondary"
+              className="sm outline btn"
               type="button"
               onClick={() => clipboard(sourceHtml)}
             >

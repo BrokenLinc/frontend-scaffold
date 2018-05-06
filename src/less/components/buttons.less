@@ -48,6 +48,14 @@
                   @btn-active-box-shadow;
     }
   }
+
+  @color: @dark-gray;
+
+  .button-variant(contrast(@color), @color);
+
+  &.outline {
+    .button-outline-variant(@color);
+  }
 }
 
 // Future-proof disabling of clicks on `<a>` elements
@@ -61,14 +69,7 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-.btn-state(primary);
-.btn-state(secondary);
-.btn-state(success);
-.btn-state(info);
-.btn-state(warning);
-.btn-state(danger);
-.btn-state(light);
-.btn-state(dark);
+.btn-state(green);
 
 
 //
@@ -76,7 +77,7 @@ fieldset:disabled a.btn {
 //
 
 // Make a button look and behave like a link
-.btn-link {
+.btn.link {
   font-weight: @font-weight-normal;
   color: @link-color;
   background-color: transparent;
@@ -109,11 +110,11 @@ fieldset:disabled a.btn {
 // Button Sizes
 //
 
-.btn-lg {
+.btn.lg {
   .button-size(@btn-padding-y-lg, @btn-padding-x-lg, @btn-font-size-lg, @btn-line-height-lg, @btn-border-radius-lg);
 }
 
-.btn-sm {
+.btn.sm {
   .button-size(@btn-padding-y-sm, @btn-padding-x-sm, @btn-font-size-sm, @btn-line-height-sm, @btn-border-radius-sm);
 }
 
@@ -122,7 +123,7 @@ fieldset:disabled a.btn {
 // Block button
 //
 
-.btn-block {
+.btn.block {
   display: block;
   width: 100%;
 
@@ -136,7 +137,7 @@ fieldset:disabled a.btn {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
+  &.btn.block {
     width: 100%;
   }
 }
@@ -252,12 +253,13 @@ input[type="button"] {
 }
 
 .btn-state(@state) {
+  @infix: ~'.@{state}';
   @color: @@state;
 
-  .btn-@{state} {
+  .btn@{infix} {
     .button-variant(contrast(@color), @color);
   }
-  .btn-outline-@{state} {
+  .btn.outline@{infix} {
     .button-outline-variant(@color);
   }
 }
