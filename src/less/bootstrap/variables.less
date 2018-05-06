@@ -2,14 +2,9 @@
 //
 // Individual component files contain more specific variables.
 // These are the ones that are used throughout the stack in many modules.
-//
-// Variables should follow the `@component-state-property-size` formula for
-// consistent naming. Ex: @nav-link-disabled-color and @modal-content-box-shadow-xs.
 
 
-//
 // Colors
-//
 
 @white:    #fff;
 @gray-100: #f8f9fa;
@@ -48,10 +43,6 @@
 
 
 // Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the @spacers map, should you need more variation.
 
 @spacer: 1rem;
 @spacer-0: 0;
@@ -68,16 +59,18 @@
 @size-100: 100%;
 @size-auto: auto;
 
+// Reboot
+
+@dt-font-weight:              @font-weight-bold;
+@label-margin-bottom:         .5rem;
+@paragraph-margin-bottom:     1rem;
+
 // Body
-//
-// Settings for the `<body>` element.
 
 @body-bg:                   @white;
 @body-color:                @gray-900;
 
 // Links
-//
-// Style anchor elements.
 
 @link-color:                @primary;
 @link-decoration:           none;
@@ -86,9 +79,6 @@
 
 
 // Breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
 
 @breakpoint-sm: 576px;
 @breakpoint-md: 768px;
@@ -110,9 +100,7 @@
 @xl: @xl-up;
 
 
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
+// Containers
 
 @container-max-width-sm: 540px;
 @container-max-width-md: 720px;
@@ -120,8 +108,6 @@
 @container-max-width-xl: 1140px;
 
 // Components
-//
-// Define common padding and border radius sizes and more.
 
 @line-height-lg:              1.5;
 @line-height-sm:              1.5;
@@ -138,8 +124,6 @@
 
 
 // Fonts
-//
-// Font, line-height, and color for body text, headings, and more.
 
 @font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 @font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -183,11 +167,6 @@
 @small-font-size:             80%;
 @text-muted:                  @gray-600;
 
-// Reboot
-@dt-font-weight:              @font-weight-bold;
-@label-margin-bottom:         .5rem;
-@paragraph-margin-bottom:     1rem;
-
 
 // Buttons + Forms
 //
@@ -213,8 +192,6 @@
 
 
 // Buttons
-//
-// For each of Bootstrap's buttons, define text, background, and border color.
 
 @btn-padding-y:               @input-btn-padding-y;
 @btn-padding-x:               @input-btn-padding-x;
