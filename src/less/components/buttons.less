@@ -10,7 +10,8 @@
   vertical-align: middle;
   user-select: none;
   border: @btn-border-width solid transparent;
-  .button-size(@btn-padding-y, @btn-padding-x, @font-size-base, @btn-line-height, @btn-border-radius);
+  text-transform: uppercase;
+  .button-size(@btn-padding-y, @btn-padding-x, @btn-font-size, @btn-line-height, @btn-border-radius);
   .transition(@btn-transition);
 
   // Share hover and focus styles
@@ -109,11 +110,11 @@ fieldset:disabled a.btn {
 //
 
 .btn-lg {
-  .button-size(@btn-padding-y-lg, @btn-padding-x-lg, @font-size-lg, @btn-line-height-lg, @btn-border-radius-lg);
+  .button-size(@btn-padding-y-lg, @btn-padding-x-lg, @btn-font-size-lg, @btn-line-height-lg, @btn-border-radius-lg);
 }
 
 .btn-sm {
-  .button-size(@btn-padding-y-sm, @btn-padding-x-sm, @font-size-sm, @btn-line-height-sm, @btn-border-radius-sm);
+  .button-size(@btn-padding-y-sm, @btn-padding-x-sm, @btn-font-size-sm, @btn-line-height-sm, @btn-border-radius-sm);
 }
 
 
