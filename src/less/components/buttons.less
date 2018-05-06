@@ -149,19 +149,22 @@ input[type="button"] {
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-.button-variant(@background, @border) {
-  @hover-background: darken(@background, 7.5%);
-  @hover-border: darken(@border, 10%);
-  @active-background: darken(@background, 10%);
-  @active-border: darken(@border, 12.5%);
+.button-variant(@foreground, @background) {
+  @border: @background;
+  @hover-foreground: @foreground;
+  @hover-background: mix(contrast(@background), @background, 8);
+  @hover-border: @hover-background;
+  @active-foreground: @foreground;
+  @active-background: mix(contrast(@background), @background, 12);
+  @active-border: @active-background;
 
-  color: contrast(@background);
+  color: @foreground;
   background: @background;
   border-color: @border;
   box-shadow: @btn-box-shadow;
 
   &:hover {
-    color: contrast(@hover-background);
+    color: @hover-foreground;
     background: @hover-background;
     border-color: @hover-border;
   }
@@ -176,7 +179,7 @@ input[type="button"] {
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    color: contrast(@background);
+    color: @foreground;
     background-color: @background;
     border-color: @border;
   }
@@ -184,7 +187,7 @@ input[type="button"] {
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: contrast(@active-background);
+    color: @active-foreground;
     background-color: @active-background;
     background-image: none; // Remove the gradient for the pressed/active state
     border-color: @active-border;
@@ -197,38 +200,41 @@ input[type="button"] {
   }
 }
 
-.button-outline-variant(@color) {
-  @color-hover: contrast(@color);
-  @active-background: @color;
-  @active-border: @color;
+.button-outline-variant(@foreground) {
+  @border: @foreground;
+  @hover-foreground: mix(contrast(@foreground), @foreground, 4);
+  @hover-border: @hover-foreground;
+  @active-border: mix(contrast(@foreground), @foreground, 6);
+  @active-foreground: mix(contrast(@foreground), @foreground, 6);
+  @active-border: @active-foreground;
 
-  color: @color;
+
+  color: @foreground;
   background-color: transparent;
   background-image: none;
-  border-color: @color;
+  border-color: @foreground;
 
   &:hover {
-    color: @color-hover;
-    background-color: @active-background;
+    color: @hover-foreground;
     border-color: @active-border;
+    box-shadow: 0 0 0 1px @active-border;
   }
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 @btn-focus-width fade(@color, 50%);
+    box-shadow: 0 0 0 @btn-focus-width fade(@foreground, 50%);
   }
 
   &.disabled,
   &:disabled {
-    color: @color;
+    color: @foreground;
     background-color: transparent;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: contrast(@active-background);
-    background-color: @active-background;
+    color: @active-foreground;
     border-color: @active-border;
 
     &:focus {
@@ -248,7 +254,7 @@ input[type="button"] {
   @color: @@state;
 
   .btn-@{state} {
-    .button-variant(@color, @color);
+    .button-variant(contrast(@color), @color);
   }
   .btn-outline-@{state} {
     .button-outline-variant(@color);
