@@ -1,6 +1,5 @@
 // Common values
-
-// Sass list not in variables since it's not intended for customization.
+// Not intended for customization.
 
 .position-state(absolute);
 .position-state(relative);
@@ -34,7 +33,9 @@
   }
 }
 
+//
 // Mixins
+//
 
 .position-state(@position) {
   .position-@{position} { position: @position !important; }
