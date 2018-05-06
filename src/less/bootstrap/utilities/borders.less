@@ -58,3 +58,12 @@
 .rounded-0 {
   border-radius: 0 !important;
 }
+
+// Mixins
+
+.border-state(@state) {
+  @color: @@state;
+  .border-@{state} {
+    border-color: @color !important;
+  }
+}
