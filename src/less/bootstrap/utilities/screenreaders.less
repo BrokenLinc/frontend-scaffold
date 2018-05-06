@@ -1,25 +1,9 @@
-//
-// Screenreaders
-//
-
-.sr-only {
-  .sr-only();
-}
-
-.sr-only-focusable {
-  .sr-only-focusable();
-}
-
-//
-// Mixins
-//
-
 // Only display content to screen readers
 //
 // See: https://a11yproject.com/posts/how-to-hide-content/
 // See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
 
-.sr-only() {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -36,7 +20,7 @@
 //
 // Credit: HTML5 Boilerplate
 
-.sr-only-focusable() {
+.sr-only-focusable {
   &:active,
   &:focus {
     position: static;

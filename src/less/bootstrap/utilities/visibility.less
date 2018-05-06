@@ -3,17 +3,9 @@
 //
 
 .visible {
-  .invisible(visible);
+  visibility: visible !important;
 }
 
 .invisible {
-  .invisible(hidden);
-}
-
-//
-// Mixins
-//
-
-.invisible(@visibility) {
-  visibility: @visibility !important;
+  visibility: hidden !important;
 }

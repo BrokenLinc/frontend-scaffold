@@ -1,11 +1,10 @@
 // Common values
-// Not intended for customization.
 
-.position-state(absolute);
-.position-state(relative);
-.position-state(static);
-.position-state(fixed);
-.position-state(sticky);
+.position-absolute { position: absolute !important; }
+.position-relative { position: relative !important; }
+.position-static {   position: static !important; }
+.position-fixed {    position: fixed !important; }
+.position-sticky {   position: sticky !important; }
 
 // Shorthand
 
@@ -31,12 +30,4 @@
     top: 0;
     z-index: @zindex-sticky;
   }
-}
-
-//
-// Mixins
-//
-
-.position-state(@position) {
-  .position-@{position} { position: @position !important; }
 }

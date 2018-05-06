@@ -1,13 +1,8 @@
 & {
-  .utility;
   .utility(sm);
   .utility(md);
   .utility(lg);
   .utility(xl);
-
-  .utility() {
-    .infixed();
-  }
 
   .utility(@breakpoint) {
     @mq: ~'@{breakpoint}-up';
@@ -25,12 +20,12 @@
 
 // Mixins
 
-.float-left() {
+.float-left {
   float: left !important;
 }
-.float-right() {
+.float-right {
   float: right !important;
 }
-.float-none() {
+.float-none {
   float: none !important;
 }
