@@ -2,6 +2,9 @@
 //
 // Individual component files contain more specific variables.
 // These are the ones that are used throughout the stack in many modules.
+//
+// Variables should follow the `@component-state-property-size` formula for
+// consistent naming. Ex: @nav-link-disabled-color and @modal-content-box-shadow-xs.
 
 
 // Colors
@@ -85,14 +88,19 @@
 @breakpoint-lg: 992px; // Used for printing
 @breakpoint-xl: 1200px;
 
-@sm-up: ~"(min-width: 576px)";
-@md-up: ~"(min-width: 768px)";
-@lg-up: ~"(min-width: 992px)";
-@xl-up: ~"(min-width: 1200px)";
-@xs-down: ~"(max-width: 575px)";
-@sm-down: ~"(max-width: 767px)";
-@md-down: ~"(max-width: 991px)";
-@lg-down: ~"(max-width: 1199px)";
+// You won't need to edit these, unless you really want to rename them.
+@breakpoint-xs-max: @breakpoint-sm-max - 1px;
+@breakpoint-sm-max: @breakpoint-md-max - 1px;
+@breakpoint-md-max: @breakpoint-lg-max - 1px;
+@breakpoint-lg-max: @breakpoint-xl-max - 1px;
+@sm-up: ~"(min-width: @{breakpoint-sm})";
+@md-up: ~"(min-width: @{breakpoint-md})";
+@lg-up: ~"(min-width: @{breakpoint-lg})";
+@xl-up: ~"(min-width: @{breakpoint-xl})";
+@xs-down: ~"(max-width: @{breakpoint-xs-max})";
+@sm-down: ~"(max-width: @{breakpoint-sm-max})";
+@md-down: ~"(max-width: @{breakpoint-md-max})";
+@lg-down: ~"(max-width: @{breakpoint-lg-max})";
 @xs: @xs-down;
 @sm: @sm-up and @sm-down;
 @md: @md-up and @md-down;
