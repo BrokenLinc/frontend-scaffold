@@ -21,6 +21,14 @@
 @gray-900: #212529;
 @black:    #000;
 
+@darkest-gray: #222;
+@darker-gray: #444;
+@dark-gray: #777;
+@gray: #999;
+@light-gray: #bbb;
+@lighter-gray: #ddd;
+@lightest-gray: #eee;
+
 @blue:    #007bff;
 @indigo:  #6610f2;
 @purple:  #6f42c1;
@@ -46,6 +54,9 @@
 
 
 // Spacing
+
+@unit: 0.25rem;
+@content-padding: @unit * 4;
 
 @spacer: 1rem;
 @spacer-0: 0;
@@ -89,10 +100,10 @@
 @breakpoint-xl: 1200px;
 
 // You won't need to edit these, unless you really want to rename them.
-@breakpoint-xs-max: @breakpoint-sm-max - 1px;
-@breakpoint-sm-max: @breakpoint-md-max - 1px;
-@breakpoint-md-max: @breakpoint-lg-max - 1px;
-@breakpoint-lg-max: @breakpoint-xl-max - 1px;
+@breakpoint-xs-max: @breakpoint-sm - 1px;
+@breakpoint-sm-max: @breakpoint-md - 1px;
+@breakpoint-md-max: @breakpoint-lg - 1px;
+@breakpoint-lg-max: @breakpoint-xl - 1px;
 @sm-up: ~"(min-width: @{breakpoint-sm})";
 @md-up: ~"(min-width: @{breakpoint-md})";
 @lg-up: ~"(min-width: @{breakpoint-lg})";
@@ -113,7 +124,6 @@
 @container-max-width-sm: 540px;
 @container-max-width-md: 720px;
 @container-max-width-lg: 960px;
-@container-max-width-xl: 1140px;
 
 // Components
 
