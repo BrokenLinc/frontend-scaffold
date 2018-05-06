@@ -1,0 +1,41 @@
+// Contextual colors
+
+.text-white { color: @white !important; }
+
+.text-emphasis-variant-state(primary);
+.text-emphasis-variant-state(secondary);
+.text-emphasis-variant-state(success);
+.text-emphasis-variant-state(info);
+.text-emphasis-variant-state(warning);
+.text-emphasis-variant-state(danger);
+.text-emphasis-variant-state(light);
+.text-emphasis-variant-state(dark);
+
+.text-body { color: @body-color !important; }
+.text-muted { color: @text-muted !important; }
+
+.text-black-50 { color: fade(@black, 50%) !important; }
+.text-white-50 { color: fade(@white, 50%) !important; }
+
+// Mixins
+
+// Typography
+
+.text-emphasis-variant(@color) {
+  & {
+    color: @color !important;
+  }
+  a& {
+    &:hover,
+    &:focus {
+      color: darken(@color, 10%) !important;
+    }
+  }
+}
+
+.text-emphasis-variant-state(@state) {
+  @color: @@state;
+  .text-@{state} {
+    .text-emphasis-variant(@color);
+  }
+}
