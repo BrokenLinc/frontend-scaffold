@@ -14,7 +14,7 @@
   .utility(@breakpoint) {
     @mq: ~'@{breakpoint}-up';
     @media @@mq {
-      .infixed(~'-@{breakpoint}');
+      .infixed(~'@{breakpoint}\:');
     }
   }
 
@@ -23,21 +23,21 @@
     .infixed(@infix, padding, p);
 
     // Some special margin utils
-    .m@{infix}-auto { margin: auto !important; }
-    .mt@{infix}-auto,
-    .my@{infix}-auto {
+    .@{infix}m-auto { margin: auto !important; }
+    .@{infix}mt-auto,
+    .@{infix}my-auto {
       margin-top: auto !important;
     }
-    .mr@{infix}-auto,
-    .mx@{infix}-auto {
+    .@{infix}mr-auto,
+    .@{infix}mx-auto {
       margin-right: auto !important;
     }
-    .mb@{infix}-auto,
-    .my@{infix}-auto {
+    .@{infix}mb-auto,
+    .@{infix}my-auto {
       margin-bottom: auto !important;
     }
-    .ml@{infix}-auto,
-    .mx@{infix}-auto {
+    .@{infix}ml-auto,
+    .@{infix}mx-auto {
       margin-left: auto !important;
     }
   }
@@ -52,21 +52,21 @@
   }
 
   .infixed(@infix, @prop, @abbrev, @size, @length) {
-    .@{abbrev}@{infix}-@{size} { @{prop}: @length !important; }
-    .@{abbrev}t@{infix}-@{size},
-    .@{abbrev}y@{infix}-@{size} {
+    .@{infix}@{abbrev}-@{size} { @{prop}: @length !important; }
+    .@{infix}@{abbrev}t-@{size},
+    .@{infix}@{abbrev}y-@{size} {
       @{prop}-top: @length !important;
     }
-    .@{abbrev}r@{infix}-@{size},
-    .@{abbrev}x@{infix}-@{size} {
+    .@{infix}@{abbrev}r-@{size},
+    .@{infix}@{abbrev}x-@{size} {
       @{prop}-right: @length !important;
     }
-    .@{abbrev}b@{infix}-@{size},
-    .@{abbrev}y@{infix}-@{size} {
+    .@{infix}@{abbrev}b-@{size},
+    .@{infix}@{abbrev}y-@{size} {
       @{prop}-bottom: @length !important;
     }
-    .@{abbrev}l@{infix}-@{size},
-    .@{abbrev}x@{infix}-@{size} {
+    .@{infix}@{abbrev}l-@{size},
+    .@{infix}@{abbrev}x-@{size} {
       @{prop}-left: @length !important;
     }
   }

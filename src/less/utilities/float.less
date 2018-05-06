@@ -7,25 +7,19 @@
   .utility(@breakpoint) {
     @mq: ~'@{breakpoint}-up';
     @media @@mq {
-      .infixed(~'-@{breakpoint}');
+      .infixed(~'@{breakpoint}\:');
     }
   }
 
   .infixed(@infix: ~'') {
-    .float@{infix}-left  { .float-left; }
-    .float@{infix}-right { .float-right; }
-    .float@{infix}-none  { .float-none; }
+    .@{infix}float-left  { .float-left; }
+    .@{infix}float-right { .float-right; }
+    .@{infix}float-none  { .float-none; }
   }
 }
 
 // Mixins
 
-.float-left {
-  float: left !important;
-}
-.float-right {
-  float: right !important;
-}
-.float-none {
-  float: none !important;
-}
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.float-none { float: none !important; }
