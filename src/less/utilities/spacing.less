@@ -56,7 +56,6 @@
     .infixed(@infix, @prop, @abbrev, 10, @unit-10);
     .infixed(@infix, @prop, @abbrev, 11, @unit-11);
     .infixed(@infix, @prop, @abbrev, 12, @unit-12);
-    .infixed(@infix, @prop, @abbrev, content, @unit-content);
   }
 
   .infixed(@infix, @prop, @abbrev, @size, @length) {
@@ -78,4 +77,11 @@
       @{prop}-left: @length !important;
     }
   }
+}
+
+.p-content {
+  padding: @unit-4;
+}
+.p-text-content {
+  padding: @unit-8 @unit-4 @unit-12;
 }
