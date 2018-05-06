@@ -76,3 +76,28 @@
 .pagination-sm {
   .pagination-size(@pagination-padding-y-sm, @pagination-padding-x-sm, @font-size-sm, @line-height-sm, @border-radius-sm);
 }
+
+// Mixins
+
+// Pagination
+
+.pagination-size(@padding-y, @padding-x, @font-size, @line-height, @border-radius) {
+  .page-link {
+    padding: @padding-y @padding-x;
+    font-size: @font-size;
+    line-height: @line-height;
+  }
+
+  .page-item {
+    &:first-child {
+      .page-link {
+        .border-left-radius(@border-radius);
+      }
+    }
+    &:last-child {
+      .page-link {
+        .border-right-radius(@border-radius);
+      }
+    }
+  }
+}
