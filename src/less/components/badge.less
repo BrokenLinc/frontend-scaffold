@@ -32,6 +32,8 @@
   &:empty {
     display: none;
   }
+
+  .badge-color-infix(@dark-gray);
 }
 
 // Quick fix for badges in buttons
@@ -87,10 +89,17 @@
   }
 }
 
+.badge-color-infix(@color, @infix: ~'') {
+  &@{infix} {
+    .badge-variant(@color);
+  }
+}
+
 .badge-state(@state) {
+  @infix: ~'.is-@{state}';
   @color: @@state;
 
-  .badge-@{state} {
-    .badge-variant(@color);
+  .badge {
+    .badge-color-infix(@color, @infix);
   }
 }

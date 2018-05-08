@@ -97,15 +97,10 @@ hr {
 //
 // By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the
 // margins for easier control within type scales.
-h1, h2, h3, h4, h5, h6 {
-  margin:0;
-}
-
-// Reset margins on paragraphs
-//
-// Similarly, the top margin on `<p>`s get reset.
+// Similarly, the margins on `<p>`s get reset.
+h1, h2, h3, h4, h5, h6,
 p {
-  margin:0;
+  margin: 0 0 @unit-6;
 }
 
 // Abbreviations
@@ -162,7 +157,7 @@ dfn {
 
 b,
 strong {
-  font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari
+  font-weight: 600; // Add the correct font weight in Chrome, Edge, and Safari
 }
 
 small {

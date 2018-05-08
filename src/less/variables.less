@@ -70,7 +70,10 @@
 @unit-11: @unit * 11;
 @unit-12: @unit * 12;
 
-@unit-content: @unit-4;
+// Content
+
+@content-padding:         1rem;
+@content-padding-xs:      1rem;
 
 // This variable affects the `.h-*` and `.w-*` classes.
 @size-25: 25%;
@@ -105,10 +108,10 @@
 @breakpoint-lg: 992px; // Used for printing
 @breakpoint-xl: 1200px;
 
-@container-max-width-sm: 540px; // 270 * 2
-@container-max-width-md: 720px; // 240 * 3
-@container-max-width-lg: 960px; // 240 * 4
-@container-max-width-xl: @container-max-width-lg;
+@container-max-width-sm: 540px;
+@container-max-width-md: 720px;
+@container-max-width-lg: 960px;
+@container-max-width-xl: 1200px;
 
 // You won't need to edit these, unless you really want to rename them.
 @breakpoint-xs-max: @breakpoint-sm - 1px;
@@ -148,7 +151,7 @@
 
 // Fonts
 
-@font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@font-family-sans-serif:      "Open Sans", sans-serif;
 @font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 @font-family-base:            @font-family-sans-serif;
 
@@ -160,12 +163,9 @@
 @font-weight-normal:          400;
 @font-weight-bold:            700;
 
-@font-weight-base:            @font-weight-normal;
+@font-weight-base:            @font-weight-light;
 @line-height-base:            1.5rem;
 
-@headings-font-family:        inherit;
-@headings-font-weight:        500;
-@headings-line-height:        1.2;
 @headings-color:              inherit;
 
 @display1-size:               6rem;
@@ -177,7 +177,7 @@
 @display2-weight:             300;
 @display3-weight:             300;
 @display4-weight:             300;
-@display-line-height:         @headings-line-height;
+@display-line-height:         1;
 
 @small-font-size:             80%;
 @text-muted:                  @gray-600;

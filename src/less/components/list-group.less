@@ -152,30 +152,29 @@
 //
 
 .list-group-item-variant(@state, @background, @color) {
-  .list-group-item-@{state} {
-    color: @color;
-    background-color: @background;
+  color: @color;
+  background-color: @background;
 
-    &.list-group-item-action {
-      &:hover,
-      &:focus {
-        color: @color;
-        background-color: darken(@background, 5%);
-      }
+  &.list-group-item-action {
+    &:hover,
+    &:focus {
+      color: @color;
+      background-color: darken(@background, 5%);
+    }
 
-      &.active {
-        color: @white;
-        background-color: @color;
-        border-color: @color;
-      }
+    &.active {
+      color: @white;
+      background-color: @color;
+      border-color: @color;
     }
   }
 }
 
 .list-group-item-state(@state) {
+  @infix: ~'.is-@{state}';
   @color: @@state;
 
-  .list-group-item-@{state} {
+  .list-group-item@{infix} {
     .list-group-item-variant(
       @state,
       mix(white, @color, 72%),

@@ -13,16 +13,24 @@
 @mark-padding:                .2em;
 @mark-bg:                     #fcf8e3;
 
+.font-weight(@font-weight) {
+  font-weight: @font-weight;
+
+  b,
+  strong {
+    font-weight: @font-weight + 200;
+  }
+}
+
 //
 // Headings
 //
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: @headings-font-family;
-  font-weight: @headings-font-weight;
+  font-family: "Montserrat", sans-serif;
   color: @headings-color;
-  .margin-top-except-first(@unit-12);
+  .font-weight(400);
 }
 
 h1, .h1 {
@@ -44,10 +52,14 @@ h4, .h4 {
 h5, .h5 {
   font-size: @unit-4;
   line-height: @unit-6;
+  .font-weight(500);
 }
 h6, .h6 {
   font-size: @unit-3;
   line-height: @unit-5;
+  text-transform: uppercase;
+  .font-weight(500);
+
 }
 
 .lead {
@@ -75,14 +87,6 @@ h6, .h6 {
   font-size: @display4-size;
   font-weight: @display4-weight;
   line-height: @display-line-height;
-}
-
-//
-// Paragraph
-//
-
-p {
-  .margin-top-except-first(@line-height-base);
 }
 
 

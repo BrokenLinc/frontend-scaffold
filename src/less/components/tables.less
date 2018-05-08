@@ -265,9 +265,11 @@ caption {
 //
 
 .table-row-variant(@state, @background) {
+  @infix: ~'.is-@{state}';
+
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
-  .table-@{state} {
+  .table@{infix} {
     &,
     > th,
     > td {
@@ -280,7 +282,7 @@ caption {
   .table-hover {
     @hover-background: darken(@background, 5%);
 
-    .table-@{state} {
+    .table@{infix} {
       &:hover {
         background-color: @hover-background;
 

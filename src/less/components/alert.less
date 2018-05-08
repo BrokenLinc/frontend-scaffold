@@ -28,6 +28,8 @@
   margin-bottom: @alert-margin-bottom;
   border: @alert-border-width solid transparent;
   border-radius: @alert-border-radius;
+
+  .alert-color-infix(@gray);
 }
 
 // Headings for larger alerts
@@ -64,14 +66,9 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-.alert-state(primary);
-.alert-state(secondary);
-.alert-state(success);
-.alert-state(info);
-.alert-state(warning);
-.alert-state(danger);
-.alert-state(light);
-.alert-state(dark);
+.alert-state(green);
+.alert-state(yellow);
+.alert-state(red);
 
 //
 // Mixins
@@ -91,14 +88,21 @@
   }
 }
 
-.alert-state(@state) {
-  @color: @@state;
-
-  .alert-@{state} {
+.alert-color-infix(@color, @infix: ~'') {
+  &@{infix} {
     .alert-variant(
       mix(@alert-bg-shader,     @color, @theme-color-interval * @alert-bg-level),
       mix(@alert-border-shader, @color, @theme-color-interval * @alert-border-level),
       mix(@alert-color-shader,  @color, @theme-color-interval * @alert-color-level),
     );
+  }
+}
+
+.alert-state(@state) {
+  @infix: ~'.is-@{state}';
+  @color: @@state;
+
+  .alert {
+    .alert-color-infix(@color, @infix);
   }
 }

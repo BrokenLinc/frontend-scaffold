@@ -49,13 +49,15 @@
     }
   }
 
-  @color: @dark-gray;
+  .btn-color-infix(@dark-gray);
 
-  .button-variant(contrast(@color), @color);
-
-  &.outline {
-    .button-outline-variant(@color);
-  }
+  // @color: @dark-gray;
+  //
+  // .button-variant(contrast(@color), @color);
+  //
+  // &.outline {
+  //   .button-outline-variant(@color);
+  // }
 }
 
 // Future-proof disabling of clicks on `<a>` elements
@@ -252,15 +254,21 @@ input[type="button"] {
   }
 }
 
-.btn-state(@state) {
-  @infix: ~'.@{state}';
-  @color: @@state;
-
-  .btn@{infix} {
+.btn-color-infix(@color, @infix: ~'') {
+  &@{infix} {
     .button-variant(contrast(@color), @color);
   }
-  .btn.outline@{infix} {
+  &.is-outline@{infix} {
     .button-outline-variant(@color);
+  }
+}
+
+.btn-state(@state) {
+  @infix: ~'.is-@{state}';
+  @color: @@state;
+
+  .btn {
+    .btn-color-infix(@color, @infix);
   }
 }
 
