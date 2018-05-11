@@ -18,7 +18,7 @@ class SourceViewer extends Component {
     const { sourceHtml } = this.state;
 
     return (
-      <div className="text-flow">
+      <div>
         <h2>Component</h2>
         <div className="card">
           <div className="card-body" ref={(el) => { this.source = el; }}>

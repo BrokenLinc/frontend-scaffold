@@ -1,17 +1,23 @@
+// Scaffold provides a set of containers for your site
+// which help with common navbar and footer layout challenges.
+
 .perimeter {
   height: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; // disable scrolling on the viewport...
 }
 .perimeter-inner {
   height: 100%;
 }
 .content {
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: scroll; // ... and enable scrolling on the content
+  -webkit-overflow-scrolling: touch; // restore ios momentum scrolling
 }
 .content-inner {
   min-height: 100%;
+
+ // vertically stack layout blocks, for full-viewport-height layouts
   display: flex;
   flex-flow: column;
 }
