@@ -1,0 +1,59 @@
+//
+// Text
+//
+
+.text-monospace { font-family: @font-family-monospace; }
+
+// Alignment
+
+.text-justify  { text-align: justify !important; }
+.text-nowrap   { white-space: nowrap !important; }
+
+// Text truncate
+// Requires inline-block or block for proper styling
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Responsive alignment
+
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
+
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'@{breakpoint}\:');
+    }
+  }
+
+  .infixed(@infix: ~'') {
+    .@{infix}text-left   { text-align: left !important; }
+    .@{infix}text-right  { text-align: right !important; }
+    .@{infix}text-center { text-align: center !important; }
+  }
+}
+
+
+// Transformation
+
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Weight and italics
+
+.font-weight-light  { font-weight: @font-weight-light !important; }
+.font-weight-normal { font-weight: @font-weight-normal !important; }
+.font-weight-bold   { font-weight: @font-weight-bold !important; }
+.font-italic        { font-style: italic !important; }

@@ -1,0 +1,84 @@
+// Margin and Padding
+
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
+
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'@{breakpoint}\:');
+    }
+  }
+
+  .infixed(@infix: ~'') {
+    .infixed(@infix, margin, m);
+    .infixed(@infix, padding, p);
+
+    // Some special margin utils
+    .@{infix}m-auto { margin: auto !important; }
+    .@{infix}mt-auto,
+    .@{infix}my-auto {
+      margin-top: auto !important;
+    }
+    .@{infix}mr-auto,
+    .@{infix}mx-auto {
+      margin-right: auto !important;
+    }
+    .@{infix}mb-auto,
+    .@{infix}my-auto {
+      margin-bottom: auto !important;
+    }
+    .@{infix}ml-auto,
+    .@{infix}mx-auto {
+      margin-left: auto !important;
+    }
+  }
+
+  .infixed(@infix, @prop, @abbrev) {
+    .infixed(@infix, @prop, @abbrev, 0, 0);
+    .infixed(@infix, @prop, @abbrev, 1, @unit);
+    .infixed(@infix, @prop, @abbrev, 2, @unit-2);
+    .infixed(@infix, @prop, @abbrev, 3, @unit-3);
+    .infixed(@infix, @prop, @abbrev, 4, @unit-4);
+    .infixed(@infix, @prop, @abbrev, 5, @unit-5);
+    .infixed(@infix, @prop, @abbrev, 6, @unit-6);
+    .infixed(@infix, @prop, @abbrev, 7, @unit-7);
+    .infixed(@infix, @prop, @abbrev, 8, @unit-8);
+    .infixed(@infix, @prop, @abbrev, 9, @unit-9);
+    .infixed(@infix, @prop, @abbrev, 10, @unit-10);
+    .infixed(@infix, @prop, @abbrev, 11, @unit-11);
+    .infixed(@infix, @prop, @abbrev, 12, @unit-12);
+  }
+
+  .infixed(@infix, @prop, @abbrev, @size, @length) {
+    .@{infix}@{abbrev}-@{size} { @{prop}: @length !important; }
+    .@{infix}@{abbrev}t-@{size},
+    .@{infix}@{abbrev}y-@{size} {
+      @{prop}-top: @length !important;
+    }
+    .@{infix}@{abbrev}r-@{size},
+    .@{infix}@{abbrev}x-@{size} {
+      @{prop}-right: @length !important;
+    }
+    .@{infix}@{abbrev}b-@{size},
+    .@{infix}@{abbrev}y-@{size} {
+      @{prop}-bottom: @length !important;
+    }
+    .@{infix}@{abbrev}l-@{size},
+    .@{infix}@{abbrev}x-@{size} {
+      @{prop}-left: @length !important;
+    }
+  }
+}
+
+.p-content {
+  padding: @content-padding;
+}

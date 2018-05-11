@@ -1,0 +1,39 @@
+@transition-base:             all .2s ease-in-out;
+@transition-fade:             opacity .15s linear;
+@transition-collapse:         height .35s ease;
+
+.fade {
+  .transition(@transition-fade);
+
+  &:not(.show) {
+    opacity: 0;
+  }
+}
+
+.collapse {
+  &:not(.show) {
+    display: none;
+  }
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  .transition(@transition-collapse);
+}
+
+.transition {
+  transition: @transition-base;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+.transition(@transition...) {
+  transition: @transition;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

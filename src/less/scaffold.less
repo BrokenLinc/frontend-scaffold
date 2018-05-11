@@ -1,19 +1,23 @@
-@import (reference) "sidebar-transition-effects";
+// Scaffold provides a set of containers for your site
+// which help with common navbar and footer layout challenges.
 
 .perimeter {
   height: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; // disable scrolling on the viewport...
 }
 .perimeter-inner {
   height: 100%;
 }
 .content {
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: scroll; // ... and enable scrolling on the content
+  -webkit-overflow-scrolling: touch; // restore ios momentum scrolling
 }
 .content-inner {
   min-height: 100%;
+
+ // vertically stack layout blocks, for full-viewport-height layouts
   display: flex;
   flex-flow: column;
 }
@@ -21,7 +25,23 @@
 // Optionally enable a sidebar transition effect
 //  see sidebar-transition-effects.less
 //  for important notes on markup
+@st-menu-bg: @lightest-gray;
+@st-menu-width: 280px;
+@st-blocker-background: fade(@body-bg, 70%);
+@st-transition-duration: 0.5s;
+@st-effect-perspective: 1500px;
+
 .st-effect-enable();
 .perimeter {
   .st-effect-scaledownpusher;
+}
+
+body {
+  background: @body-bg;
+}
+.st-menu {
+  background: @st-menu-bg;
+}
+.content-inner {
+  background: @content-bg;
 }

@@ -1,0 +1,49 @@
+// Contextual colors
+
+.text-white { color: @white !important; }
+
+.text-emphasis-variant-state(black);
+.text-emphasis-variant-state(almost-black);
+.text-emphasis-variant-state(darkest-gray);
+.text-emphasis-variant-state(darker-gray);
+.text-emphasis-variant-state(dark-gray);
+.text-emphasis-variant-state(gray);
+.text-emphasis-variant-state(light-gray);
+.text-emphasis-variant-state(lighter-gray);
+.text-emphasis-variant-state(lightest-gray);
+.text-emphasis-variant-state(almost-white);
+.text-emphasis-variant-state(white);
+
+.text-emphasis-variant-state(success);
+.text-emphasis-variant-state(info);
+.text-emphasis-variant-state(warning);
+.text-emphasis-variant-state(danger);
+
+.text-body { color: @body-color !important; }
+.text-muted { color: @text-muted !important; }
+
+.text-black-50 { color: fade(@black, 50%) !important; }
+.text-white-50 { color: fade(@white, 50%) !important; }
+
+//
+// Mixins
+//
+
+.text-emphasis-variant(@color) {
+  & {
+    color: @color !important;
+  }
+  a& {
+    &:hover,
+    &:focus {
+      color: darken(@color, 10%) !important;
+    }
+  }
+}
+
+.text-emphasis-variant-state(@state) {
+  @color: @@state;
+  .text-@{state} {
+    .text-emphasis-variant(@color);
+  }
+}
