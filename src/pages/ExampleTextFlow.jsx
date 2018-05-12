@@ -3,9 +3,14 @@ import React from 'react';
 const ExampleTextFlow = () => (
   <div className="container text-flow">
     <h1>
-      Heading One, <b>lorem ipsum</b> dolor sit amet, consectetur adipiscing elit.
-      Phasellus mattis nulla risus, et porttitor ex finibus in.
+      Text-Flow is a container class for <strong>comfortable</strong> reading layouts.
     </h1>
+    <p>
+      It provides greater content padding on the top and bottom,
+      a looser line-height on paragraphs,
+      constrains the width of heading and paragraph elements,
+      and adds support for Wordpress-style image alignments.
+    </p>
     <p>
       Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.
       Phasellus mattis nulla risus, et porttitor ex finibus in.

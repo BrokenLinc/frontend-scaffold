@@ -14,13 +14,13 @@ class SourceViewer extends Component {
     }, 1);
   }
   render() {
-    const { children } = this.props;
+    const { children, title } = this.props;
     const { sourceHtml } = this.state;
 
     return (
       <div>
-        <h2>Component</h2>
-        <div className="card">
+        {title && <h4>{title}</h4>}
+        <div className="card mb-12">
           <div className="card-body" ref={(el) => { this.source = el; }}>
             {children}
           </div>
@@ -51,6 +51,7 @@ SourceViewer.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  title: PropTypes.string,
 };
 
 export default SourceViewer;

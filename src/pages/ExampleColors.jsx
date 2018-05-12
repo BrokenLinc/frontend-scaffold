@@ -17,6 +17,7 @@ ColorSwatch.defaultProps = {
 const ExampleColors = () => (
   <div className="container p-content">
     <h1>Colors</h1>
+    <p>Several color variables are available to the CSS preprocessor.</p>
 
     <ColorSwatch color="red" />
     <ColorSwatch color="yellow" />
@@ -25,7 +26,6 @@ const ExampleColors = () => (
 
     <hr />
 
-    <ColorSwatch text="gray" color="black" />
     <ColorSwatch text="gray" color="black" />
     <ColorSwatch text="gray" color="almost-black" />
     <ColorSwatch text="gray" color="darkest-gray" />
