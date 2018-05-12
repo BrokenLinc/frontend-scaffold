@@ -40,6 +40,11 @@
     "arrow-body-style": "off",
     "global-require": 0,
     "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
     "no-cond-assign": [
       "error",
       "except-parens"
