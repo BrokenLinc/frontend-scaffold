@@ -3,7 +3,10 @@ import React from 'react';
 const ExampleGravityForms = () => (
   <div className="container p-content">
     <h1>Gravity Forms</h1>
-
+    <p>
+      Bootstrap form styles are extended to the Gravity Forms CSS classes,
+      and a simple flex-based grid is applied to complex containers.
+    </p>
     <div className="gform_wrapper">
       <form method="post" encType="multipart/form-data">
         <div className="gform_body">
