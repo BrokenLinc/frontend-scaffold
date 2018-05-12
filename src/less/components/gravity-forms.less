@@ -1,0 +1,46 @@
+.gform_wrapper {}
+.gform_body {}
+ul.gform_fields {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li.gfield {
+  &:extend(.form-group);
+}
+.gfield_label {}
+.ginput_container {
+  > input {
+    &:extend(.form-control);
+  }
+
+  > span {
+    > input {
+      &:extend(.form-control);
+    }
+    > label {
+      &:extend(small, .form-text, .text-muted);
+    }
+  }
+}
+&.ginput_complex {
+  @form-grid-gutter: @unit-2;
+
+  display: flex;
+  flex-flow: row;
+  margin-left: -@form-grid-gutter;
+  margin-right: -@form-grid-gutter;
+
+  > * {
+    flex: 1 0 0;
+    margin-left: @form-grid-gutter;
+    margin-right: @form-grid-gutter;
+  }
+}
+.gfield_required {
+  color: @red;
+}
+.gform_footer {}
+.gform_button {
+  &:extend(.btn all);
+}
