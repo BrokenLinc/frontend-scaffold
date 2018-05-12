@@ -1,0 +1,62 @@
+@text-flow-padding:       3rem @content-padding 6rem;
+@text-flow-padding-xs:    1.5rem @content-padding-xs 3rem;
+@text-flow-p-line-height: 1.75rem;
+
+
+.text-flow {
+  &:extend(.p-text-flow all);
+
+  > * {
+    max-width: 34rem;
+    width: 100%;
+    margin: 0 auto @text-flow-p-line-height;
+  }
+  > p {
+    line-height: @text-flow-p-line-height;
+  }
+  > img {
+    display: block;
+  }
+  .alignleft,
+  .alignright {
+    width: 100%;
+
+    @media @sm-up {
+      margin-bottom: 1.25rem;
+      width: 12rem;
+    }
+    @media @md-up {
+      width: 14rem;
+    }
+    @media @lg-up {
+      width: 17rem;
+    }
+    @media @xl {
+      width: 17rem;
+    }
+  }
+  @media @sm-up {
+    .aligncenter {
+      width: auto;
+    }
+    .alignleft {
+      float: left;
+      margin-left: 0;
+      margin-right: @text-flow-p-line-height;
+    }
+    .alignright {
+      float: right;
+      margin-left: @text-flow-p-line-height;
+      margin-right: 0;
+    }
+  }
+}
+
+// Standalone padding utility
+.p-text-flow {
+  padding: @text-flow-padding;
+
+  @media @xs {
+    padding: @text-flow-padding-xs;
+  }
+}

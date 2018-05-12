@@ -1,0 +1,51 @@
+//
+// Utilities for common `display` values
+//
+
+& {
+  .utility;
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
+
+  .utility() {
+    .infixed();
+  }
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'@{breakpoint}\:');
+    }
+  }
+
+  .infixed(@infix: ~'') {
+    .@{infix}d-none         { display: none !important; }
+    .@{infix}d-inline       { display: inline !important; }
+    .@{infix}d-inline-block { display: inline-block !important; }
+    .@{infix}d-block        { display: block !important; }
+    .@{infix}d-table        { display: table !important; }
+    .@{infix}d-table-row    { display: table-row !important; }
+    .@{infix}d-table-cell   { display: table-cell !important; }
+    .@{infix}d-flex         { display: flex !important; }
+    .@{infix}d-inline-flex  { display: inline-flex !important; }
+  }
+}
+
+
+//
+// Utilities for toggling `display` in print
+//
+
+@media print {
+  .print:d-none         { display: none !important; }
+  .print:d-inline       { display: inline !important; }
+  .print:d-inline-block { display: inline-block !important; }
+  .print:d-block        { display: block !important; }
+  .print:d-table        { display: table !important; }
+  .print:d-table-row    { display: table-row !important; }
+  .print:d-table-cell   { display: table-cell !important; }
+  .print:d-flex         { display: flex !important; }
+  .print:d-inline-flex  { display: inline-flex !important; }
+}

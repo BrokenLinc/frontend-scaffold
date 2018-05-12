@@ -1,0 +1,105 @@
+// Badges
+
+@badge-font-size:                   75%;
+@badge-font-weight:                 @font-weight-bold;
+@badge-padding-y:                   .25em;
+@badge-padding-x:                   .4em;
+@badge-border-radius:               @border-radius;
+
+@badge-pill-padding-x:              .6em;
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+@badge-pill-border-radius:          10rem;
+
+
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
+
+.badge {
+  display: inline-block;
+  padding: @badge-padding-y @badge-padding-x;
+  font-size: @badge-font-size;
+  font-weight: @badge-font-weight;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: @badge-border-radius;
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+
+  .badge-color-infix(@dark-gray);
+}
+
+// Quick fix for badges in buttons
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+// Pill badges
+//
+// Make them extra rounded with a modifier to replace v3's badges.
+
+.badge-pill {
+  padding-right: @badge-pill-padding-x;
+  padding-left: @badge-pill-padding-x;
+  border-radius: @badge-pill-border-radius;
+}
+
+// Colors
+//
+// Contextual variations (linked badges get darker on :hover).
+
+.badge-state(primary);
+.badge-state(secondary);
+.badge-state(success);
+.badge-state(info);
+.badge-state(warning);
+.badge-state(danger);
+.badge-state(light);
+.badge-state(dark);
+
+@media print {
+  .badge {
+    border: @border-width solid @black;
+  }
+}
+
+//
+// Mixins
+//
+
+.badge-variant(@bg, @color: white) {
+  color: contrast(@bg);
+  background-color: @bg;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      color: contrast(@bg);
+      text-decoration: none;
+      background-color: darken(@bg, 10%);
+    }
+  }
+}
+
+.badge-color-infix(@color, @infix: ~'') {
+  &@{infix} {
+    .badge-variant(@color);
+  }
+}
+
+.badge-state(@state) {
+  @infix: ~'.is-@{state}';
+  @color: @@state;
+
+  .badge {
+    .badge-color-infix(@color, @infix);
+  }
+}

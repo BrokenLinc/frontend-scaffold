@@ -2,9 +2,9 @@ import 'less/style.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from 'components/Home';
+import AppRouter from 'AppRouter';
 
 ReactDOM.render(
-  <Home /> ,
+  <AppRouter />,
   document.getElementById('react-app')
 );

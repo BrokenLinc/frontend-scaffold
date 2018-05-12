@@ -1,0 +1,63 @@
+// Contextual backgrounds
+
+.bg-state(black);
+.bg-state(almost-black);
+.bg-state(darkest-gray);
+.bg-state(darker-gray);
+.bg-state(dark-gray);
+.bg-state(gray);
+.bg-state(light-gray);
+.bg-state(lighter-gray);
+.bg-state(lightest-gray);
+.bg-state(almost-white);
+.bg-state(white);
+
+.bg-state(red);
+.bg-state(yellow);
+.bg-state(green);
+.bg-state(blue);
+
+.bg-white {
+  background-color: @white !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+//
+// Mixins
+//
+
+.bg-variant(@color) {
+  & {
+    background-color: @color !important;
+  }
+  a&,
+  button& {
+    &:hover,
+    &:focus {
+      background-color: darken(@color, 10%) !important;
+    }
+  }
+}
+
+.bg-state(@state) {
+  @color: @@state;
+  .bg-@{state} {
+    .bg-variant(@color);
+  }
+}
+
+.bg-gradient-variant(@color) {
+  & {
+    background: @color linear-gradient(180deg, mix(@body-bg, @color, 15%), @color) repeat-x !important;
+  }
+}
+
+.bg-gradient-state(@state) {
+  @color: @@state;
+  .bg-gradient-@{state} {
+    .bg-gradient-variant(@color);
+  }
+}

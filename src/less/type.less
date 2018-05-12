@@ -1,3 +1,167 @@
-h1, h2, h3, h4, h5, h6, p {
-  margin-top: 0;
+@list-inline-padding:         .5rem;
+
+@lead-font-size:              (@font-size-base * 1.25);
+@lead-font-weight:            300;
+
+@hr-border-color:             fade(@black, 10%);
+@hr-border-width:             @border-width;
+@hr-margin-y:                 @unit-4;
+
+@blockquote-small-color:      @gray-600;
+@blockquote-font-size:        (@font-size-base * 1.25);
+
+@mark-padding:                .2em;
+@mark-bg:                     #fcf8e3;
+
+.font-weight(@font-weight) {
+  font-weight: @font-weight;
+
+  b,
+  strong {
+    font-weight: @font-weight + 200;
+  }
+}
+
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Montserrat", sans-serif;
+  color: @headings-color;
+  .font-weight(400);
+}
+
+h1, .h1 {
+  font-size: @unit-8;
+  line-height: @unit-10;
+}
+h2, .h2 {
+  font-size: @unit-7;
+  line-height: @unit-9;
+}
+h3, .h3 {
+  font-size: @unit-6;
+  line-height: @unit-8;
+}
+h4, .h4 {
+  font-size: @unit-5;
+  line-height: @unit-7;
+}
+h5, .h5 {
+  font-size: @unit-4;
+  line-height: @unit-6;
+  .font-weight(500);
+}
+h6, .h6 {
+  font-size: @unit-3;
+  line-height: @unit-5;
+  text-transform: uppercase;
+  .font-weight(500);
+
+}
+
+.lead {
+  font-size: @lead-font-size;
+  font-weight: @lead-font-weight;
+}
+
+// Type display classes
+.display-1 {
+  font-size: @display1-size;
+  font-weight: @display1-weight;
+  line-height: @display-line-height;
+}
+.display-2 {
+  font-size: @display2-size;
+  font-weight: @display2-weight;
+  line-height: @display-line-height;
+}
+.display-3 {
+  font-size: @display3-size;
+  font-weight: @display3-weight;
+  line-height: @display-line-height;
+}
+.display-4 {
+  font-size: @display4-size;
+  font-weight: @display4-weight;
+  line-height: @display-line-height;
+}
+
+
+//
+// Horizontal rules
+//
+
+hr {
+  margin-top: @hr-margin-y;
+  margin-bottom: @hr-margin-y;
+  border: 0;
+  border-top: @hr-border-width solid @hr-border-color;
+}
+
+
+//
+// Emphasis
+//
+
+small,
+.small {
+  font-size: @small-font-size;
+  font-weight: @font-weight-normal;
+}
+
+mark,
+.mark {
+  padding: @mark-padding;
+  background-color: @mark-bg;
+}
+
+
+//
+// Lists
+//
+
+.list-unstyled {
+  .list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  .list-unstyled;
+}
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: @list-inline-padding;
+  }
+}
+
+
+//
+// Misc
+//
+
+// Builds on `abbr`
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Blockquotes
+.blockquote {
+  margin-bottom: @unit-4;
+  font-size: @blockquote-font-size;
+}
+
+.blockquote-footer {
+  display: block;
+  font-size: 80%; // back to default font-size
+  color: @blockquote-small-color;
+
+  &::before {
+    content: "\2014 \00A0"; // em dash, nbsp
+  }
 }

@@ -1,0 +1,81 @@
+{
+  // Extend Airbnb's lint configuration
+  "extends": "airbnb",
+  // Enable ES6 support. If you want to use custom Babel
+  // features, you will need to enable a custom parser
+  // as described in a section below.
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+    }],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreUrls": true,
+        "ignorePattern": "(= require|\\s*import .+ from )"
+      }
+    ],
+    "newline-per-chained-call": "off",
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "arrow-body-style": "off",
+    "global-require": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    "no-cond-assign": [
+      "error",
+      "except-parens"
+    ],
+    "no-empty-label": 0,
+    "no-param-reassign": ["error", { "props": false }],
+    "no-script-url": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-filename-extension": 0,
+    "react/forbid-prop-types": 0,
+    "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
+    "react/sort-comp": 0,
+    "space-after-keywords": 0,
+    "space-return-throw-case": 0,
+    "prefer-template": 0,
+    "import/no-dynamic-require": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".less"
+        ],
+        "paths": ["src"]
+      }
+    }
+  },
+  "globals": {
+    "Promise": true
+  }
+}

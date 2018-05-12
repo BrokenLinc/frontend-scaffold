@@ -1,0 +1,301 @@
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+@table-cell-padding:          .75rem;
+@table-cell-padding-sm:       .3rem;
+
+@table-bg:                    transparent;
+@table-accent-bg:             fade(@black, 5%);
+@table-hover-bg:              fade(@black, 7.5%);
+@table-active-bg:             @table-hover-bg;
+
+@table-border-width:          @border-width;
+@table-border-color:          @gray-300;
+
+@table-head-bg:               @gray-200;
+@table-head-color:            @gray-700;
+
+@table-dark-bg:               @gray-900;
+@table-dark-accent-bg:        fade(@white, 5%);
+@table-dark-hover-bg:         fade(@white, 7.5%);
+@table-dark-border-color:     lighten(@gray-900, 7.5%);
+@table-dark-color:            @body-bg;
+
+@table-striped-order:         odd;
+
+@table-caption-color:         @text-muted;
+
+
+// Reboot
+// For consistency with the table styles
+
+caption {
+  padding-top: @table-cell-padding;
+  padding-bottom: @table-cell-padding;
+  color: @table-caption-color;
+}
+
+//
+// Basic Bootstrap table
+//
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: @unit-4;
+  background-color: @table-bg; // Reset for nesting within parents with `background-color`.
+
+  th,
+  td {
+    padding: @table-cell-padding;
+    vertical-align: top;
+    border-top: @table-border-width solid @table-border-color;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: (2 * @table-border-width) solid @table-border-color;
+  }
+
+  tbody + tbody {
+    border-top: (2 * @table-border-width) solid @table-border-color;
+  }
+
+  .table {
+    background-color: @body-bg;
+  }
+}
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table-sm {
+  th,
+  td {
+    padding: @table-cell-padding-sm;
+  }
+}
+
+
+// Border versions
+//
+// Add or remove borders all around the table and between all the columns.
+
+.table-bordered {
+  border: @table-border-width solid @table-border-color;
+
+  th,
+  td {
+    border: @table-border-width solid @table-border-color;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: (2 * @table-border-width);
+    }
+  }
+}
+
+.table-borderless {
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    border: 0;
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  tbody tr:nth-of-type(@{table-striped-order}) {
+    background-color: @table-accent-bg;
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  tbody tr {
+    &:hover {
+      background-color: @table-hover-bg;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+.table-row-state(primary);
+.table-row-state(secondary);
+.table-row-state(success);
+.table-row-state(info);
+.table-row-state(warning);
+.table-row-state(danger);
+.table-row-state(light);
+.table-row-state(dark);
+
+.table-row-variant(active, @table-active-bg);
+
+
+// Dark styles
+//
+// Same table markup, but inverted color scheme: dark background and light text.
+
+.table {
+  .thead-dark {
+    th {
+      color: @table-dark-color;
+      background-color: @table-dark-bg;
+      border-color: @table-dark-border-color;
+    }
+  }
+
+  .thead-light {
+    th {
+      color: @table-head-color;
+      background-color: @table-head-bg;
+      border-color: @table-border-color;
+    }
+  }
+}
+
+.table-dark {
+  color: @table-dark-color;
+  background-color: @table-dark-bg;
+
+  th,
+  td,
+  thead th {
+    border-color: @table-dark-border-color;
+  }
+
+  &.table-bordered {
+    border: 0;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: @table-dark-accent-bg;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      &:hover {
+        background-color: @table-dark-hover-bg;
+      }
+    }
+  }
+}
+
+
+// Responsive tables
+//
+// Generate series of `.table-responsive-*` classes for configuring the screen
+// size of where your table will overflow.
+
+.table-responsive-mixin() {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
+
+  // Prevent double border on horizontal scroll due to use of `display: block;`
+  > .table-bordered {
+    border: 0;
+  }
+}
+
+.table-responsive-xs { @media @xs-down { .table-responsive-mixin(); } }
+.table-responsive-sm { @media @sm-down { .table-responsive-mixin(); } }
+.table-responsive-md { @media @md-down { .table-responsive-mixin(); } }
+.table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
+.table-responsive-lg { @media @lg-down { .table-responsive-mixin(); } }
+
+@media print {
+  .table {
+    border-collapse: collapse !important;
+
+    td,
+    th {
+      background-color: @white !important;
+    }
+  }
+
+  .table-bordered {
+    th,
+    td {
+      border: 1px solid @gray-300 !important;
+    }
+  }
+
+  .table-dark {
+    color: inherit;
+
+    th,
+    td,
+    thead th,
+    tbody + tbody {
+      border-color: @table-border-color;
+    }
+  }
+
+  .table .thead-dark th {
+    color: inherit;
+    border-color: @table-border-color;
+  }
+}
+
+//
+// Mixins
+//
+
+.table-row-variant(@state, @background) {
+  @infix: ~'.is-@{state}';
+
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .table@{infix} {
+    &,
+    > th,
+    > td {
+      background-color: @background;
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover {
+    @hover-background: darken(@background, 5%);
+
+    .table@{infix} {
+      &:hover {
+        background-color: @hover-background;
+
+        > td,
+        > th {
+          background-color: @hover-background;
+        }
+      }
+    }
+  }
+}
+
+.table-row-state(@state) {
+  @color: @@state;
+  .table-row-variant(@state, mix(white, @color, 72%));
+}

@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	context: __dirname,
@@ -15,9 +16,15 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
-			}
+				exclude: /node_modules/,
+				use: [
+					'babel-loader',
+					'eslint-loader',
+				],
+			},
 		]
-	}
+	},
+	plugins: [
+		new CleanWebpackPlugin('public/dist')
+	]
 }

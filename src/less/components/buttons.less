@@ -1,0 +1,282 @@
+//
+// Base styles
+//
+
+.btn {
+  display: inline-block;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: @btn-border-width solid transparent;
+  text-transform: uppercase;
+  .button-size(@btn-padding-y, @btn-padding-x, @btn-font-size, @btn-line-height, @btn-border-radius);
+  .transition(@btn-transition);
+
+  // Share hover and focus styles
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: @btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: @btn-disabled-opacity;
+    box-shadow: none;
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .btn elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-image: none;
+    box-shadow: @btn-active-box-shadow;
+
+    &:focus {
+      box-shadow: @btn-focus-box-shadow,
+                  @btn-active-box-shadow;
+    }
+  }
+
+  .btn-color-infix(@dark-gray);
+
+  // @color: @dark-gray;
+  //
+  // .button-variant(contrast(@color), @color);
+  //
+  // &.outline {
+  //   .button-outline-variant(@color);
+  // }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+
+//
+// Alternate buttons
+//
+
+.btn-state(green);
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn.link {
+  font-weight: @font-weight-normal;
+  color: @link-color;
+  background-color: transparent;
+
+  &:hover {
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: @link-hover-decoration;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: @btn-link-disabled-color;
+    pointer-events: none;
+  }
+
+  // No need for an active state here
+}
+
+
+//
+// Button Sizes
+//
+
+.btn.lg {
+  .button-size(@btn-padding-y-lg, @btn-padding-x-lg, @btn-font-size-lg, @btn-line-height-lg, @btn-border-radius-lg);
+}
+
+.btn.sm {
+  .button-size(@btn-padding-y-sm, @btn-padding-x-sm, @btn-font-size-sm, @btn-line-height-sm, @btn-border-radius-sm);
+}
+
+
+//
+// Block button
+//
+
+.btn.block {
+  display: block;
+  width: 100%;
+
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: @btn-block-spacing-y;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn.block {
+    width: 100%;
+  }
+}
+
+//
+// Mixins
+//
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@foreground, @background) {
+  @border: @background;
+  @hover-foreground: @foreground;
+  @hover-background: mix(contrast(@background), @background, 8);
+  @hover-border: @hover-background;
+  @active-foreground: @foreground;
+  @active-background: mix(contrast(@background), @background, 12);
+  @active-border: @active-background;
+
+  color: @foreground;
+  background: @background;
+  border-color: @border;
+  box-shadow: @btn-box-shadow;
+
+  &:hover {
+    color: @hover-foreground;
+    background: @hover-background;
+    border-color: @hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    // Avoid using mixin so we can pass custom focus shadow properly
+    box-shadow: @btn-box-shadow,
+                0 0 0 @btn-focus-width fade(@border, 50%);
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    color: @foreground;
+    background-color: @background;
+    border-color: @border;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: @active-foreground;
+    background-color: @active-background;
+    background-image: none; // Remove the gradient for the pressed/active state
+    border-color: @active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: @btn-active-box-shadow,
+                  0 0 0 @btn-focus-width fade(@border, 50%);
+    }
+  }
+}
+
+.button-outline-variant(@foreground) {
+  @border: @foreground;
+  @hover-foreground: mix(contrast(@foreground), @foreground, 4);
+  @hover-border: @hover-foreground;
+  @active-border: mix(contrast(@foreground), @foreground, 6);
+  @active-foreground: mix(contrast(@foreground), @foreground, 6);
+  @active-border: @active-foreground;
+
+
+  color: @foreground;
+  background-color: transparent;
+  background-image: none;
+  border-color: @foreground;
+
+  &:hover {
+    color: @hover-foreground;
+    border-color: @active-border;
+    box-shadow: 0 0 0 1px @active-border;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 @btn-focus-width fade(@foreground, 50%);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: @foreground;
+    background-color: transparent;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: @active-foreground;
+    border-color: @active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      & when not (@btn-active-box-shadow = none) {
+        box-shadow: @btn-active-box-shadow,
+                    0 0 0 @btn-focus-width fade(@color, 50%);
+      }
+      & when (@btn-active-box-shadow = none) {
+        box-shadow: 0 0 0 @btn-focus-width fade(@color, 50%);
+      }
+    }
+  }
+}
+
+.btn-color-infix(@color, @infix: ~'') {
+  &@{infix} {
+    .button-variant(contrast(@color), @color);
+  }
+  &.is-outline@{infix} {
+    .button-outline-variant(@color);
+  }
+}
+
+.btn-state(@state) {
+  @infix: ~'.is-@{state}';
+  @color: @@state;
+
+  .btn {
+    .btn-color-infix(@color, @infix);
+  }
+}
+
+// Button sizes
+.button-size(@padding-y, @padding-x, @font-size, @line-height, @border-radius) {
+  padding: @padding-y @padding-x;
+  font-size: @font-size;
+  line-height: @line-height;
+  // Manually declare to provide an override to the browser default
+  border-radius: @border-radius;
+}

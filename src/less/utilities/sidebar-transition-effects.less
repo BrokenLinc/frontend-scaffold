@@ -15,12 +15,6 @@
 // push
 // rotate
 
-@st-menu-width: 280px;
-@st-blocker-background: fade(black, 20%);
-@st-menu-background: #888;
-@st-transition-duration: 0.5s;
-@st-effect-perspective: 1500px;
-
 .st-effect-enable() {
   .st-menu {
     position: absolute;
@@ -30,7 +24,6 @@
     visibility: hidden;
     width: @st-menu-width;
     height: 100%;
-    background: @st-menu-background;
     transition: all @st-transition-duration;
 
     &:after {
@@ -337,12 +330,13 @@
 
 .st-effect-fullscreenoverlay {
   .st-menu {
-    transform: scale(1.1);
+    transform: scale(0.6);
     width: 100%;
     opacity: 0;
   }
   .st-menu-open & {
     .st-menu {
+      visibility: visible;
       transform: none;
       opacity: 1;
     }

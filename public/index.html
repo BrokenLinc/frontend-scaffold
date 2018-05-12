@@ -2,23 +2,33 @@
 <html lang="en">
 
 <head>
-  <title>React Webpack starter</title>
+  <title>Boilerplate Project</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="dist/bundle.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700|Open+Sans:100,200,300,400,500,600,700" rel="stylesheet">
 </head>
 
 <body>
   <div class="perimeter">
-    <nav class="st-menu">
+    <nav class="st-menu p-content">
       <h2>Sidebar</h2>
-      <button class="button st-toggle">Toggle sidebar</button>
+      <button class="btn st-toggle">Close sidebar</button>
     </nav>
-    <div class="st-pusher">
+    <div class="perimeter-inner st-pusher">
       <div class="content">
         <div class="content-inner">
-          <button class="button st-toggle">Toggle sidebar</button>
-          <div id="react-app"></div>
+          <header class="header p-content">
+            <button class="btn st-toggle">Open sidebar</button>
+          </header>
+          <div class="flex-grow-1">
+            <div id="react-app"></div>
+          </div>
+          <footer class="footer">
+            <div class="container p-content">
+              Footer
+            </div>
+          </footer>
         </div>
       </div>
     </div>

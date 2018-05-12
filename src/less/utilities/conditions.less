@@ -1,0 +1,12 @@
+.if(@condition, @rules) when (@condition = true) {
+  @rules();
+}
+.if(@condition, @rules, @else-rules) when (@condition = true) {
+  @rules();
+}
+.if(@condition, @rules, @else-rules) when not (@condition = true) {
+  @else-rules();
+}
+.ifnot(@condition, @rules) when not (@condition = true) {
+  @rules();
+}

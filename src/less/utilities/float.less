@@ -1,0 +1,25 @@
+& {
+  .utility(sm);
+  .utility(md);
+  .utility(lg);
+  .utility(xl);
+
+  .utility(@breakpoint) {
+    @mq: ~'@{breakpoint}-up';
+    @media @@mq {
+      .infixed(~'@{breakpoint}\:');
+    }
+  }
+
+  .infixed(@infix: ~'') {
+    .@{infix}float-left  { .float-left; }
+    .@{infix}float-right { .float-right; }
+    .@{infix}float-none  { .float-none; }
+  }
+}
+
+// Mixins
+
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.float-none { float: none !important; }
