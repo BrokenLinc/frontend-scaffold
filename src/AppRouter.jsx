@@ -12,7 +12,7 @@ import ExampleTextFlow from 'components/ExampleTextFlow';
 import ExampleGravityForms from 'components/ExampleGravityForms';
 
 const AppRouter = () => (
-  <Router basename={window.location.pathname}>
+  <Router>
     <div>
       <ul>
         <li><Link to="/">Pile-o-Junk</Link></li>
