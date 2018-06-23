@@ -1,8 +1,8 @@
-import 'less/style.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AppRouter from 'AppRouter';
+import 'app/less/style.less';
+import AppRouter from 'app/AppRouter';
 
 ReactDOM.render(
   <AppRouter />,

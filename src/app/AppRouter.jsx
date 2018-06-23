@@ -6,10 +6,12 @@ import {
 } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
-import Home from 'pages/Home';
-import ExampleColors from 'pages/ExampleColors';
-import ExampleTextFlow from 'pages/ExampleTextFlow';
-import ExampleGravityForms from 'pages/ExampleGravityForms';
+import {
+  ExampleColors,
+  ExampleGravityForms,
+  ExampleTextFlow,
+  Home,
+} from 'app/pages';
 
 const AppRouter = () => (
   <Router>

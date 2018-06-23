@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Button from 'components/Button';
-import SourceViewer from 'components/SourceViewer';
+import { Button, SourceViewer } from 'app/components';
 
 const Home = () => (
   <div className="container p-content">
