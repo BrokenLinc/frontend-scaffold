@@ -1,0 +1,26 @@
+// https://developers.google.com/web/updates/2015/06/checkout-faster-with-autofill
+
+export default {
+  CC_NAME: 'cc-name',
+  CC_NUMBER: 'cc-number',
+  CC_CSC: 'cc-csc',
+  CC_EXP_MONTH: 'cc-exp-month',
+  CC_EXP_YEAR: 'cc-exp-year',
+  CC_EXP: 'cc-exp',
+  CC_TYPE: 'cc-type',
+  FULL_NAME: 'name',
+  FIRST_NAME: 'given-name',
+  MIDDLE_NAME: 'additional-name',
+  LAST_NAME: 'family-name',
+  SUFFIX: 'suffix',
+  EMAIL: 'email',
+  ADDRESS: 'street-address',
+  ADDRESS_LINE_1: 'address-line1',
+  ADDRESS_LINE_2: 'address-line2',
+  STATE: 'address-level1',
+  PROVINCE: 'address-level1',
+  CITY: 'address-level2',
+  ZIP: 'postal-code',
+  COUNTRY: 'country',
+  PHONE: 'tel',
+};

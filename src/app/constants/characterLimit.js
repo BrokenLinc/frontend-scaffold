@@ -1,0 +1,9 @@
+export default {
+  FIRST_NAME: 50,
+  LAST_NAME: 124,
+  NAME_SUFFIX: 50,
+  CITY: 124,
+  URL: 124,
+  EMAIL: 256,
+  ORGANIZATION_NAME: 256,
+};
