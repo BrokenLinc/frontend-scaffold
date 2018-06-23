@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import indent from 'app/utilities/indent';
-import clipboard from 'app/utilities/clipboard';
+import { indent, clipboard } from 'app/utilities';
 
 class SourceViewer extends Component {
   constructor(props) {
