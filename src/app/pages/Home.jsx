@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Button from 'components/Button';
-import SourceViewer from 'components/SourceViewer';
+import Button from 'app/components/Button';
+import SourceViewer from 'app/components/SourceViewer';
 
 const Home = () => (
   <div className="container p-content">
