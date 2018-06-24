@@ -1,0 +1,31 @@
+import cn from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+// Local Imports
+import Icon from 'app/icons/Icon';
+import ExclamationCircleIcon from 'app/icons/ExclamationCircleIcon';
+
+const FormFeedback = ({ color, icon, message, visible }) => (
+  <div className={cn('form-feedback-summary', { [`is-${color}`]: color })} style={{ opacity: visible ? 1 : 0 }}>
+    <div className="form-feedb``ack-summary-icon">
+      <Icon icon={icon} />
+    </div>
+    <div className="form-feedback-summary-message">{message}</div>
+  </div>
+);
+
+FormFeedback.propTypes = {
+  color: PropTypes.string,
+  icon: PropTypes.object,
+  message: PropTypes.node,
+  visible: PropTypes.bool,
+};
+
+FormFeedback.defaultProps = {
+  icon: ExclamationCircleIcon,
+  visible: false,
+  message: 'Something has gone wrong.',
+};
+
+export default FormFeedback;
