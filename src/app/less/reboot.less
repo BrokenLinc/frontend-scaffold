@@ -190,6 +190,7 @@ a {
   text-decoration: @link-decoration;
   background-color: transparent; // Remove the gray background on active links in IE 10.
   -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+  transition: color 0.2s;
 
   &:hover {
     color: @link-hover-color;
@@ -303,6 +304,11 @@ label {
 // Details at https://github.com/twbs/bootstrap/issues/24093
 button {
   border-radius: 0;
+  transition: color 0.2s;
+
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
 }
 
 // Work around a Firefox/IE bug where the transparent `button` background

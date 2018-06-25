@@ -16,6 +16,103 @@
 @form-feedback-valid-color:         @success;
 @form-feedback-invalid-color:       @danger;
 
+//
+// Form grid layout
+//
+
+.form-grid {
+  display: grid;
+  grid-column-gap: 1.5rem;
+  grid-template-columns: repeat(6, 1fr);
+
+  > * {
+    grid-column-end: span 6;
+
+    // Allow more compact text
+    .btn-block {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+  > .col-1 {
+    grid-column-end: span 1;
+  }
+  > .col-2 {
+    grid-column-end: span 2;
+  }
+  > .col-3 {
+    grid-column-end: span 3;
+  }
+  > .col-4 {
+    grid-column-end: span 4;
+  }
+  > .col-5 {
+    grid-column-end: span 5;
+  }
+}
+
+.has-no-label {
+  padding-top: @line-height-base + @label-margin-bottom;
+}
+
+// .1-of-2, .half, .2-of-4, .3-of-6 {
+//   grid-column-end: span 30;
+// }
+// .1-of-3, .third, .2-of-6 {
+//   grid-column-end: span 30;
+// }
+// .2-of-3, .4-of-6 {
+//   grid-column-end: span 40;
+// }
+// .1-of-4, .quarter {
+//   grid-column-end: span 15;
+// }
+// .3-of-4, {
+//   grid-column-end: span 45;
+// }
+// .1-of-5, .fifth {
+//   grid-column-end: span 12;
+// }
+// .2-of-5 {
+//   grid-column-end: span 24;
+// }
+// .3-of-5 {
+//   grid-column-end: span 36;
+// }
+// .4-of-5 {
+//   grid-column-end: span 48;
+// }
+// .1-of-6, .sixth {
+//   grid-column-end: span 10;
+// }
+// .5-of-6 {
+//   grid-column-end: span 50;
+// }
+
+//
+// Form Footer
+// Behaves similarly to .form-inline, but with alignment and spacing presets
+//
+
+.form-footer {
+  @gutter: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-left: -@gutter;
+  margin-right: -@gutter;
+  margin-top: 2rem;
+
+  &.is-right {
+    justify-content: flex-end;
+  }
+
+  > * {
+    margin-left: @gutter;
+    margin-right: @gutter;
+  }
+}
+
+
 
 //
 // Textual form controls
@@ -48,11 +145,7 @@
   .form-control-focus();
 
   // Placeholder
-  &::placeholder {
-    color: @input-placeholder-color;
-    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
-    opacity: 1;
-  }
+  .placeholder-color(@input-placeholder-color);
 
   // Disabled and read-only inputs
   //
@@ -263,6 +356,49 @@ select.form-control-lg {
 .form-validation-state(valid, @form-feedback-valid-color);
 .form-validation-state(invalid, @form-feedback-invalid-color);
 
+.form-feedback-summary {
+  min-height: 3rem;
+  color: white;
+  margin-bottom: 0.75rem;
+  font-size: @font-size-sm;
+  text-align: left;
+  display: flex;
+  flex-flow: row;
+  transition: opacity 0.2s, background-color 0.2s;
+
+  > * {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  // Default appearance without a modifier class
+  background-color: fade(@red, 80%);
+
+  &.is-warning {
+    background-color: fade(mix(@yellow, @red), 80%);
+  }
+  &.is-success {
+    background-color: fade(@green, 80%);
+  }
+
+}
+.form-feedback-summary-icon {
+  flex: 0 0 auto;
+  justify-content: center;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+}
+.form-feedback-summary-message {
+  flex: 1 1 auto;
+  line-height: 1.25rem;
+  padding: 0.75rem 1rem 0.75rem 0;
+}
+
 // Inline forms
 //
 // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
@@ -399,7 +535,8 @@ select.form-control-lg {
   }
 
   .form-control,
-  .custom-select {
+  .custom-select,
+  .rbt {
     .was-validated &:@{state},
     &.is-@{state} {
       border-color: @color;
@@ -491,5 +628,14 @@ select.form-control-lg {
         }
       }
     }
+  }
+}
+
+.placeholder-color(@color) {
+  // Placeholder
+  &::placeholder {
+    color: @color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
   }
 }

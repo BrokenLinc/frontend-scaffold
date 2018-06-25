@@ -112,11 +112,11 @@ fieldset:disabled a.btn {
 // Button Sizes
 //
 
-.btn.lg {
+.btn-lg {
   .button-size(@btn-padding-y-lg, @btn-padding-x-lg, @btn-font-size-lg, @btn-line-height-lg, @btn-border-radius-lg);
 }
 
-.btn.sm {
+.btn-sm {
   .button-size(@btn-padding-y-sm, @btn-padding-x-sm, @btn-font-size-sm, @btn-line-height-sm, @btn-border-radius-sm);
 }
 
@@ -132,6 +132,24 @@ fieldset:disabled a.btn {
   // Vertically space out multiple block buttons
   + .btn-block {
     margin-top: @btn-block-spacing-y;
+  }
+}
+
+//
+// Throttled Button
+// Unclickable for 0.75s
+//
+
+.btn-throttled {
+  animation: disable-clicks 1.5s;
+}
+
+@keyframes disable-clicks {
+  from {
+    pointer-events: none;
+  }
+  to {
+    pointer-events: auto;
   }
 }
 
