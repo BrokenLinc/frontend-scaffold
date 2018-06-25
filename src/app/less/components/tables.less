@@ -138,14 +138,14 @@ caption {
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
-.table-row-state(primary);
-.table-row-state(secondary);
+// .table-row-state(primary);
+// .table-row-state(secondary);
 .table-row-state(success);
-.table-row-state(info);
+// .table-row-state(info);
 .table-row-state(warning);
 .table-row-state(danger);
-.table-row-state(light);
-.table-row-state(dark);
+// .table-row-state(light);
+// .table-row-state(dark);
 
 .table-row-variant(active, @table-active-bg);
 
@@ -265,7 +265,7 @@ caption {
 //
 
 .table-row-variant(@state, @background) {
-  @infix: ~'.is-@{state}';
+  @infix: ~'.table-row-@{state}';
 
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.

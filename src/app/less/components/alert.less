@@ -29,6 +29,7 @@
   border: @alert-border-width solid transparent;
   border-radius: @alert-border-radius;
 
+  // Default appearance with no modifier class
   .alert-color-infix(@gray);
 }
 
@@ -66,9 +67,14 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-.alert-state(green);
-.alert-state(yellow);
-.alert-state(red);
+// .alert-state(primary);
+// .alert-state(secondary);
+.alert-state(success);
+// .alert-state(info);
+.alert-state(warning);
+.alert-state(danger);
+// .alert-state(light);
+// .alert-state(dark);
 
 //
 // Mixins
@@ -99,7 +105,7 @@
 }
 
 .alert-state(@state) {
-  @infix: ~'.is-@{state}';
+  @infix: ~'.alert-@{state}';
   @color: @@state;
 
   .alert {

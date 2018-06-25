@@ -33,7 +33,8 @@
     display: none;
   }
 
-  .badge-color-infix(@dark-gray);
+  // Default appearance with no modifier class
+  .badge-color-infix(@danger);
 }
 
 // Quick fix for badges in buttons
@@ -56,14 +57,14 @@
 //
 // Contextual variations (linked badges get darker on :hover).
 
-.badge-state(primary);
-.badge-state(secondary);
-.badge-state(success);
-.badge-state(info);
-.badge-state(warning);
-.badge-state(danger);
-.badge-state(light);
-.badge-state(dark);
+// .badge-state(primary);
+// .badge-state(secondary);
+// .badge-state(success);
+// .badge-state(info);
+// .badge-state(warning);
+// .badge-state(danger);
+// .badge-state(light);
+// .badge-state(dark);
 
 @media print {
   .badge {
@@ -96,7 +97,7 @@
 }
 
 .badge-state(@state) {
-  @infix: ~'.is-@{state}';
+  @infix: ~'.badge-@{state}';
   @color: @@state;
 
   .badge {

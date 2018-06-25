@@ -49,15 +49,8 @@
     }
   }
 
+  // Default appearance with no modifier class
   .btn-color-infix(@dark-gray);
-
-  // @color: @dark-gray;
-  //
-  // .button-variant(contrast(@color), @color);
-  //
-  // &.outline {
-  //   .button-outline-variant(@color);
-  // }
 }
 
 // Future-proof disabling of clicks on `<a>` elements
@@ -71,7 +64,14 @@ fieldset:disabled a.btn {
 // Alternate buttons
 //
 
-.btn-state(green);
+// .btn-state(primary);
+// .btn-state(secondary);
+.btn-state(success);
+// .btn-state(info);
+// .btn-state(warning);
+.btn-state(danger);
+// .btn-state(light);
+// .btn-state(dark);
 
 
 //
@@ -258,13 +258,13 @@ input[type="button"] {
   &@{infix} {
     .button-variant(contrast(@color), @color);
   }
-  &.is-outline@{infix} {
+  &.btn-outline@{infix} {
     .button-outline-variant(@color);
   }
 }
 
 .btn-state(@state) {
-  @infix: ~'.is-@{state}';
+  @infix: ~'.btn-@{state}';
   @color: @@state;
 
   .btn {
