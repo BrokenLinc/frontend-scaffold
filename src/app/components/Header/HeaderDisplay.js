@@ -5,8 +5,6 @@ import { map } from 'lodash';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
-import { ROUTE } from 'app/constants';
-
 const renderMenuItems = items =>
   map(items, ({ path, title, submenu }, index) => (
     <li key={index}>
@@ -22,7 +20,7 @@ const HeaderDisplay = ({
   logoRoute,
   primaryMenuRoutes,
 }) => (
-  <header className={cn('header', { 'has-search': showSearch })}>
+  <header className="header">
     <Link to={logoRoute.path()} className="header-logo">
       LOGO
     </Link>

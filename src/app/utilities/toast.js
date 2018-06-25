@@ -1,7 +1,8 @@
 import vanillatoasts from 'vanillatoasts';
-import CheckIcon from 'app/icons/CheckIcon';
-import ExclamationTriangleIcon from 'app/icons/ExclamationTriangleIcon';
-import ExclamationCircleIcon from 'app/icons/ExclamationCircleIcon';
+
+import faCheck from 'app/icons/faCheck';
+import faExclamationTriangle from 'app/icons/faExclamationTriangle';
+import faExclamationCircle from 'app/icons/faExclamationCircle';
 
 import imgSrcFromFaIcon from './imgSrcFromFaIcon';
 
@@ -24,19 +25,19 @@ const toast = smartToast({
 
 const toastSuccess = smartToast({
   type: 'success has-icon',
-  icon: imgSrcFromFaIcon(CheckIcon, DEFAULT_ICON_COLOR),
+  icon: imgSrcFromFaIcon(faCheck, DEFAULT_ICON_COLOR),
   timeout: DEFAULT_TIMEOUT,
 });
 
 const toastWarning = smartToast({
   type: 'warning has-icon',
-  icon: imgSrcFromFaIcon(ExclamationTriangleIcon, DEFAULT_ICON_COLOR),
+  icon: imgSrcFromFaIcon(faExclamationTriangle, DEFAULT_ICON_COLOR),
   timeout: DEFAULT_TIMEOUT,
 });
 
 const toastError = smartToast({
   type: 'danger has-icon',
-  icon: imgSrcFromFaIcon(ExclamationCircleIcon, DEFAULT_ICON_COLOR),
+  icon: imgSrcFromFaIcon(faExclamationCircle, DEFAULT_ICON_COLOR),
   timeout: DEFAULT_TIMEOUT,
 });
 const toastDanger = toastError;

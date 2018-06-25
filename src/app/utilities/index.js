@@ -1,35 +1,16 @@
-import clipboard from './clipboard';
-import embedTypekit from './embedTypekit';
-import errorRequiredFields from './errorRequiredFields';
-import getWizardSteps from './getWizardSteps';
-import imgSrcFromFaIcon from './imgSrcFromFaIcon';
-import indent from './indent';
-import normalizeCustomPhone from './normalizeCustomPhone';
-import normalizeEmail from './normalizeEmail';
-import normalizeExtensionlessPhone from './normalizeExtensionlessPhone';
-import normalizeInteger from './normalizeInteger';
-import normalizePhone from './normalizePhone';
-import normalizeZip from './normalizeZip';
-import startCaseGreaterThan from './startCaseGreaterThan';
-import toast from './toast';
-import validateFieldArray from './validateFieldArray';
-import validatePassword from './validatePassword';
-
-export {
-  clipboard,
-  embedTypekit,
-  errorRequiredFields,
-  getWizardSteps,
-  imgSrcFromFaIcon,
-  indent,
-  normalizeCustomPhone,
-  normalizeEmail,
-  normalizeExtensionlessPhone,
-  normalizeInteger,
-  normalizePhone,
-  normalizeZip,
-  startCaseGreaterThan,
-  toast,
-  validateFieldArray,
-  validatePassword,
-};
+export clipboard from './clipboard';
+export embedTypekit from './embedTypekit';
+export errorRequiredFields from './errorRequiredFields';
+export getWizardSteps from './getWizardSteps';
+export imgSrcFromFaIcon from './imgSrcFromFaIcon';
+export indent from './indent';
+export normalizeCustomPhone from './normalizeCustomPhone';
+export normalizeEmail from './normalizeEmail';
+export normalizeExtensionlessPhone from './normalizeExtensionlessPhone';
+export normalizeInteger from './normalizeInteger';
+export normalizePhone from './normalizePhone';
+export normalizeZip from './normalizeZip';
+export startCaseGreaterThan from './startCaseGreaterThan';
+export toast from './toast';
+export validateFieldArray from './validateFieldArray';
+export validatePassword from './validatePassword';

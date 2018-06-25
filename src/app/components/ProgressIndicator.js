@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash';
-import Icon from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
 
-import CheckIcon from 'app/icons/CheckIcon';
-import EllipsisHIcon from 'app/icons/EllipsisHIcon';
+import { Icon } from 'app/components';
+import faCheck from 'app/icons/faCheck';
+import faEllipsisH from 'app/icons/faEllipsisH';
 
 const StepWrapper = ({ path, isCurrent, children, isPreviousStepComplete }) => {
   // Only link the step if there is path, we're not already on it, and thee previous step is complete
@@ -27,9 +27,9 @@ const Step = (props) => {
   });
 
   let icon;
-  if (isCurrent) icon = EllipsisHIcon;
+  if (isCurrent) icon = faEllipsisH;
   // Use the "complete" icon even if you're on the step currently
-  if (isComplete) icon = CheckIcon;
+  if (isComplete) icon = faCheck;
 
   return (
     <li className={className}>

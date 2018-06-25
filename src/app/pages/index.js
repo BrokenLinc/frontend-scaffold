@@ -1,11 +1,4 @@
-import ExampleColors from './ExampleColors';
-import ExampleGravityForms from './ExampleGravityForms';
-import ExampleTextFlow from './ExampleTextFlow';
-import Home from './Home';
-
-export {
-  ExampleColors,
-  ExampleGravityForms,
-  ExampleTextFlow,
-  Home,
-};
+export ExampleColors from './ExampleColors';
+export ExampleGravityForms from './ExampleGravityForms';
+export ExampleTextFlow from './ExampleTextFlow';
+export Home from './Home';
