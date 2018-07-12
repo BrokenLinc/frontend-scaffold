@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 
 import {
   SourceViewer,
