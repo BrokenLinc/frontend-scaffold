@@ -1,3 +1,20 @@
+@header-height: 70px;
+
 .header {
-  border-bottom: 1px solid @light-gray;
+  background-color: white;
+  border-bottom: 1px solid @lightest-gray;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: @header-height;
+  z-index: @zindex-sticky;
+  padding-right: 0.75rem;
+
+  @media @md-up {
+    position: fixed;
+  }
+}
+.pt-header {
+  padding-top: @header-height;
 }
