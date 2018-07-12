@@ -11,6 +11,7 @@ import {
   ExampleGravityForms,
   ExampleTextFlow,
   Home,
+  StyleGuide,
 } from 'app/pages';
 
 const AppRouter = () => (
@@ -21,6 +22,7 @@ const AppRouter = () => (
         <li><Link to="/colors">Colors</Link></li>
         <li><Link to="/text-flow">Text Flow</Link></li>
         <li><Link to="/gravity-forms">Gravity Forms</Link></li>
+        <li><Link to="/style-guide">Style Guide</Link></li>
       </ul>
 
       <hr />
@@ -29,6 +31,7 @@ const AppRouter = () => (
       <Route path="/colors" component={ExampleColors} />
       <Route path="/text-flow" component={ExampleTextFlow} />
       <Route path="/gravity-forms" component={ExampleGravityForms} />
+      <Route path="/style-guide" component={StyleGuide} />
     </div>
   </Router>
 );

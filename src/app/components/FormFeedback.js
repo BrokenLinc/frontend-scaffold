@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Icon from '@fortawesome/react-fontawesome';
 
-import { Icon } from 'app/components';
-import faExclamationCircle from 'app/icons/faExclamationCircle';
+import faExclamationCircle from 'app/fontawesome-pro-light/faExclamationCircle';
 
 const FormFeedback = ({ color, icon, message, visible }) => (
   <div className={cn('form-feedback-summary', { [`is-${color}`]: color })} style={{ opacity: visible ? 1 : 0 }}>

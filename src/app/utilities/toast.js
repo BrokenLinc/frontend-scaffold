@@ -1,8 +1,8 @@
 import vanillatoasts from 'vanillatoasts';
 
-import faCheck from 'app/icons/faCheck';
-import faExclamationTriangle from 'app/icons/faExclamationTriangle';
-import faExclamationCircle from 'app/icons/faExclamationCircle';
+import faCheck from 'app/fontawesome-pro-light/faCheck';
+import faExclamationTriangle from 'app/fontawesome-pro-light/faExclamationTriangle';
+import faExclamationCircle from 'app/fontawesome-pro-light/faExclamationCircle';
 
 import imgSrcFromFaIcon from './imgSrcFromFaIcon';
 
